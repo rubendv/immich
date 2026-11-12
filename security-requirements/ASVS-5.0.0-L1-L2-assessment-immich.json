@@ -34,7 +34,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Neither the server nor the web layer performs additional decoding/unescaping of input: zod validates raw strings and NestJS does not auto-decode bodies, so no double-decode or post-validation decoding occurs."
+              "Evidence": "Neither the server nor the web layer performs additional decoding/unescaping of input: zod validates raw strings and NestJS does not auto-decode bodies, so no double-decode or post-validation decoding occurs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:137",
+                "E2": "server/src/dtos/auth.dto.ts:89",
+                "E3": "server/src/services/auth.service.ts:60"
+              }
             },
             {
               "Shortcode": "V1.1.2",
@@ -44,7 +49,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Output encoding happens at the last step: Svelte escapes at render time and NestJS serializes JSON at response time; no pre-encoded fragments are stored and re-emitted."
+              "Evidence": "Output encoding happens at the last step: Svelte escapes at render time and NestJS serializes JSON at response time; no pre-encoded fragments are stored and re-emitted. See [E1, E2].",
+              "evidence_references": {
+                "E1": "web/src/routes/auth/login/+page.svelte:183",
+                "E2": "server/src/dtos/user.dto.ts:53"
+              }
             }
           ]
         },
@@ -61,7 +70,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Web UI is Svelte, which context-escapes all interpolated output by default; API responses are serialized JSON (server/src/controllers, web/src). No manual HTML string building found."
+              "Evidence": "Web UI is Svelte, which context-escapes all interpolated output by default; API responses are serialized JSON (server/src/controllers, web/src). No manual HTML string building found. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/asset.controller.ts:22",
+                "E2": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V1.2.2",
@@ -71,7 +84,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Web builds URLs from route params and API responses; no explicit URL-encoding validation or javascript:/data: protocol allowlist was found in dynamic URL construction."
+              "Evidence": "Web builds URLs from route params and API responses; no explicit URL-encoding validation or javascript:/data: protocol allowlist was found in dynamic URL construction. See [E1, E2].",
+              "evidence_references": {
+                "E1": "web/src/routes/(user)/share/[key]/[[photos=photos]]/[[assetId=id]]/+page.svelte:1",
+                "E2": "web/src/lib/utils.ts:1"
+              }
             },
             {
               "Shortcode": "V1.2.3",
@@ -81,7 +98,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "All API responses are JSON serialized by NestJS; the web app consumes JSON via typed fetch wrappers and renders through Svelte's escaping. No dynamic JS/JSON string building found."
+              "Evidence": "All API responses are JSON serialized by NestJS; the web app consumes JSON via typed fetch wrappers and renders through Svelte's escaping. No dynamic JS/JSON string building found. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/user.dto.ts:53",
+                "E2": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V1.2.4",
@@ -91,7 +112,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Server uses Kysely query builder with bound parameters (server/src/repositories); the few sql.raw/sql fragments interpolate only internal constants (e.g. interval strings, array casts), not user input."
+              "Evidence": "Server uses Kysely query builder with bound parameters (server/src/repositories); the few sql.raw/sql fragments interpolate only internal constants (e.g. interval strings, array casts), not user input. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/access.repository.ts:16",
+                "E2": "server/src/repositories/api-key.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V1.2.5",
@@ -101,7 +126,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "External tools (ffmpeg, exiftool) are invoked via child_process spawn with argument arrays and no shell interpolation (server/src/repositories/process.repository.ts); user data never reaches a shell command line."
+              "Evidence": "External tools (ffmpeg, exiftool) are invoked via child_process spawn with argument arrays and no shell interpolation (server/src/repositories/process.repository.ts); user data never reaches a shell command line. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/process.repository.ts:26",
+                "E2": "server/src/services/metadata.service.ts:2"
+              }
             },
             {
               "Shortcode": "V1.2.6",
@@ -111,7 +140,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "The application has no LDAP integration; the only directory-style data is its own Postgres user table."
+              "Evidence": "The application has no LDAP integration; the only directory-style data is its own Postgres user table. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:33"
+              }
             },
             {
               "Shortcode": "V1.2.7",
@@ -121,7 +153,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No XPath queries are used anywhere in server or machine-learning code."
+              "Evidence": "No XPath queries are used anywhere in server or machine-learning code. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/search.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V1.2.8",
@@ -131,7 +166,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No LaTeX processing exists in the project."
+              "Evidence": "No LaTeX processing exists in the project. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/utils/mime-types.ts:1"
+              }
             },
             {
               "Shortcode": "V1.2.9",
@@ -141,7 +179,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "The one dynamic-regex site escapes special characters before building the pattern (server/src/utils/workflow.ts isAllowedHost escapes regex metacharacters around '*' wildcards); no other RegExp is built from user input. Covered by workflow utils spec."
+              "Evidence": "The one dynamic-regex site escapes special characters before building the pattern (server/src/utils/workflow.ts isAllowedHost escapes regex metacharacters around '*' wildcards); no other RegExp is built from user input. Covered by workflow utils spec. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/workflow.ts:74",
+                "E2": "server/src/services/workflow-execution.service.ts:97"
+              }
             },
             {
               "Shortcode": "V1.2.10",
@@ -164,7 +206,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich accepts no HTML input: there is no WYSIWYG editor; all user text (descriptions, names, comments) is stored and rendered as escaped text by Svelte."
+              "Evidence": "Immich accepts no HTML input: there is no WYSIWYG editor; all user text (descriptions, names, comments) is stored and rendered as escaped text by Svelte. See [E1].",
+              "evidence_references": {
+                "E1": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V1.3.2",
@@ -174,7 +219,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "No eval()/new Function() in server or web source. External plugins execute in a separate sandboxed process and are admin-installed packages, not user input."
+              "Evidence": "No eval()/new Function() in server or web source. External plugins execute in a separate sandboxed process and are admin-installed packages, not user input. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/workflow-execution.service.ts:283",
+                "E2": "server/src/repositories/process.repository.ts:26"
+              }
             },
             {
               "Shortcode": "V1.3.3",
@@ -184,7 +233,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Filenames are sanitized before storage (sanitize() in asset-media.service.ts) and zod enforces lengths/formats on most inputs, but there is no general 'safe character set' policy for all free-text fields."
+              "Evidence": "Filenames are sanitized before storage (sanitize() in asset-media.service.ts) and zod enforces lengths/formats on most inputs, but there is no general 'safe character set' policy for all free-text fields. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:248",
+                "E2": "server/src/services/asset-media.service.ts:93"
+              }
             },
             {
               "Shortcode": "V1.3.4",
@@ -194,7 +247,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": ".svg is accepted as an asset and profile image (server/src/utils/mime-types.ts) and served inline with its real content type; SVG content is never sanitized. Mitigated by the helmet CSP (script-src 'self') on API responses and by images being rendered via <img> in the UI, but direct navigation to an SVG original is not blocked."
+              "Evidence": ".svg is accepted as an asset and profile image (server/src/utils/mime-types.ts) and served inline with its real content type; SVG content is never sanitized. Mitigated by the helmet CSP (script-src 'self') on API responses and by images being rendered via <img> in the UI, but direct navigation to an SVG original is not blocked. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/utils/mime-types.ts:63",
+                "E2": "server/helmet.json:6",
+                "E3": "server/src/utils/file.ts:70"
+              }
             },
             {
               "Shortcode": "V1.3.5",
@@ -204,7 +262,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Users cannot supply Markdown, CSS, XSL or BBCode that is later rendered; all user text is plain text."
+              "Evidence": "Users cannot supply Markdown, CSS, XSL or BBCode that is later rendered; all user text is plain text. See [E1].",
+              "evidence_references": {
+                "E1": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V1.3.6",
@@ -214,7 +275,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "All outbound HTTP targets (version check, ML service, OAuth issuer/JWKS, map/reverse-geocode endpoints) are fixed constants or admin-configured settings, not end-user input; there is no URL allowlist validation of admin-entered URLs beyond new URL() parsing."
+              "Evidence": "All outbound HTTP targets (version check, ML service, OAuth issuer/JWKS, map/reverse-geocode endpoints) are fixed constants or admin-configured settings, not end-user input; there is no URL allowlist validation of admin-entered URLs beyond new URL() parsing. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:108",
+                "E2": "server/src/services/workflow-execution.service.ts:97"
+              }
             },
             {
               "Shortcode": "V1.3.7",
@@ -224,7 +289,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Emails are rendered from fixed React-email templates with bound props (server/src/emails); no template strings are composed from user input."
+              "Evidence": "Emails are rendered from fixed React-email templates with bound props (server/src/emails); no template strings are composed from user input. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/emails/album-invite.email.tsx:1",
+                "E2": "server/src/repositories/email.repository.ts:134"
+              }
             },
             {
               "Shortcode": "V1.3.8",
@@ -234,7 +303,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No Java/JNDI anywhere in the stack (Node.js server, Python ML, Rust native modules)."
+              "Evidence": "No Java/JNDI anywhere in the stack (Node.js server, Python ML, Rust native modules). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/utils/mime-types.ts:1"
+              }
             },
             {
               "Shortcode": "V1.3.9",
@@ -244,7 +316,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Redis is accessed exclusively through ioredis (binary-safe RESP protocol) with structured arguments; no memcached-style text commands are concatenated with user input."
+              "Evidence": "Redis is accessed exclusively through ioredis (binary-safe RESP protocol) with structured arguments; no memcached-style text commands are concatenated with user input. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/app.repository.ts:3"
+              }
             },
             {
               "Shortcode": "V1.3.10",
@@ -254,7 +329,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No printf-style format APIs are used with user input; all string formatting is JavaScript template literals, which are not format-string vulnerable."
+              "Evidence": "No printf-style format APIs are used with user input; all string formatting is JavaScript template literals, which are not format-string vulnerable. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:72"
+              }
             },
             {
               "Shortcode": "V1.3.11",
@@ -264,7 +342,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Email sending uses nodemailer with structured message objects; recipient addresses are validated by zod (toEmail) before use, preventing header injection."
+              "Evidence": "Email sending uses nodemailer with structured message objects; recipient addresses are validated by zod (toEmail) before use, preventing header injection. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:137",
+                "E2": "server/src/repositories/email.repository.ts:134"
+              }
             },
             {
               "Shortcode": "V1.3.12",
@@ -287,7 +369,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "The server is TypeScript/Node (memory-safe runtime) and native components are Rust; no manual pointer arithmetic or unsafe string copies exist in JS/TS code. Rust/native code is not memory-audited here."
+              "Evidence": "The server is TypeScript/Node (memory-safe runtime) and native components are Rust; no manual pointer arithmetic or unsafe string copies exist in JS/TS code. Rust/native code is not memory-audited here. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/process.repository.ts:26"
+              }
             },
             {
               "Shortcode": "V1.4.2",
@@ -297,7 +382,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "JavaScript numbers are 64-bit and zod enforces ranges on many fields (e.g. lat/lon bounds, counts); no explicit integer-overflow checks exist for size counters used in upload accounting."
+              "Evidence": "JavaScript numbers are 64-bit and zod enforces ranges on many fields (e.g. lat/lon bounds, counts); no explicit integer-overflow checks exist for size counters used in upload accounting. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:117",
+                "E2": "server/src/dtos/asset.dto.ts:1"
+              }
             },
             {
               "Shortcode": "V1.4.3",
@@ -307,7 +396,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Streams are piped with error handlers and cleaned up on failure (file-upload.interceptor.ts), DB connections are pooled by Kysely, and child processes are awaited/errored; no manual free() patterns exist in a GC runtime."
+              "Evidence": "Streams are piped with error handlers and cleaned up on failure (file-upload.interceptor.ts), DB connections are pooled by Kysely, and child processes are awaited/errored; no manual free() patterns exist in a GC runtime. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/file-upload.interceptor.ts:89",
+                "E2": "server/src/repositories/process.repository.ts:26"
+              }
             }
           ]
         },
@@ -324,7 +417,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "XMP sidecar uploads are parsed with exiftool as an external tool (server/src/services/metadata.service.ts); no in-process XML parser with external-entity resolution is used in server or ML code."
+              "Evidence": "XMP sidecar uploads are parsed with exiftool as an external tool (server/src/services/metadata.service.ts); no in-process XML parser with external-entity resolution is used in server or ML code. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/metadata.service.ts:2"
+              }
             },
             {
               "Shortcode": "V1.5.2",
@@ -334,7 +430,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Only JSON.parse of request bodies (via zod validation) is performed; no object-type-directed deserialization (no unserialize, no class-transformer of untrusted payloads) exists."
+              "Evidence": "Only JSON.parse of request bodies (via zod validation) is performed; no object-type-directed deserialization (no unserialize, no class-transformer of untrusted payloads) exists. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:137",
+                "E2": "server/src/middleware/file-upload.interceptor.ts:89"
+              }
             },
             {
               "Shortcode": "V1.5.3",
@@ -365,7 +465,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "DTO schemas are defined with zod and annotated with descriptions/examples, exposed via generated OpenAPI spec (server/src/dtos, open-api). This documents expected structures, but there is no dedicated input-validation documentation."
+              "Evidence": "DTO schemas are defined with zod and annotated with descriptions/examples, exposed via generated OpenAPI spec (server/src/dtos, open-api). This documents expected structures, but there is no dedicated input-validation documentation. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138",
+                "E2": "server/src/validation.ts:117"
+              }
             },
             {
               "Shortcode": "V2.1.2",
@@ -375,7 +479,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No documentation defines cross-field consistency rules for combined data items."
+              "Evidence": "No documentation defines cross-field consistency rules for combined data items. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/asset.dto.ts:1"
+              }
             },
             {
               "Shortcode": "V2.1.3",
@@ -385,7 +492,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Global business limits exist in code (storage quotas per user, job concurrency), and quotas are documented in the admin UI, but there is no consolidated documentation of business-logic limits."
+              "Evidence": "Global business limits exist in code (storage quotas per user, job concurrency), and quotas are documented in the admin UI, but there is no consolidated documentation of business-logic limits. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/asset-media.service.ts:93",
+                "E2": "server/src/services/user-admin.service.ts:36"
+              }
             }
           ]
         },
@@ -402,7 +513,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Every endpoint DTO is validated by zod schemas (server/src/dtos, validation.ts) with typed constraints (lengths, enums, UUIDs, regex); server/test/validation.spec.ts covers parts of the schema surface."
+              "Evidence": "Every endpoint DTO is validated by zod schemas (server/src/dtos, validation.ts) with typed constraints (lengths, enums, UUIDs, regex); server/test/validation.spec.ts covers parts of the schema surface. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:117",
+                "E2": "server/src/dtos/auth.dto.ts:138"
+              }
             },
             {
               "Shortcode": "V2.2.2",
@@ -412,7 +527,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Validation runs in the NestJS server via zod DTOs; web/mobile validation is UX-only. The security-relevant decisions (auth, permissions, quotas) are all validated server-side."
+              "Evidence": "Validation runs in the NestJS server via zod DTOs; web/mobile validation is UX-only. The security-relevant decisions (auth, permissions, quotas) are all validated server-side. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:137",
+                "E2": "server/src/middleware/auth.guard.ts:100"
+              }
             },
             {
               "Shortcode": "V2.2.3",
@@ -422,7 +541,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Some combined-field rules are enforced (e.g. shared-link expiry after creation, album user permissions), but there is no systematic cross-field consistency validation across all DTOs."
+              "Evidence": "Some combined-field rules are enforced (e.g. shared-link expiry after creation, album user permissions), but there is no systematic cross-field consistency validation across all DTOs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/shared-link.dto.ts:1",
+                "E2": "server/src/services/shared-link.service.ts:101"
+              }
             }
           ]
         },
@@ -439,7 +562,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Critical flows are sequence-guarded: admin onboarding is only available before an admin exists (auth.guard.ts setup routes) and setup is disabled afterwards; most other flows are single-step and need no ordering."
+              "Evidence": "Critical flows are sequence-guarded: admin onboarding is only available before an admin exists (auth.guard.ts setup routes) and setup is disabled afterwards; most other flows are single-step and need no ordering. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:105",
+                "E2": "server/src/services/base.service.ts:330"
+              }
             },
             {
               "Shortcode": "V2.3.2",
@@ -449,7 +576,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Quotas are enforced at upload time and job concurrency is bounded, but these limits are not derived from documented expectations; some flows lack explicit business limits."
+              "Evidence": "Quotas are enforced at upload time and job concurrency is bounded, but these limits are not derived from documented expectations; some flows lack explicit business limits. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/asset-media.service.ts:93",
+                "E2": "server/src/services/user-admin.service.ts:1"
+              }
             },
             {
               "Shortcode": "V2.3.3",
@@ -459,7 +590,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Multi-step operations run inside database transactions (Kysely transaction(), e.g. asset deletion, trash restore); covered partially by repository/service specs."
+              "Evidence": "Multi-step operations run inside database transactions (Kysely transaction(), e.g. asset deletion, trash restore); covered partially by repository/service specs. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/access.repository.ts:16"
+              }
             },
             {
               "Shortcode": "V2.3.4",
@@ -469,7 +603,11 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "The domain has no limited-quantity resources to double-book; DB unique constraints (e.g. asset checksum per owner, session tokens) prevent duplicate creation instead."
+              "Evidence": "The domain has no limited-quantity resources to double-book; DB unique constraints (e.g. asset checksum per owner, session tokens) prevent duplicate creation instead. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/asset.table.ts:1",
+                "E2": "server/src/schema/tables/session.table.ts:21"
+              }
             },
             {
               "Shortcode": "V2.3.5",
@@ -492,7 +630,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No anti-automation controls exist for any endpoint (no throttling, per-user API quotas, or costly-resource limits beyond job queue concurrency)."
+              "Evidence": "No anti-automation controls exist for any endpoint (no throttling, per-user API quotas, or costly-resource limits beyond job queue concurrency). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:50"
+              }
             },
             {
               "Shortcode": "V2.4.2",
@@ -536,7 +677,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "User-uploaded files are never served from a public folder; they are streamed through authenticated API routes with explicit Content-Type (server/src/controllers/assets). No CSP sandbox or Content-Disposition: attachment hardening for inline rendering contexts."
+              "Evidence": "User-uploaded files are never served from a public folder; they are streamed through authenticated API routes with explicit Content-Type (server/src/controllers/assets). No CSP sandbox or Content-Disposition: attachment hardening for inline rendering contexts. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/asset-file.controller.ts:23",
+                "E2": "server/src/utils/file.ts:70"
+              }
             },
             {
               "Shortcode": "V3.2.2",
@@ -546,7 +691,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The web app renders untrusted content (file names, comments, metadata) exclusively through Svelte text interpolation, which escapes by default; no innerHTML/dangerouslySetInnerHTML usage found."
+              "Evidence": "The web app renders untrusted content (file names, comments, metadata) exclusively through Svelte text interpolation, which escapes by default; no innerHTML/dangerouslySetInnerHTML usage found. See [E1].",
+              "evidence_references": {
+                "E1": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V3.2.3",
@@ -569,7 +717,13 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "yes",
-              "Evidence": "Auth cookies are HttpOnly, SameSite=Lax and Secure when the connection is secure (server/src/utils/response.ts), but names (immich_access etc.) lack the __Host-/__Secure- prefix and the Secure flag depends on request protocol. Cookie attributes asserted in server/src/controllers/auth.controller.spec.ts."
+              "Evidence": "Auth cookies are HttpOnly, SameSite=Lax and Secure when the connection is secure (server/src/utils/response.ts), but names (immich_access etc.) lack the __Host-/__Secure- prefix and the Secure flag depends on request protocol. Cookie attributes asserted in server/src/controllers/auth.controller.spec.ts. See [E1, E2, E3, E4].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:45",
+                "E2": "server/src/utils/response.ts:46",
+                "E3": "server/src/enum.ts:17",
+                "E4": "server/src/controllers/auth.controller.spec.ts:164"
+              }
             },
             {
               "Shortcode": "V3.3.2",
@@ -579,7 +733,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "All cookies use SameSite=Lax (server/src/utils/response.ts), which suits the session/CSRF purpose, but no cookie gets a purpose-specific decision (e.g. Strict for auth) and the non-HttpOnly isAuthenticated cookie signals auth state."
+              "Evidence": "All cookies use SameSite=Lax (server/src/utils/response.ts), which suits the session/CSRF purpose, but no cookie gets a purpose-specific decision (e.g. Strict for auth) and the non-HttpOnly isAuthenticated cookie signals auth state. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:45",
+                "E2": "server/src/enum.ts:20"
+              }
             },
             {
               "Shortcode": "V3.3.3",
@@ -589,7 +747,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No cookie uses the __Host- prefix (immich_access, immich_is_authenticated, etc.); they are served on the same host across API and web paths."
+              "Evidence": "No cookie uses the __Host- prefix (immich_access, immich_is_authenticated, etc.); they are served on the same host across API and web paths. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/enum.ts:17",
+                "E2": "server/src/enum.ts:20"
+              }
             },
             {
               "Shortcode": "V3.3.4",
@@ -599,7 +761,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "yes",
-              "Evidence": "The access-token cookie is HttpOnly and set via Set-Cookie, but the same session token is also returned in the login response body (mapLoginResponse) for mobile/API clients, violating the Set-Cookie-only rule. Cookie attributes asserted in auth.controller.spec.ts."
+              "Evidence": "The access-token cookie is HttpOnly and set via Set-Cookie, but the same session token is also returned in the login response body (mapLoginResponse) for mobile/API clients, violating the Set-Cookie-only rule. Cookie attributes asserted in auth.controller.spec.ts. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:113",
+                "E2": "server/src/utils/response.ts:42",
+                "E3": "server/src/controllers/auth.controller.spec.ts:164"
+              }
             },
             {
               "Shortcode": "V3.3.5",
@@ -622,7 +789,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Helmet middleware is enabled in production (server/src/app.common.ts), which sends HSTS by default, but with helmet's default max-age of 180 days (< 1 year) and without includeSubDomains; no explicit HSTS configuration."
+              "Evidence": "Helmet middleware is enabled in production (server/src/app.common.ts), which sends HSTS by default, but with helmet's default max-age of 180 days (< 1 year) and without includeSubDomains; no explicit HSTS configuration. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:51",
+                "E2": "server/src/repositories/config.repository.ts:169",
+                "E3": "server/helmet.json:1"
+              }
             },
             {
               "Shortcode": "V3.4.2",
@@ -632,7 +804,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "CORS is only enabled in development (app.enableCors() guarded by isDev()); production responses send no Access-Control-Allow-Origin at all, so cross-origin browser access is blocked rather than reflected."
+              "Evidence": "CORS is only enabled in development (app.enableCors() guarded by isDev()); production responses send no Access-Control-Allow-Origin at all, so cross-origin browser access is blocked rather than reflected. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:59",
+                "E2": "server/src/app.common.ts:60"
+              }
             },
             {
               "Shortcode": "V3.4.3",
@@ -642,7 +818,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "A global CSP is configured via helmet.json with object-src 'none' and script-src 'self', but base-uri is 'self' instead of 'none' and no nonces/hashes are used for scripts (hashes are auto-applied only to style directives via applyCspHashes)."
+              "Evidence": "A global CSP is configured via helmet.json with object-src 'none' and script-src 'self', but base-uri is 'self' instead of 'none' and no nonces/hashes are used for scripts (hashes are auto-applied only to style directives via applyCspHashes). See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/helmet.json:6",
+                "E2": "server/helmet.json:19",
+                "E3": "server/src/repositories/config.repository.ts:157"
+              }
             },
             {
               "Shortcode": "V3.4.4",
@@ -652,7 +833,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Helmet defaults include X-Content-Type-Options: nosniff on all responses (helmet middleware applied in app.common.ts before routes); no test asserts the header."
+              "Evidence": "Helmet defaults include X-Content-Type-Options: nosniff on all responses (helmet middleware applied in app.common.ts before routes); no test asserts the header. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:51"
+              }
             },
             {
               "Shortcode": "V3.4.5",
@@ -662,7 +846,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Helmet defaults set a Referrer-Policy header (no-referrer) on all responses; no test asserts the header."
+              "Evidence": "Helmet defaults set a Referrer-Policy header (no-referrer) on all responses; no test asserts the header. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:51"
+              }
             },
             {
               "Shortcode": "V3.4.6",
@@ -672,7 +859,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "The CSP in helmet.json has no frame-ancestors directive; only helmet's default X-Frame-Options: SAMEORIGIN (frameguard) protects against embedding, which the requirement considers obsolete."
+              "Evidence": "The CSP in helmet.json has no frame-ancestors directive; only helmet's default X-Frame-Options: SAMEORIGIN (frameguard) protects against embedding, which the requirement considers obsolete. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/helmet.json:1",
+                "E2": "server/src/repositories/config.repository.ts:203"
+              }
             },
             {
               "Shortcode": "V3.4.7",
@@ -701,7 +892,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "No anti-forgery tokens. CSRF defense relies on SameSite=Lax cookies plus the absence of CORS headers in production; cookie attributes and auth flow are covered by auth.controller.spec.ts and e2e/src/specs/web/auth.e2e-spec.ts."
+              "Evidence": "No anti-forgery tokens. CSRF defense relies on SameSite=Lax cookies plus the absence of CORS headers in production; cookie attributes and auth flow are covered by auth.controller.spec.ts and e2e/src/specs/web/auth.e2e-spec.ts. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:45",
+                "E2": "server/src/app.common.ts:59",
+                "E3": "server/src/controllers/auth.controller.spec.ts:164"
+              }
             },
             {
               "Shortcode": "V3.5.2",
@@ -711,7 +907,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "The app does not rely on CORS preflight; state-changing endpoints expect JSON bodies (non-safelisted content type) and cookies are SameSite=Lax, so cross-site requests carry no credentials for POSTs. No explicit Origin/Content-Type validation tests."
+              "Evidence": "The app does not rely on CORS preflight; state-changing endpoints expect JSON bodies (non-safelisted content type) and cookies are SameSite=Lax, so cross-site requests carry no credentials for POSTs. No explicit Origin/Content-Type validation tests. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:45",
+                "E2": "server/src/middleware/file-upload.interceptor.ts:89"
+              }
             },
             {
               "Shortcode": "V3.5.3",
@@ -721,7 +921,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "All state-changing API routes use POST/PUT/DELETE/PATCH via NestJS controllers; GET routes are read-only. No explicit test asserts method usage per route."
+              "Evidence": "All state-changing API routes use POST/PUT/DELETE/PATCH via NestJS controllers; GET routes are read-only. No explicit test asserts method usage per route. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/asset-file.controller.ts:45",
+                "E2": "server/src/controllers/auth.controller.ts:96"
+              }
             },
             {
               "Shortcode": "V3.5.4",
@@ -731,7 +935,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is a single application serving web and API from one origin; there are no separate applications to isolate on different hostnames."
+              "Evidence": "Immich is a single application serving web and API from one origin; there are no separate applications to isolate on different hostnames. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:41"
+              }
             },
             {
               "Shortcode": "V3.5.5",
@@ -741,7 +948,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "postMessage is used only for Web Workers (hash-file, file-uploader) and service-worker messaging (web/src/lib/utils/sw-messenger.ts), which are same-origin by construction; no listener accepts cross-origin messages."
+              "Evidence": "postMessage is used only for Web Workers (hash-file, file-uploader) and service-worker messaging (web/src/lib/utils/sw-messenger.ts), which are same-origin by construction; no listener accepts cross-origin messages. See [E1].",
+              "evidence_references": {
+                "E1": "web/src/lib/utils/sw-messenger.ts:10"
+              }
             },
             {
               "Shortcode": "V3.5.6",
@@ -789,7 +999,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Client-side stack is Svelte (web) and Flutter (mobile); no Flash/ActiveX/Silverlight/applet or other unsupported plugin technology is used."
+              "Evidence": "Client-side stack is Svelte (web) and Flutter (mobile); no Flash/ActiveX/Silverlight/applet or other unsupported plugin technology is used. See [E1, E2].",
+              "evidence_references": {
+                "E1": "web/package.json:1",
+                "E2": "mobile/pubspec.yaml:1"
+              }
             },
             {
               "Shortcode": "V3.7.2",
@@ -799,7 +1013,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Redirects to other hosts occur only in the OAuth flow (to the configured IdP and back via the configured redirect URI, incl. mobile redirect handling) and to the IdP logout endpoint; these are admin-configured, effectively an allowlist. No generic redirect parameters were found."
+              "Evidence": "Redirects to other hosts occur only in the OAuth flow (to the configured IdP and back via the configured redirect URI, incl. mobile redirect handling) and to the IdP logout endpoint; these are admin-configured, effectively an allowlist. No generic redirect parameters were found. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:274",
+                "E2": "server/src/constants.ts:1"
+              }
             },
             {
               "Shortcode": "V3.7.3",
@@ -842,7 +1060,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "NestJS/Express sets application/json; charset=utf-8 for API responses; asset/file responses set the correct media type from the internal mime-type map. Covered indirectly by API e2e specs."
+              "Evidence": "NestJS/Express sets application/json; charset=utf-8 for API responses; asset/file responses set the correct media type from the internal mime-type map. Covered indirectly by API e2e specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/asset-file.controller.ts:23",
+                "E2": "server/src/utils/file.ts:70"
+              }
             },
             {
               "Shortcode": "V4.1.2",
@@ -852,7 +1074,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "The app never issues HTTP->HTTPS redirects itself; this is a reverse-proxy concern. The API endpoints respond directly without redirects, satisfying the 'no transparent redirects for non-browser clients' intent at the app layer."
+              "Evidence": "The app never issues HTTP->HTTPS redirects itself; this is a reverse-proxy concern. The API endpoints respond directly without redirects, satisfying the 'no transparent redirects for non-browser clients' intent at the app layer. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:41"
+              }
             },
             {
               "Shortcode": "V4.1.3",
@@ -862,7 +1087,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Express is configured with 'trust proxy' limited to loopback + admin-configured trustedProxies (app.common.ts), so X-Forwarded-* from untrusted hops are ignored and clientIp comes from a trusted field. Covered partially by auth.service.spec.ts IP handling."
+              "Evidence": "Express is configured with 'trust proxy' limited to loopback + admin-configured trustedProxies (app.common.ts), so X-Forwarded-* from untrusted hops are ignored and clientIp comes from a trusted field. Covered partially by auth.service.spec.ts IP handling. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:47",
+                "E2": "server/src/repositories/config.repository.ts:362"
+              }
             },
             {
               "Shortcode": "V4.1.4",
@@ -891,7 +1120,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "HTTP message framing is handled by Node's HTTP server and Express per RFC; no custom framing/parsing code exists. Intermediary behavior is a deployment concern."
+              "Evidence": "HTTP message framing is handled by Node's HTTP server and Express per RFC; no custom framing/parsing code exists. Intermediary behavior is a deployment concern. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:41"
+              }
             },
             {
               "Shortcode": "V4.2.2",
@@ -932,7 +1164,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "The API is REST/JSON; no GraphQL endpoint exists."
+              "Evidence": "The API is REST/JSON; no GraphQL endpoint exists. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/controllers/index.ts:1"
+              }
             },
             {
               "Shortcode": "V4.3.2",
@@ -942,7 +1177,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No GraphQL API exists."
+              "Evidence": "No GraphQL API exists. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/controllers/index.ts:1"
+              }
             }
           ]
         },
@@ -959,7 +1197,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "WebSockets are served on the same HTTP server as the API (server/src/middleware/websocket.adapter.ts); TLS is terminated by the reverse proxy, the app itself listens on plain HTTP inside the container network."
+              "Evidence": "WebSockets are served on the same HTTP server as the API (server/src/middleware/websocket.adapter.ts); TLS is terminated by the reverse proxy, the app itself listens on plain HTTP inside the container network. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V4.4.2",
@@ -969,7 +1210,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "The socket.io server (websocket.adapter.ts) sets no Origin allowlist; connections are authenticated by session cookie but the handshake Origin is not validated."
+              "Evidence": "The socket.io server (websocket.adapter.ts) sets no Origin allowlist; connections are authenticated by session cookie but the handshake Origin is not validated. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V4.4.3",
@@ -979,7 +1223,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "WebSocket channels reuse the standard session management (same cookies/session tokens as HTTP) rather than a separate weaker mechanism; the web client passes the access token during the socket handshake."
+              "Evidence": "WebSocket channels reuse the standard session management (same cookies/session tokens as HTTP) rather than a separate weaker mechanism; the web client passes the access token during the socket handshake. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:114",
+                "E2": "server/src/services/auth.service.ts:553"
+              }
             },
             {
               "Shortcode": "V4.4.4",
@@ -989,7 +1237,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The WS session is established from the already-authenticated HTTPS session (cookie/handshake token validated against the session table); no unauthenticated WS transition exists. Covered partially by e2e/src/specs/web/websocket.e2e-spec.ts."
+              "Evidence": "The WS session is established from the already-authenticated HTTPS session (cookie/handshake token validated against the session table); no unauthenticated WS transition exists. Covered partially by e2e/src/specs/web/websocket.e2e-spec.ts. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:553",
+                "E2": "e2e/src/specs/web/websocket.e2e-spec.ts:1"
+              }
             }
           ]
         }
@@ -1014,7 +1266,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "docs describe supported media formats at a high level and the admin UI shows quota settings, but there is no documentation of per-upload maximum sizes or malicious-file handling behavior."
+              "Evidence": "docs describe supported media formats at a high level and the admin UI shows quota settings, but there is no documentation of per-upload maximum sizes or malicious-file handling behavior. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/file-upload.interceptor.ts:54",
+                "E2": "server/src/utils/mime-types.ts:167"
+              }
             }
           ]
         },
@@ -1031,7 +1287,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Multer is configured without file size limits (server/src/middleware/file-upload.interceptor.ts) and the JSON body limit (10mb) does not apply to multipart uploads; no server-side upload size cap exists, relying on reverse proxy limits."
+              "Evidence": "Multer is configured without file size limits (server/src/middleware/file-upload.interceptor.ts) and the JSON body limit (10mb) does not apply to multipart uploads; no server-side upload size cap exists, relying on reverse proxy limits. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/file-upload.interceptor.ts:54",
+                "E2": "server/src/middleware/file-upload.interceptor.ts:89"
+              }
             },
             {
               "Shortcode": "V5.2.2",
@@ -1041,7 +1301,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Upload fileFilter allowlists extensions per upload type (asset/sidecar/profile via mimeTypes.isAsset etc.); actual content is validated later by ffprobe/exiftool processing and thumbnail generation, not by magic bytes at upload time. Covered partially by e2e/src/specs/server/api/asset.e2e-spec.ts."
+              "Evidence": "Upload fileFilter allowlists extensions per upload type (asset/sidecar/profile via mimeTypes.isAsset etc.); actual content is validated later by ffprobe/exiftool processing and thumbnail generation, not by magic bytes at upload time. Covered partially by e2e/src/specs/server/api/asset.e2e-spec.ts. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/middleware/file-upload.interceptor.ts:89",
+                "E2": "server/src/utils/mime-types.ts:167",
+                "E3": "e2e/src/specs/server/api/asset.e2e-spec.ts:1"
+              }
             },
             {
               "Shortcode": "V5.2.3",
@@ -1051,7 +1316,11 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No archive formats (zip, gz, docx) are accepted as uploads; only media files, XMP sidecars and profile images pass the extension allowlist."
+              "Evidence": "No archive formats (zip, gz, docx) are accepted as uploads; only media files, XMP sidecars and profile images pass the extension allowlist. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/mime-types.ts:141",
+                "E2": "server/src/utils/mime-types.ts:102"
+              }
             },
             {
               "Shortcode": "V5.2.4",
@@ -1086,7 +1355,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Uploads are stored in a storage folder outside the web root and served only through authenticated API endpoints that stream the file with a safe Content-Type; the static web root contains only built assets."
+              "Evidence": "Uploads are stored in a storage folder outside the web root and served only through authenticated API endpoints that stream the file with a safe Content-Type; the static web root contains only built assets. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/asset-file.controller.ts:23",
+                "E2": "server/src/utils/file.ts:70"
+              }
             },
             {
               "Shortcode": "V5.3.2",
@@ -1096,7 +1369,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Stored filenames are generated server-side: uuid + sanitized extension (asset-media.service.ts getUploadFilename uses sanitize() and only takes the extension from user input); folders are built from internal ids/uuids, preventing traversal."
+              "Evidence": "Stored filenames are generated server-side: uuid + sanitized extension (asset-media.service.ts getUploadFilename uses sanitize() and only takes the extension from user input); folders are built from internal ids/uuids, preventing traversal. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/asset-media.service.ts:93",
+                "E2": "server/src/validation.ts:248"
+              }
             },
             {
               "Shortcode": "V5.3.3",
@@ -1119,7 +1396,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Download responses set Content-Disposition with RFC 5987/6266 encoding (server/src/utils/file.ts filename*=UTF-8''..., integrity-admin.controller.ts uses attachment + encodeURIComponent); stored filenames are server-generated, user filenames are only echoed in this encoded form."
+              "Evidence": "Download responses set Content-Disposition with RFC 5987/6266 encoding (server/src/utils/file.ts filename*=UTF-8''..., integrity-admin.controller.ts uses attachment + encodeURIComponent); stored filenames are server-generated, user filenames are only echoed in this encoded form. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/utils/file.ts:70"
+              }
             },
             {
               "Shortcode": "V5.4.2",
@@ -1129,7 +1409,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Filenames in Content-Disposition are RFC 5987 encoded (filename*=UTF-8'' + encodeURIComponent), preventing header injection and preserving structure."
+              "Evidence": "Filenames in Content-Disposition are RFC 5987 encoded (filename*=UTF-8'' + encodeURIComponent), preventing header injection and preserving structure. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/utils/file.ts:70"
+              }
             },
             {
               "Shortcode": "V5.4.3",
@@ -1139,7 +1422,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No antivirus scanning of uploaded files exists; content is processed by ffmpeg/exiftool/sharp but not scanned for malware."
+              "Evidence": "No antivirus scanning of uploaded files exists; content is processed by ffmpeg/exiftool/sharp but not scanned for malware. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/metadata.service.ts:2",
+                "E2": "server/src/repositories/process.repository.ts:26"
+              }
             }
           ]
         }
@@ -1164,7 +1451,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No documentation defines rate limiting, anti-automation or adaptive response controls for login; docs only mention reverse proxy setup in general."
+              "Evidence": "No documentation defines rate limiting, anti-automation or adaptive response controls for login; docs only mention reverse proxy setup in general. See [E1].",
+              "evidence_references": {
+                "E1": "docs/docs/administration/reverse-proxy.md:1"
+              }
             },
             {
               "Shortcode": "V6.1.2",
@@ -1174,7 +1464,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No context-specific word list (organization/product names) is documented for password screening."
+              "Evidence": "No context-specific word list (organization/product names) is documented for password screening. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138"
+              }
             },
             {
               "Shortcode": "V6.1.3",
@@ -1184,7 +1477,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "docs/docs/administration documents the OAuth and password-login pathways and their enable/disable toggles, but does not document the security controls/strength that must be enforced consistently across pathways."
+              "Evidence": "docs/docs/administration documents the OAuth and password-login pathways and their enable/disable toggles, but does not document the security controls/strength that must be enforced consistently across pathways. See [E1, E2].",
+              "evidence_references": {
+                "E1": "docs/docs/administration/oauth.md:1",
+                "E2": "server/src/services/auth.service.ts:62"
+              }
             }
           ]
         },
@@ -1201,7 +1498,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "ChangePasswordSchema enforces z.string().min(8) (server/src/dtos/auth.dto.ts:138); password rules covered in auth.service.spec.ts and API e2e specs."
+              "Evidence": "ChangePasswordSchema enforces z.string().min(8) (server/src/dtos/auth.dto.ts:138); password rules covered in auth.service.spec.ts and API e2e specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138",
+                "E2": "server/src/services/auth.service.spec.ts:93"
+              }
             },
             {
               "Shortcode": "V6.2.2",
@@ -1211,7 +1512,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "POST /api/auth/change-password endpoint exists (auth.controller.ts) and is covered by auth.service.spec.ts and e2e specs."
+              "Evidence": "POST /api/auth/change-password endpoint exists (auth.controller.ts) and is covered by auth.service.spec.ts and e2e specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/auth.controller.ts:1",
+                "E2": "server/src/services/auth.service.spec.ts:93"
+              }
             },
             {
               "Shortcode": "V6.2.3",
@@ -1221,7 +1526,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "ChangePasswordDto requires both current password and newPassword (server/src/dtos/auth.dto.ts:134-140); asserted in auth.service.spec.ts."
+              "Evidence": "ChangePasswordDto requires both current password and newPassword (server/src/dtos/auth.dto.ts:134-140); asserted in auth.service.spec.ts. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:137",
+                "E2": "server/src/services/auth.service.spec.ts:93"
+              }
             },
             {
               "Shortcode": "V6.2.4",
@@ -1231,7 +1540,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No check of submitted passwords against a common/top-3000 password list (no zxcvbn or blocklist dependency in server)."
+              "Evidence": "No check of submitted passwords against a common/top-3000 password list (no zxcvbn or blocklist dependency in server). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138"
+              }
             },
             {
               "Shortcode": "V6.2.5",
@@ -1241,7 +1553,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "The only rule is minimum length; no character-class composition requirements exist in any password schema."
+              "Evidence": "The only rule is minimum length; no character-class composition requirements exist in any password schema. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138"
+              }
             },
             {
               "Shortcode": "V6.2.6",
@@ -1251,7 +1566,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Web login and password forms use type=password (web/src/routes/auth/login/+page.svelte, settings components); no explicit test asserts this."
+              "Evidence": "Web login and password forms use type=password (web/src/routes/auth/login/+page.svelte, settings components); no explicit test asserts this. See [E1].",
+              "evidence_references": {
+                "E1": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V6.2.7",
@@ -1261,7 +1579,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No paste-blocking, autocomplete=off or password-manager-hostile handlers anywhere in web/src; browsers and managers work unimpeded."
+              "Evidence": "No paste-blocking, autocomplete=off or password-manager-hostile handlers anywhere in web/src; browsers and managers work unimpeded. See [E1].",
+              "evidence_references": {
+                "E1": "web/src/routes/auth/login/+page.svelte:183"
+              }
             },
             {
               "Shortcode": "V6.2.8",
@@ -1271,7 +1592,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Passwords are compared exactly as received via bcrypt compare (crypto.repository.ts compareBcrypt); no truncation, trimming or case transformation in the login/change-password paths."
+              "Evidence": "Passwords are compared exactly as received via bcrypt compare (crypto.repository.ts compareBcrypt); no truncation, trimming or case transformation in the login/change-password paths. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:21",
+                "E2": "server/src/services/auth.service.ts:69"
+              }
             },
             {
               "Shortcode": "V6.2.9",
@@ -1281,7 +1606,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Password schemas have no maximum length (z.string().min(8)), so 64+ character passwords are accepted."
+              "Evidence": "Password schemas have no maximum length (z.string().min(8)), so 64+ character passwords are accepted. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138"
+              }
             },
             {
               "Shortcode": "V6.2.10",
@@ -1291,7 +1619,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No password expiry or rotation is enforced anywhere; passwords stay valid until changed by the user or reset by an admin."
+              "Evidence": "No password expiry or rotation is enforced anywhere; passwords stay valid until changed by the user or reset by an admin. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138",
+                "E2": "server/src/services/auth.service.ts:136"
+              }
             },
             {
               "Shortcode": "V6.2.11",
@@ -1301,7 +1633,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No context-specific word list is enforced at registration or password change."
+              "Evidence": "No context-specific word list is enforced at registration or password change. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138"
+              }
             },
             {
               "Shortcode": "V6.2.12",
@@ -1311,7 +1646,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No breached-password check (no HIBP/k-anonymity or similar) at registration or password change."
+              "Evidence": "No breached-password check (no HIBP/k-anonymity or similar) at registration or password change. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:136"
+              }
             }
           ]
         },
@@ -1328,7 +1666,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No rate limiting, account lockout or throttling in the server (no @nestjs/throttler or equivalent). Only a constant-time dummy bcrypt compare prevents timing-based user enumeration (auth.service.ts login)."
+              "Evidence": "No rate limiting, account lockout or throttling in the server (no @nestjs/throttler or equivalent). Only a constant-time dummy bcrypt compare prevents timing-based user enumeration (auth.service.ts login). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:69",
+                "E2": "server/src/constants.ts:48"
+              }
             },
             {
               "Shortcode": "V6.3.2",
@@ -1338,7 +1680,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "No built-in default accounts: the first admin is created interactively during onboarding; setup routes are disabled once an admin exists (auth.guard.spec.ts covers this)."
+              "Evidence": "No built-in default accounts: the first admin is created interactively during onboarding; setup routes are disabled once an admin exists (auth.guard.spec.ts covers this). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/base.service.ts:330",
+                "E2": "server/src/middleware/auth.guard.spec.ts:41"
+              }
             },
             {
               "Shortcode": "V6.3.3",
@@ -1348,7 +1694,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Password-only single-factor login is allowed by default, so MFA is not mandatory. However, passkeys (WebAuthn/FIDO2, phishing-resistant) are supported as an additional authentication pathway, and OAuth can offload MFA to the IdP. Passkey flows are covered by passkey.controller.spec.ts."
+              "Evidence": "Password-only single-factor login is allowed by default, so MFA is not mandatory. However, passkeys (WebAuthn/FIDO2, phishing-resistant) are supported as an additional authentication pathway, and OAuth can offload MFA to the IdP. Passkey flows are covered by passkey.controller.spec.ts. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/passkey.controller.ts:40",
+                "E2": "server/src/controllers/passkey.controller.spec.ts:44"
+              }
             },
             {
               "Shortcode": "V6.3.4",
@@ -1358,7 +1708,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Four pathways exist (password, OAuth, passkey, API key) and are documented at a high level, but strength is not enforced consistently: API keys and (depending on config) password login can bypass MFA entirely."
+              "Evidence": "Four pathways exist (password, OAuth, passkey, API key) and are documented at a high level, but strength is not enforced consistently: API keys and (depending on config) password login can bypass MFA entirely. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/api-key.service.ts:13",
+                "E2": "server/src/services/auth.service.ts:62"
+              }
             },
             {
               "Shortcode": "V6.3.5",
@@ -1399,7 +1753,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "CLI bootstrap admin password is generated with randomBytes(24) (cli.service.ts) and meets the length policy, but there is no expiry after first use or time limit. Covered by cli.service.spec.ts."
+              "Evidence": "CLI bootstrap admin password is generated with randomBytes(24) (cli.service.ts) and meets the length policy, but there is no expiry after first use or time limit. Covered by cli.service.spec.ts. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/cli.service.ts:69",
+                "E2": "server/src/services/cli.service.spec.ts:8"
+              }
             },
             {
               "Shortcode": "V6.4.2",
@@ -1409,7 +1767,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No password hints or knowledge-based secret questions exist anywhere in the schema, DTOs or UI."
+              "Evidence": "No password hints or knowledge-based secret questions exist anywhere in the schema, DTOs or UI. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:138",
+                "E2": "server/src/schema/tables/user.table.ts:1"
+              }
             },
             {
               "Shortcode": "V6.4.3",
@@ -1419,7 +1781,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "No self-service 'forgot password' email flow exists; a forgotten password is handled by an admin resetting it (user-admin service / CLI), which cannot bypass MFA since MFA is delegated to passkeys/IdP. No automated reset token exists at all."
+              "Evidence": "No self-service 'forgot password' email flow exists; a forgotten password is handled by an admin resetting it (user-admin service / CLI), which cannot bypass MFA since MFA is delegated to passkeys/IdP. No automated reset token exists at all. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/user-admin.service.ts:82",
+                "E2": "server/src/services/auth.service.ts:136"
+              }
             },
             {
               "Shortcode": "V6.4.4",
@@ -1429,7 +1795,11 @@
               "Applicability": "partial",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "The only additional factor is a passkey; losing it falls back to password or OAuth login (or admin intervention) without an identity-proofing process at the enrollment level."
+              "Evidence": "The only additional factor is a passkey; losing it falls back to password or OAuth login (or admin intervention) without an identity-proofing process at the enrollment level. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/passkey.controller.ts:40",
+                "E2": "server/src/services/auth.service.ts:62"
+              }
             },
             {
               "Shortcode": "V6.4.5",
@@ -1458,7 +1828,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Immich's lookup secrets (shared-link keys, API keys) are long-lived by design and not single-use; no one-time lookup secrets or OTP codes exist in the application."
+              "Evidence": "Immich's lookup secrets (shared-link keys, API keys) are long-lived by design and not single-use; no one-time lookup secrets or OTP codes exist in the application. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/shared-link.service.ts:94",
+                "E2": "server/src/services/api-key.service.ts:13"
+              }
             },
             {
               "Shortcode": "V6.5.2",
@@ -1468,7 +1842,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Shared-link keys are generated with randomBytes(50) = 400 bits of entropy (shared-link.service.ts), well above the 112-bit threshold, but they are stored raw (unhashed) in the database instead of hashed."
+              "Evidence": "Shared-link keys are generated with randomBytes(50) = 400 bits of entropy (shared-link.service.ts), well above the 112-bit threshold, but they are stored raw (unhashed) in the database instead of hashed. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/shared-link.service.ts:94"
+              }
             },
             {
               "Shortcode": "V6.5.3",
@@ -1478,7 +1855,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "All lookup secrets (shared-link keys randomBytes(50), API keys randomBytes(32), session tokens randomBytes(32)) are generated with node crypto CSPRNG."
+              "Evidence": "All lookup secrets (shared-link keys randomBytes(50), API keys randomBytes(32), session tokens randomBytes(32)) are generated with node crypto CSPRNG. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/services/shared-link.service.ts:94",
+                "E2": "server/src/services/api-key.service.ts:13",
+                "E3": "server/src/services/session.service.ts:35"
+              }
             },
             {
               "Shortcode": "V6.5.4",
@@ -1488,7 +1870,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Shared-link keys carry 400 bits of entropy and API keys 256 bits, far above the 20-bit minimum."
+              "Evidence": "Shared-link keys carry 400 bits of entropy and API keys 256 bits, far above the 20-bit minimum. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/shared-link.service.ts:94",
+                "E2": "server/src/services/api-key.service.ts:13"
+              }
             },
             {
               "Shortcode": "V6.5.5",
@@ -1498,7 +1884,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Shared links support an optional expiry timestamp (and admins can enforce a maximum lifetime), but expiry is optional and defaults to none; there are no OTP/TOTP lifetimes since no OTP mechanism exists."
+              "Evidence": "Shared links support an optional expiry timestamp (and admins can enforce a maximum lifetime), but expiry is optional and defaults to none; there are no OTP/TOTP lifetimes since no OTP mechanism exists. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/shared-link.service.ts:101"
+              }
             },
             {
               "Shortcode": "V6.5.6",
@@ -1533,7 +1922,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No PSTN/SMS/phone-based authentication exists."
+              "Evidence": "No PSTN/SMS/phone-based authentication exists. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:1"
+              }
             },
             {
               "Shortcode": "V6.6.2",
@@ -1543,7 +1935,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No out-of-band authentication mechanisms exist."
+              "Evidence": "No out-of-band authentication mechanisms exist. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:1"
+              }
             },
             {
               "Shortcode": "V6.6.3",
@@ -1553,7 +1948,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No out-of-band authentication codes exist."
+              "Evidence": "No out-of-band authentication codes exist. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/auth.dto.ts:1"
+              }
             },
             {
               "Shortcode": "V6.6.4",
@@ -1595,7 +1993,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Only a single external IdP can be configured; OAuth identities are bound per user via a unique oauthId, so cross-IdP identity spoofing is not possible in this configuration."
+              "Evidence": "Only a single external IdP can be configured; OAuth identities are bound per user via a unique oauthId, so cross-IdP identity spoofing is not possible in this configuration. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:61"
+              }
             },
             {
               "Shortcode": "V6.8.2",
@@ -1605,7 +2006,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "OIDC ID tokens are validated by openid-client / jose: signature via the IdP's JWKS or client secret, issuer and audience are checked (oauth.repository.ts; validateLogoutToken validates signature, iss, aud explicitly for logout tokens)."
+              "Evidence": "OIDC ID tokens are validated by openid-client / jose: signature via the IdP's JWKS or client secret, issuer and audience are checked (oauth.repository.ts; validateLogoutToken validates signature, iss, aud explicitly for logout tokens). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:148",
+                "E2": "server/src/services/auth.service.ts:102"
+              }
             },
             {
               "Shortcode": "V6.8.3",
@@ -1615,7 +2020,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No SAML support; only OIDC via openid-client."
+              "Evidence": "No SAML support; only OIDC via openid-client. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V6.8.4",
@@ -1625,7 +2033,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No acr/amr/auth_time claim validation is performed when accepting OIDC logins; the app assumes the IdP-enforced strength (no documented fallback either)."
+              "Evidence": "No acr/amr/auth_time claim validation is performed when accepting OIDC logins; the app assumes the IdP-enforced strength (no documented fallback either). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:301"
+              }
             }
           ]
         }
@@ -1650,7 +2061,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Session lifetimes are not documented: sessions have no inactivity timeout and no absolute maximum lifetime (cookie maxAge 400 days, session rows persist until logout)."
+              "Evidence": "Session lifetimes are not documented: sessions have no inactivity timeout and no absolute maximum lifetime (cookie maxAge 400 days, session rows persist until logout). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:48",
+                "E2": "server/src/schema/tables/session.table.ts:21"
+              }
             },
             {
               "Shortcode": "V7.1.2",
@@ -1660,7 +2075,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Concurrent sessions are unbounded and the policy/behavior on reaching a maximum is not documented (there is no maximum)."
+              "Evidence": "Concurrent sessions are unbounded and the policy/behavior on reaching a maximum is not documented (there is no maximum). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/session.service.ts:35"
+              }
             },
             {
               "Shortcode": "V7.1.3",
@@ -1670,7 +2088,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "SSO session coordination is not documented: OAuth logout/backchannel logout are implemented, but lifetime coordination and re-authentication conditions are not documented."
+              "Evidence": "SSO session coordination is not documented: OAuth logout/backchannel logout are implemented, but lifetime coordination and re-authentication conditions are not documented. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:102",
+                "E2": "docs/docs/administration/oauth.md:1"
+              }
             }
           ]
         },
@@ -1687,7 +2109,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Session tokens are validated server-side: AuthGuard hashes the presented token and looks up the session row in Postgres (auth.service.ts validateSession; middleware/auth.guard.ts). Covered by auth.guard.spec.ts and session e2e specs."
+              "Evidence": "Session tokens are validated server-side: AuthGuard hashes the presented token and looks up the session row in Postgres (auth.service.ts validateSession; middleware/auth.guard.ts). Covered by auth.guard.spec.ts and session e2e specs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:553",
+                "E2": "server/src/middleware/auth.guard.ts:114",
+                "E3": "server/src/middleware/auth.guard.spec.ts:41"
+              }
             },
             {
               "Shortcode": "V7.2.2",
@@ -1697,7 +2124,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Each login generates a fresh random reference token stored hashed in the session table (base.service.ts createLoginResponse). Static API keys exist but are an explicit opt-in separate credential, not the session mechanism."
+              "Evidence": "Each login generates a fresh random reference token stored hashed in the session table (base.service.ts createLoginResponse). Static API keys exist but are an explicit opt-in separate credential, not the session mechanism. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/services/base.service.ts:366",
+                "E2": "server/src/services/base.service.ts:372",
+                "E3": "server/src/services/api-key.service.ts:13"
+              }
             },
             {
               "Shortcode": "V7.2.3",
@@ -1707,7 +2139,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Session tokens are randomBytes(32) base64-encoded (>=128 bits entropy) from node crypto CSPRNG; only the SHA-256 hash is stored. Token format asserted in api-key/session specs; entropy is by construction, not measured by tests."
+              "Evidence": "Session tokens are randomBytes(32) base64-encoded (>=128 bits entropy) from node crypto CSPRNG; only the SHA-256 hash is stored. Token format asserted in api-key/session specs; entropy is by construction, not measured by tests. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/base.service.ts:372",
+                "E2": "server/src/schema/tables/session.table.ts:21"
+              }
             },
             {
               "Shortcode": "V7.2.4",
@@ -1717,7 +2153,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "A new session token is created on every authentication, but previously issued sessions for the same user are not terminated on re-login; password change offers invalidateSessions as an opt-in."
+              "Evidence": "A new session token is created on every authentication, but previously issued sessions for the same user are not terminated on re-login; password change offers invalidateSessions as an opt-in. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/base.service.ts:366",
+                "E2": "server/src/services/auth.service.ts:146"
+              }
             }
           ]
         },
@@ -1734,7 +2174,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No inactivity timeout exists; sessions remain valid indefinitely regardless of last use (only cookie maxAge applies client-side)."
+              "Evidence": "No inactivity timeout exists; sessions remain valid indefinitely regardless of last use (only cookie maxAge applies client-side). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:553",
+                "E2": "server/src/utils/response.ts:48"
+              }
             },
             {
               "Shortcode": "V7.3.2",
@@ -1744,7 +2188,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No absolute maximum session lifetime is enforced; session rows have no expiry timestamp."
+              "Evidence": "No absolute maximum session lifetime is enforced; session rows have no expiry timestamp. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/session.table.ts:21"
+              }
             }
           ]
         },
@@ -1761,7 +2208,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Logout deletes the session row server-side (auth.service.ts logout -> sessionRepository.delete); the token is unusable afterwards. Covered by auth.service.spec.ts and e2e session specs."
+              "Evidence": "Logout deletes the session row server-side (auth.service.ts logout -> sessionRepository.delete); the token is unusable afterwards. Covered by auth.service.spec.ts and e2e session specs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:79",
+                "E2": "server/src/services/auth.service.spec.ts:1",
+                "E3": "e2e/src/specs/server/api/session.e2e-spec.ts:36"
+              }
             },
             {
               "Shortcode": "V7.4.2",
@@ -1771,7 +2223,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Sessions are FK-cascade deleted with the user (session.table.ts onDelete: CASCADE), so account deletion removes sessions; password change can invalidate all sessions (invalidateSessions flag). Merely disabling a user does not proactively kill existing sessions."
+              "Evidence": "Sessions are FK-cascade deleted with the user (session.table.ts onDelete: CASCADE), so account deletion removes sessions; password change can invalidate all sessions (invalidateSessions flag). Merely disabling a user does not proactively kill existing sessions. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/session.table.ts:32",
+                "E2": "server/src/services/auth.service.ts:146"
+              }
             },
             {
               "Shortcode": "V7.4.3",
@@ -1781,7 +2237,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Password change exposes an opt-in invalidateSessions flag (default false) that revokes all other sessions; passkey setup/reset does not terminate other sessions. Covered by auth.service.spec.ts."
+              "Evidence": "Password change exposes an opt-in invalidateSessions flag (default false) that revokes all other sessions; passkey setup/reset does not terminate other sessions. Covered by auth.service.spec.ts. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:146",
+                "E2": "server/src/services/auth.service.spec.ts:93"
+              }
             },
             {
               "Shortcode": "V7.4.4",
@@ -1791,7 +2251,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Every authenticated web page has the account menu with logout, and a dedicated sessions page lists and terminates individual sessions; mobile apps expose logout. Covered by web auth e2e."
+              "Evidence": "Every authenticated web page has the account menu with logout, and a dedicated sessions page lists and terminates individual sessions; mobile apps expose logout. Covered by web auth e2e. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/controllers/auth.controller.ts:96",
+                "E2": "e2e/src/specs/web/auth.e2e-spec.ts:1"
+              }
             },
             {
               "Shortcode": "V7.4.5",
@@ -1801,7 +2265,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Admins can list a user's sessions (user-admin.service.ts) and deleting the user cascades sessions, but there is no admin endpoint to revoke an individual user's sessions without deleting the account."
+              "Evidence": "Admins can list a user's sessions (user-admin.service.ts) and deleting the user cascades sessions, but there is no admin endpoint to revoke an individual user's sessions without deleting the account. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/user-admin.service.ts:82",
+                "E2": "server/src/schema/tables/session.table.ts:32"
+              }
             }
           ]
         },
@@ -1818,7 +2286,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Sensitive account changes such as email update (UserUpdateMeDto) do not require re-authentication or the current password; only the password change itself does."
+              "Evidence": "Sensitive account changes such as email update (UserUpdateMeDto) do not require re-authentication or the current password; only the password change itself does. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/dtos/user.dto.ts:93"
+              }
             },
             {
               "Shortcode": "V7.5.2",
@@ -1828,7 +2299,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "The sessions UI lists all active devices/sessions for the logged-in user and allows terminating any or all of them; covered by session e2e specs and session.service specs."
+              "Evidence": "The sessions UI lists all active devices/sessions for the logged-in user and allows terminating any or all of them; covered by session e2e specs and session.service specs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/services/session.service.ts:44",
+                "E2": "server/src/services/session.service.spec.ts:44",
+                "E3": "e2e/src/specs/server/api/session.e2e-spec.ts:17"
+              }
             },
             {
               "Shortcode": "V7.5.3",
@@ -1851,7 +2327,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "RP/IdP session behavior is implemented (logout with id_token_hint, OAuth backchannel logout invalidating sessions by sid/sub) but the lifetime coordination policy is not documented and no re-authentication window is enforced."
+              "Evidence": "RP/IdP session behavior is implemented (logout with id_token_hint, OAuth backchannel logout invalidating sessions by sid/sub) but the lifetime coordination policy is not documented and no re-authentication window is enforced. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:102",
+                "E2": "server/src/services/auth.service.spec.ts:265"
+              }
             },
             {
               "Shortcode": "V7.6.2",
@@ -1861,7 +2341,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Sessions are only created on explicit login actions (credential login, OAuth callback, passkey ceremony); no mechanism creates sessions without user interaction."
+              "Evidence": "Sessions are only created on explicit login actions (credential login, OAuth callback, passkey ceremony); no mechanism creates sessions without user interaction. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/base.service.ts:366",
+                "E2": "server/src/services/auth.service.ts:60"
+              }
             }
           ]
         }
@@ -1886,7 +2370,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "There is no authorization documentation in docs/ defining function-level and data-level rules; the model exists only in code (Permission enum, access repository)."
+              "Evidence": "There is no authorization documentation in docs/ defining function-level and data-level rules; the model exists only in code (Permission enum, access repository). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/enum.ts:1",
+                "E2": "server/src/repositories/access.repository.ts:16"
+              }
             },
             {
               "Shortcode": "V8.1.2",
@@ -1896,7 +2384,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No documentation defines field-level read/write rules; field-level differences exist only implicitly in DTO mappers (mapUser vs mapUserAdmin)."
+              "Evidence": "No documentation defines field-level read/write rules; field-level differences exist only implicitly in DTO mappers (mapUser vs mapUserAdmin). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/user.dto.ts:53",
+                "E2": "server/src/dtos/user.dto.ts:134"
+              }
             },
             {
               "Shortcode": "V8.1.3",
@@ -1925,7 +2417,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Routes are guarded by @Authenticated({ admin, permission }) with a central Permission enum checked in AuthGuard (middleware/auth.guard.ts); covered by auth.guard.spec.ts and controller specs."
+              "Evidence": "Routes are guarded by @Authenticated({ admin, permission }) with a central Permission enum checked in AuthGuard (middleware/auth.guard.ts); covered by auth.guard.spec.ts and controller specs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:100",
+                "E2": "server/src/middleware/auth.guard.ts:114",
+                "E3": "server/src/middleware/auth.guard.spec.ts:41"
+              }
             },
             {
               "Shortcode": "V8.2.2",
@@ -1935,7 +2432,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Data-level access is enforced via the access repository (owner/partner/album/shared-link checks) for assets, albums and people; extensively covered by service specs and e2e specs (asset, album, shared-link)."
+              "Evidence": "Data-level access is enforced via the access repository (owner/partner/album/shared-link checks) for assets, albums and people; extensively covered by service specs and e2e specs (asset, album, shared-link). See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/repositories/access.repository.ts:16",
+                "E2": "server/src/repositories/access.repository.ts:148",
+                "E3": "e2e/src/specs/server/api/asset.e2e-spec.ts:1"
+              }
             },
             {
               "Shortcode": "V8.2.3",
@@ -1945,7 +2447,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Response DTOs whitelist fields per role (admin mappers expose more than user mappers; password hashes are never mapped), but there is no fine-grained per-field permission model beyond the admin/user split."
+              "Evidence": "Response DTOs whitelist fields per role (admin mappers expose more than user mappers; password hashes are never mapped), but there is no fine-grained per-field permission model beyond the admin/user split. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/user.dto.ts:53",
+                "E2": "server/src/dtos/user.dto.ts:134"
+              }
             },
             {
               "Shortcode": "V8.2.4",
@@ -1968,7 +2474,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "All authorization decisions run in the NestJS server (guard + services + access repository); the web client only hides UI elements and never grants access."
+              "Evidence": "All authorization decisions run in the NestJS server (guard + services + access repository); the web client only hides UI elements and never grants access. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:114",
+                "E2": "server/src/repositories/access.repository.ts:16"
+              }
             },
             {
               "Shortcode": "V8.3.2",
@@ -1997,7 +2507,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is a single-tenant self-hosted application (one instance, one photo library with per-user sharing); there is no multi-tenant surface to isolate."
+              "Evidence": "Immich is a single-tenant self-hosted application (one instance, one photo library with per-user sharing); there is no multi-tenant surface to isolate. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:1"
+              }
             },
             {
               "Shortcode": "V8.4.2",
@@ -2028,7 +2541,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Self-contained JWTs (workflow execution tokens) are verified with HS256 signature before use (crypto.repository.ts verifyJwt, workflow-execution.service.ts)."
+              "Evidence": "Self-contained JWTs (workflow execution tokens) are verified with HS256 signature before use (crypto.repository.ts verifyJwt, workflow-execution.service.ts). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:67",
+                "E2": "server/src/services/workflow-execution.service.ts:283"
+              }
             },
             {
               "Shortcode": "V9.1.2",
@@ -2038,7 +2555,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "jwt.verify is called with an explicit algorithm allowlist algorithms: ['HS256'] and signing is pinned to HS256; 'none' cannot be accepted."
+              "Evidence": "jwt.verify is called with an explicit algorithm allowlist algorithms: ['HS256'] and signing is pinned to HS256; 'none' cannot be accepted. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:64",
+                "E2": "server/src/repositories/crypto.repository.ts:67"
+              }
             },
             {
               "Shortcode": "V9.1.3",
@@ -2048,7 +2569,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "The JWT secret comes from the server's environment config only; no jku/x5u/jwk header handling exists, so untrusted key sources cannot be injected."
+              "Evidence": "The JWT secret comes from the server's environment config only; no jku/x5u/jwk header handling exists, so untrusted key sources cannot be injected. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:1"
+              }
             }
           ]
         },
@@ -2065,7 +2589,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Reference session tokens are validated against the DB with no client-side expiry. The self-contained workflow JWTs are signed without exp/nbf claims, so no validity timespan is enforced for them."
+              "Evidence": "Reference session tokens are validated against the DB with no client-side expiry. The self-contained workflow JWTs are signed without exp/nbf claims, so no validity timespan is enforced for them. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/workflow-execution.service.ts:283",
+                "E2": "server/src/repositories/crypto.repository.ts:64"
+              }
             },
             {
               "Shortcode": "V9.2.2",
@@ -2075,7 +2603,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Session/API-key tokens are opaque reference tokens validated against their DB rows (correct purpose by construction). The self-contained workflow JWTs carry no typ claim and are not type-checked beyond algorithm and signature."
+              "Evidence": "Session/API-key tokens are opaque reference tokens validated against their DB rows (correct purpose by construction). The self-contained workflow JWTs carry no typ claim and are not type-checked beyond algorithm and signature. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:64",
+                "E2": "server/src/services/auth.service.ts:553"
+              }
             },
             {
               "Shortcode": "V9.2.3",
@@ -2085,7 +2617,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Reference tokens are inherently single-audience; however the workflow JWTs are signed without an aud claim, so an audience check is not possible for them."
+              "Evidence": "Reference tokens are inherently single-audience; however the workflow JWTs are signed without an aud claim, so an audience check is not possible for them. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:64",
+                "E2": "server/src/services/auth.service.ts:553"
+              }
             },
             {
               "Shortcode": "V9.2.4",
@@ -2095,7 +2631,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich does not issue tokens to multiple audiences; its JWTs are self-consumed only (and session tokens are opaque)."
+              "Evidence": "Immich does not issue tokens to multiple audiences; its JWTs are self-consumed only (and session tokens are opaque). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/workflow-execution.service.ts:283"
+              }
             }
           ]
         }
@@ -2120,7 +2659,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Backend-for-frontend pattern: the OAuth access/refresh tokens are stored server-side on the session row (oauthBearerToken); the browser only receives the HttpOnly session cookie, never upstream tokens."
+              "Evidence": "Backend-for-frontend pattern: the OAuth access/refresh tokens are stored server-side on the session row (oauthBearerToken); the browser only receives the HttpOnly session cookie, never upstream tokens. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/session.table.ts:1",
+                "E2": "server/src/services/auth.service.ts:382"
+              }
             },
             {
               "Shortcode": "V10.1.2",
@@ -2130,7 +2673,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "PKCE code_verifier and state are generated server-side with randomBytes, bound to the user agent via HttpOnly cookies (oauth.controller.ts), and verified on callback; asserted in oauth.controller.spec.ts."
+              "Evidence": "PKCE code_verifier and state are generated server-side with randomBytes, bound to the user agent via HttpOnly cookies (oauth.controller.ts), and verified on callback; asserted in oauth.controller.spec.ts. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:59",
+                "E2": "server/src/controllers/oauth.controller.ts:52",
+                "E3": "server/src/controllers/oauth.controller.spec.ts:34"
+              }
             }
           ]
         },
@@ -2147,7 +2695,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "The OAuth client uses PKCE plus a state parameter bound to the handshake via cookies, preventing CSRF on the code flow; covered by oauth.controller.spec.ts and oauth e2e specs."
+              "Evidence": "The OAuth client uses PKCE plus a state parameter bound to the handshake via cookies, preventing CSRF on the code flow; covered by oauth.controller.spec.ts and oauth e2e specs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:73",
+                "E2": "server/src/controllers/oauth.controller.ts:59",
+                "E3": "e2e/src/specs/server/api/oauth.e2e-spec.ts:95"
+              }
             },
             {
               "Shortcode": "V10.2.2",
@@ -2157,7 +2710,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Only one authorization server can be configured; mix-up attacks require multiple AS configurations."
+              "Evidence": "Only one authorization server can be configured; mix-up attacks require multiple AS configurations. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.2.3",
@@ -2180,7 +2736,11 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich does not accept structured access tokens from an authorization server; its API credentials are opaque session tokens and API keys validated against the database, so the audience concept does not apply."
+              "Evidence": "Immich does not accept structured access tokens from an authorization server; its API credentials are opaque session tokens and API keys validated against the database, so the audience concept does not apply. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:553",
+                "E2": "server/src/services/api-key.service.ts:13"
+              }
             },
             {
               "Shortcode": "V10.3.2",
@@ -2190,7 +2750,11 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Authorization decisions are based on the DB user/permissions behind opaque tokens, not on claims from third-party access tokens."
+              "Evidence": "Authorization decisions are based on the DB user/permissions behind opaque tokens, not on claims from third-party access tokens. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:114",
+                "E2": "server/src/repositories/access.repository.ts:16"
+              }
             },
             {
               "Shortcode": "V10.3.3",
@@ -2200,7 +2764,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "User identity comes from the session/API-key row (immutable UUID), not from claims in access tokens that could be reassigned."
+              "Evidence": "User identity comes from the session/API-key row (immutable UUID), not from claims in access tokens that could be reassigned. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/session.table.ts:21"
+              }
             },
             {
               "Shortcode": "V10.3.4",
@@ -2210,7 +2777,10 @@
               "Applicability": "partial",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No acr/amr/auth_time constraints are verified for any presented credential; if MFA strength matters, it must be enforced at the (single) IdP."
+              "Evidence": "No acr/amr/auth_time constraints are verified for any presented credential; if MFA strength matters, it must be enforced at the (single) IdP. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:301"
+              }
             },
             {
               "Shortcode": "V10.3.5",
@@ -2233,7 +2803,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is an OAuth client, not an authorization server; it consumes external OIDC providers via openid-client and never issues authorization codes."
+              "Evidence": "Immich is an OAuth client, not an authorization server; it consumes external OIDC providers via openid-client and never issues authorization codes. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.2",
@@ -2243,7 +2816,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; no authorization codes are issued by Immich."
+              "Evidence": "Not an authorization server; no authorization codes are issued by Immich. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.3",
@@ -2253,7 +2829,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; no authorization codes are issued by Immich."
+              "Evidence": "Not an authorization server; no authorization codes are issued by Immich. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.4",
@@ -2263,7 +2842,11 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; Immich only performs the authorization-code + PKCE flow as a client."
+              "Evidence": "Not an authorization server; Immich only performs the authorization-code + PKCE flow as a client. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:59",
+                "E2": "server/src/repositories/oauth.repository.ts:73"
+              }
             },
             {
               "Shortcode": "V10.4.5",
@@ -2273,7 +2856,11 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; refresh tokens of the upstream provider are stored server-side per session, never exposed to browser clients."
+              "Evidence": "Not an authorization server; refresh tokens of the upstream provider are stored server-side per session, never exposed to browser clients. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:382",
+                "E2": "server/src/schema/tables/session.table.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.6",
@@ -2283,7 +2870,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; PKCE is used on the client side only."
+              "Evidence": "Not an authorization server; PKCE is used on the client side only. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:59"
+              }
             },
             {
               "Shortcode": "V10.4.7",
@@ -2293,7 +2883,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; no dynamic client registration is performed or offered."
+              "Evidence": "Not an authorization server; no dynamic client registration is performed or offered. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.8",
@@ -2303,7 +2896,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; refresh tokens belong to the upstream IdP and are only stored/revoked by Immich."
+              "Evidence": "Not an authorization server; refresh tokens belong to the upstream IdP and are only stored/revoked by Immich. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:382"
+              }
             },
             {
               "Shortcode": "V10.4.9",
@@ -2313,7 +2909,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; Immich has no token revocation UI for upstream tokens (session deletion drops the stored bearer token)."
+              "Evidence": "Not an authorization server; Immich has no token revocation UI for upstream tokens (session deletion drops the stored bearer token). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:79"
+              }
             },
             {
               "Shortcode": "V10.4.10",
@@ -2323,7 +2922,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; backchannel requests to the IdP authenticate with the configured client credentials."
+              "Evidence": "Not an authorization server; backchannel requests to the IdP authenticate with the configured client credentials. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.11",
@@ -2333,7 +2935,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Not an authorization server; scope assignment is an IdP-side concern."
+              "Evidence": "Not an authorization server; scope assignment is an IdP-side concern. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.4.12",
@@ -2380,7 +2985,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The OIDC client (openid-client) generates and validates a nonce per authentication request, binding the ID token to the original request."
+              "Evidence": "The OIDC client (openid-client) generates and validates a nonce per authentication request, binding the ID token to the original request. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:59"
+              }
             },
             {
               "Shortcode": "V10.5.2",
@@ -2390,7 +2998,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Users are identified by the IdP's sub claim stored as a unique oauthId per user; emails may link accounts but the sub-based binding is not reassignable within the IdP."
+              "Evidence": "Users are identified by the IdP's sub claim stored as a unique oauthId per user; emails may link accounts but the sub-based binding is not reassignable within the IdP. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:61",
+                "E2": "server/src/services/auth.service.ts:301"
+              }
             },
             {
               "Shortcode": "V10.5.3",
@@ -2400,7 +3012,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "openid-client validates the issuer in the server metadata against the pre-configured issuerUrl (new URL(issuerUrl) in oauth.repository.ts); metadata from a different issuer is rejected."
+              "Evidence": "openid-client validates the issuer in the server metadata against the pre-configured issuerUrl (new URL(issuerUrl) in oauth.repository.ts); metadata from a different issuer is rejected. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.5.4",
@@ -2410,7 +3025,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "openid-client validates the ID token aud claim against the configured clientId before accepting the login."
+              "Evidence": "openid-client validates the ID token aud claim against the configured clientId before accepting the login. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.5.5",
@@ -2420,7 +3038,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Backchannel logout tokens are validated for signature, issuer, audience, maxTokenAge 2m, presence of the backchannel-logout event claim and absence of nonce (oauth.repository.ts validateLogoutToken); the typ='logout+jwt' claim is not checked."
+              "Evidence": "Backchannel logout tokens are validated for signature, issuer, audience, maxTokenAge 2m, presence of the backchannel-logout event claim and absence of nonce (oauth.repository.ts validateLogoutToken); the typ='logout+jwt' claim is not checked. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:148",
+                "E2": "server/src/services/auth.service.spec.ts:265"
+              }
             }
           ]
         },
@@ -2437,7 +3059,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is not an OpenID Provider; response modes are a property of the upstream IdP."
+              "Evidence": "Immich is not an OpenID Provider; response modes are a property of the upstream IdP. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.6.2",
@@ -2447,7 +3072,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is not an OpenID Provider and does not host user sessions for relying parties."
+              "Evidence": "Immich is not an OpenID Provider and does not host user sessions for relying parties. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             }
           ]
         },
@@ -2464,7 +3092,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is not an authorization server; consent screens are the IdP's responsibility."
+              "Evidence": "Immich is not an authorization server; consent screens are the IdP's responsibility. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.7.2",
@@ -2474,7 +3105,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is not an authorization server; no consent prompts are rendered."
+              "Evidence": "Immich is not an authorization server; no consent prompts are rendered. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V10.7.3",
@@ -2484,7 +3118,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "Immich is not an authorization server; there are no user-consented grants to review."
+              "Evidence": "Immich is not an authorization server; there are no user-consented grants to review. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/oauth.repository.ts:1"
+              }
             }
           ]
         }
@@ -2509,7 +3146,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No key-management policy exists; the JWT secret and OAuth client secret are single shared secrets provided via environment variables without documented lifecycle, rotation or sharing limits."
+              "Evidence": "No key-management policy exists; the JWT secret and OAuth client secret are single shared secrets provided via environment variables without documented lifecycle, rotation or sharing limits. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:1",
+                "E2": "docker/example.env:1"
+              }
             },
             {
               "Shortcode": "V11.1.2",
@@ -2519,7 +3160,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No cryptographic inventory exists; the keys in use (JWT secret, OAuth client secret, license public keys) and algorithms (bcrypt, SHA-256, HS256) are only discoverable from code."
+              "Evidence": "No cryptographic inventory exists; the keys in use (JWT secret, OAuth client secret, license public keys) and algorithms (bcrypt, SHA-256, HS256) are only discoverable from code. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/constants.ts:46",
+                "E2": "server/src/repositories/crypto.repository.ts:17"
+              }
             },
             {
               "Shortcode": "V11.1.3",
@@ -2548,7 +3193,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "All crypto uses industry-validated implementations: node crypto (OpenSSL), bcrypt, jose/openid-client for JWT/OIDC; no hand-rolled cryptography."
+              "Evidence": "All crypto uses industry-validated implementations: node crypto (OpenSSL), bcrypt, jose/openid-client for JWT/OIDC; no hand-rolled cryptography. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17",
+                "E2": "server/src/repositories/crypto.repository.ts:64"
+              }
             },
             {
               "Shortcode": "V11.2.2",
@@ -2558,7 +3207,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Algorithms and key lengths are fixed in code (bcrypt cost 10, HS256, SHA-256) with no reconfiguration or swap mechanism; keys can be rotated via env but no crypto-agility design exists."
+              "Evidence": "Algorithms and key lengths are fixed in code (bcrypt cost 10, HS256, SHA-256) with no reconfiguration or swap mechanism; keys can be rotated via env but no crypto-agility design exists. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/constants.ts:46",
+                "E2": "server/src/repositories/crypto.repository.ts:64"
+              }
             },
             {
               "Shortcode": "V11.2.3",
@@ -2568,7 +3221,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "All primitives meet the 128-bit bar: SHA-256 and HS256 (256-bit), bcrypt (adaptive, up to 72-byte passwords), CSPRNG tokens of 256-400 bits."
+              "Evidence": "All primitives meet the 128-bit bar: SHA-256 and HS256 (256-bit), bcrypt (adaptive, up to 72-byte passwords), CSPRNG tokens of 256-400 bits. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17",
+                "E2": "server/src/services/base.service.ts:372"
+              }
             },
             {
               "Shortcode": "V11.2.4",
@@ -2597,7 +3254,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No direct block-cipher usage in server code; only bcrypt (passwords) and SHA-256 (token hashing) are used, so no ECB mode or PKCS#1 v1.5 padding appears."
+              "Evidence": "No direct block-cipher usage in server code; only bcrypt (passwords) and SHA-256 (token hashing) are used, so no ECB mode or PKCS#1 v1.5 padding appears. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17"
+              }
             },
             {
               "Shortcode": "V11.3.2",
@@ -2607,7 +3267,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No bulk encryption is implemented in application code; at-rest encryption is delegated to the database/storage layer, and the only crypto primitives used are bcrypt and SHA-256."
+              "Evidence": "No bulk encryption is implemented in application code; at-rest encryption is delegated to the database/storage layer, and the only crypto primitives used are bcrypt and SHA-256. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17"
+              }
             },
             {
               "Shortcode": "V11.3.3",
@@ -2617,7 +3280,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "The application does not encrypt data at the application layer; at-rest encryption is delegated to the database/storage layer, so there is no app-level ciphertext to integrity-protect."
+              "Evidence": "The application does not encrypt data at the application layer; at-rest encryption is delegated to the database/storage layer, so there is no app-level ciphertext to integrity-protect. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/session.table.ts:21"
+              }
             },
             {
               "Shortcode": "V11.3.4",
@@ -2646,7 +3312,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "SHA-256 (token/session hashing) and bcrypt are the only security hashes; SHA-1 is used solely for asset dedup checksums, a non-security purpose."
+              "Evidence": "SHA-256 (token/session hashing) and bcrypt are the only security hashes; SHA-1 is used solely for asset dedup checksums, a non-security purpose. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17",
+                "E2": "server/src/services/auth.service.ts:554"
+              }
             },
             {
               "Shortcode": "V11.4.2",
@@ -2656,7 +3326,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Passwords and PIN codes are hashed with bcrypt at cost 10 (SALT_ROUNDS in constants.ts, hashBcrypt in crypto.repository.ts); an approved password-hashing function, though 10 is the lower bound of current guidance. Asserted in auth/user service specs."
+              "Evidence": "Passwords and PIN codes are hashed with bcrypt at cost 10 (SALT_ROUNDS in constants.ts, hashBcrypt in crypto.repository.ts); an approved password-hashing function, though 10 is the lower bound of current guidance. Asserted in auth/user service specs. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/constants.ts:46",
+                "E2": "server/src/repositories/crypto.repository.ts:17",
+                "E3": "server/src/services/auth.service.spec.ts:93"
+              }
             },
             {
               "Shortcode": "V11.4.3",
@@ -2666,7 +3341,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "SHA-256 (256-bit) is used for token hashing and integrity; bcrypt (with salt) for passwords. SHA-1 appears only for non-security asset checksums."
+              "Evidence": "SHA-256 (256-bit) is used for token hashing and integrity; bcrypt (with salt) for passwords. SHA-1 appears only for non-security asset checksums. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17",
+                "E2": "server/src/services/auth.service.ts:554"
+              }
             },
             {
               "Shortcode": "V11.4.4",
@@ -2676,7 +3355,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No secret keys are derived from passwords; the only password-based derivations are bcrypt hashes for storage (PIN codes likewise), which is the approved use."
+              "Evidence": "No secret keys are derived from passwords; the only password-based derivations are bcrypt hashes for storage (PIN codes likewise), which is the approved use. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:17"
+              }
             }
           ]
         },
@@ -2693,7 +3375,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "All security-relevant random values use node crypto CSPRNG with at least 128 bits (session/API keys 32 bytes, shared-link keys 50 bytes, OAuth state/verifier); UUIDs are used only for entity identifiers, not as secrets."
+              "Evidence": "All security-relevant random values use node crypto CSPRNG with at least 128 bits (session/API keys 32 bytes, shared-link keys 50 bytes, OAuth state/verifier); UUIDs are used only for entity identifiers, not as secrets. See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/services/base.service.ts:372",
+                "E2": "server/src/services/shared-link.service.ts:94",
+                "E3": "server/src/services/api-key.service.ts:13"
+              }
             },
             {
               "Shortcode": "V11.5.2",
@@ -2716,7 +3403,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Only HS256 JWTs with env-provided secrets and pinned RSA public keys for license verification are used; no key generation is performed in application code."
+              "Evidence": "Only HS256 JWTs with env-provided secrets and pinned RSA public keys for license verification are used; no key generation is performed in application code. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/crypto.repository.ts:64"
+              }
             },
             {
               "Shortcode": "V11.6.2",
@@ -2766,7 +3456,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "The application itself listens on plain HTTP; TLS protocol versions and preference are determined by the reverse proxy / deployment environment, which the docs require but the app neither enforces nor tests."
+              "Evidence": "The application itself listens on plain HTTP; TLS protocol versions and preference are determined by the reverse proxy / deployment environment, which the docs require but the app neither enforces nor tests. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:41",
+                "E2": "docs/docs/administration/reverse-proxy.md:1"
+              }
             },
             {
               "Shortcode": "V12.1.2",
@@ -2776,7 +3470,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Cipher suite selection is a reverse-proxy/deployment concern; the app does not terminate TLS and pins no cipher suites."
+              "Evidence": "Cipher suite selection is a reverse-proxy/deployment concern; the app does not terminate TLS and pins no cipher suites. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:41"
+              }
             },
             {
               "Shortcode": "V12.1.3",
@@ -2786,7 +3483,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "mTLS client-certificate authentication is not used anywhere in the application or its documented deployments."
+              "Evidence": "mTLS client-certificate authentication is not used anywhere in the application or its documented deployments. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V12.1.4",
@@ -2815,7 +3515,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "No TLS code or HTTP->HTTPS fallback exists in the app; secure transport is a deployment responsibility (reverse proxy per docs/docs/install). Cookies are marked Secure only when the incoming connection is trusted as secure."
+              "Evidence": "No TLS code or HTTP->HTTPS fallback exists in the app; secure transport is a deployment responsibility (reverse proxy per docs/docs/install). Cookies are marked Secure only when the incoming connection is trusted as secure. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:47",
+                "E2": "docs/docs/administration/reverse-proxy.md:1"
+              }
             },
             {
               "Shortcode": "V12.2.2",
@@ -2825,7 +3529,10 @@
               "Applicability": "partial",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Certificate issuance/trust is entirely outside the codebase (self-hosted deployments choose their own reverse proxy certificates); not verifiable from the project."
+              "Evidence": "Certificate issuance/trust is entirely outside the codebase (self-hosted deployments choose their own reverse proxy certificates); not verifiable from the project. See [E1].",
+              "evidence_references": {
+                "E1": "docs/docs/administration/reverse-proxy.md:1"
+              }
             }
           ]
         },
@@ -2842,7 +3549,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Postgres supports configurable sslmode (DB_SSL_MODE), but Redis and the ML service are reached over plain HTTP/TCP on the internal Docker network by default; no end-to-end encryption policy exists."
+              "Evidence": "Postgres supports configurable sslmode (DB_SSL_MODE), but Redis and the ML service are reached over plain HTTP/TCP on the internal Docker network by default; no end-to-end encryption policy exists. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:277",
+                "E2": "server/src/repositories/app.repository.ts:3"
+              }
             },
             {
               "Shortcode": "V12.3.2",
@@ -2852,7 +3563,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Outbound TLS validation is delegated: node fetch validates certificates for https endpoints (version check, IdP metadata); the DB sslmode default does not enforce certificate validation."
+              "Evidence": "Outbound TLS validation is delegated: node fetch validates certificates for https endpoints (version check, IdP metadata); the DB sslmode default does not enforce certificate validation. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:277"
+              }
             },
             {
               "Shortcode": "V12.3.3",
@@ -2862,7 +3576,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Internal HTTP-based services (ML server, Redis, Postgres) communicate unencrypted on the container network by default; TLS is not configured between them."
+              "Evidence": "Internal HTTP-based services (ML server, Redis, Postgres) communicate unencrypted on the container network by default; TLS is not configured between them. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/app.repository.ts:3"
+              }
             },
             {
               "Shortcode": "V12.3.4",
@@ -2872,7 +3589,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No internal TLS trust configuration exists (no internal CA or pinned self-signed certificates); internal traffic is plaintext by default."
+              "Evidence": "No internal TLS trust configuration exists (no internal CA or pinned self-signed certificates); internal traffic is plaintext by default. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/app.repository.ts:3"
+              }
             },
             {
               "Shortcode": "V12.3.5",
@@ -2903,7 +3623,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "docs describe the deployment architecture (Postgres, Redis, ML server, reverse proxy, map tiles/version-check endpoints), but there is no complete, consolidated communication inventory."
+              "Evidence": "docs describe the deployment architecture (Postgres, Redis, ML server, reverse proxy, map tiles/version-check endpoints), but there is no complete, consolidated communication inventory. See [E1, E2].",
+              "evidence_references": {
+                "E1": "docs/docs/install/docker-compose.mdx:1",
+                "E2": "docs/docs/developer/architecture.mdx:1"
+              }
             },
             {
               "Shortcode": "V13.1.2",
@@ -2938,7 +3662,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Backend services authenticate with individual credentials: Postgres/Redis use credentials from environment variables per deployment; however these are static shared passwords rather than short-term tokens or certificates."
+              "Evidence": "Backend services authenticate with individual credentials: Postgres/Redis use credentials from environment variables per deployment; however these are static shared passwords rather than short-term tokens or certificates. See [E1, E2].",
+              "evidence_references": {
+                "E1": "docker/example.env:17",
+                "E2": "server/src/repositories/config.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V13.2.2",
@@ -2948,7 +3676,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "The application uses a single DB owner account (needed for migrations) rather than least-privilege per-service accounts; Redis access is unprivileged."
+              "Evidence": "The application uses a single DB owner account (needed for migrations) rather than least-privilege per-service accounts; Redis access is unprivileged. See [E1].",
+              "evidence_references": {
+                "E1": "docker/example.env:17"
+              }
             },
             {
               "Shortcode": "V13.2.3",
@@ -2958,7 +3689,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No default credentials are compiled in or shipped: docker-compose requires DB/Redis passwords via environment variables; example env files contain placeholders, not working credentials."
+              "Evidence": "No default credentials are compiled in or shipped: docker-compose requires DB/Redis passwords via environment variables; example env files contain placeholders, not working credentials. See [E1].",
+              "evidence_references": {
+                "E1": "docker/example.env:17"
+              }
             },
             {
               "Shortcode": "V13.2.4",
@@ -2968,7 +3702,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No outbound allowlist exists; the server fetches admin-configured URLs (ML endpoint, map/reverse-geocode URLs, OAuth issuer) without allowlist validation."
+              "Evidence": "No outbound allowlist exists; the server fetches admin-configured URLs (ML endpoint, map/reverse-geocode URLs, OAuth issuer) without allowlist validation. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/workflow-execution.service.ts:97",
+                "E2": "server/src/repositories/config.repository.ts:108"
+              }
             },
             {
               "Shortcode": "V13.2.5",
@@ -2978,7 +3716,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No allowlist restricts outbound destinations at the application layer; only fixed constants (version check) and admin-configured URLs are fetched."
+              "Evidence": "No allowlist restricts outbound destinations at the application layer; only fixed constants (version check) and admin-configured URLs are fetched. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/config.repository.ts:108"
+              }
             },
             {
               "Shortcode": "V13.2.6",
@@ -3001,7 +3742,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Secrets are supplied via environment variables (no secrets in source code or build artifacts); there is no vault/KMS integration, and JWT/OAuth secrets are long-lived shared secrets."
+              "Evidence": "Secrets are supplied via environment variables (no secrets in source code or build artifacts); there is no vault/KMS integration, and JWT/OAuth secrets are long-lived shared secrets. See [E1, E2].",
+              "evidence_references": {
+                "E1": "docker/example.env:1",
+                "E2": "server/src/repositories/config.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V13.3.2",
@@ -3011,7 +3756,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Access to secrets is limited to the server process/container (env vars, docker secrets pattern), but no formal least-privilege access model for secret assets is documented or enforced."
+              "Evidence": "Access to secrets is limited to the server process/container (env vars, docker secrets pattern), but no formal least-privilege access model for secret assets is documented or enforced. See [E1].",
+              "evidence_references": {
+                "E1": "docker/example.env:1"
+              }
             },
             {
               "Shortcode": "V13.3.3",
@@ -3040,7 +3788,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "The production Docker image COPYs only source directories and build outputs (server/Dockerfile); .git/.svn metadata is never copied into the image."
+              "Evidence": "The production Docker image COPYs only source directories and build outputs (server/Dockerfile); .git/.svn metadata is never copied into the image. See [E1].",
+              "evidence_references": {
+                "E1": "server/Dockerfile:14"
+              }
             },
             {
               "Shortcode": "V13.4.2",
@@ -3050,7 +3801,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Production mode disables dev CORS and Swagger spec writing, and log levels are configurable; however the Swagger UI remains mounted in production unless disabled, and debug logging can be enabled via env."
+              "Evidence": "Production mode disables dev CORS and Swagger spec writing, and log levels are configurable; however the Swagger UI remains mounted in production unless disabled, and debug logging can be enabled via env. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:59",
+                "E2": "server/src/app.common.ts:66"
+              }
             },
             {
               "Shortcode": "V13.4.3",
@@ -3060,7 +3815,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Static file serving uses sirv without directory listings (app.common.ts); only built assets and API routes are reachable."
+              "Evidence": "Static file serving uses sirv without directory listings (app.common.ts); only built assets and API routes are reachable. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:7"
+              }
             },
             {
               "Shortcode": "V13.4.4",
@@ -3070,7 +3828,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "Node's HTTP server does not implement the TRACE method; such requests are rejected (404) by Express in all environments."
+              "Evidence": "Node's HTTP server does not implement the TRACE method; such requests are rejected (404) by Express in all environments. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:41"
+              }
             },
             {
               "Shortcode": "V13.4.5",
@@ -3080,7 +3841,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Monitoring endpoints are opt-in: the /api/metrics endpoint requires telemetry to be enabled via env; however Swagger/OpenAPI documentation endpoints are exposed on the public API in production."
+              "Evidence": "Monitoring endpoints are opt-in: the /api/metrics endpoint requires telemetry to be enabled via env; however Swagger/OpenAPI documentation endpoints are exposed on the public API in production. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/telemetry.repository.ts:3",
+                "E2": "server/src/app.common.ts:66"
+              }
             },
             {
               "Shortcode": "V13.4.6",
@@ -3117,7 +3882,11 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No data classification or protection-level inventory exists for sensitive data (photos, tokens, user PII)."
+              "Evidence": "No data classification or protection-level inventory exists for sensitive data (photos, tokens, user PII). See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:1",
+                "E2": "server/src/schema/tables/session.table.ts:21"
+              }
             },
             {
               "Shortcode": "V14.1.2",
@@ -3127,7 +3896,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No documented protection requirements per data class (encryption, retention, logging rules) exist."
+              "Evidence": "No documented protection requirements per data class (encryption, retention, logging rules) exist. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:1"
+              }
             }
           ]
         },
@@ -3144,7 +3916,12 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Session tokens travel in HttpOnly cookies or the Authorization header, API keys in x-api-key; however shared-link keys are secrets embedded in URLs by design (web/src/routes/(user)/share/[key])."
+              "Evidence": "Session tokens travel in HttpOnly cookies or the Authorization header, API keys in x-api-key; however shared-link keys are secrets embedded in URLs by design (web/src/routes/(user)/share/[key]). See [E1, E2, E3].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:42",
+                "E2": "server/src/services/api-key.service.ts:13",
+                "E3": "web/src/routes/(user)/share/[key]/[[photos=photos]]/[[assetId=id]]/+page.svelte:1"
+              }
             },
             {
               "Shortcode": "V14.2.2",
@@ -3154,7 +3931,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "API responses use private/no-cache Cache-Control for originals and thumbnails (server/src/utils/file.ts), limiting intermediary caching; the compression middleware still processes all responses and shared CDNs are a deployment concern."
+              "Evidence": "API responses use private/no-cache Cache-Control for originals and thumbnails (server/src/utils/file.ts), limiting intermediary caching; the compression middleware still processes all responses and shared CDNs are a deployment concern. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/utils/file.ts:40"
+              }
             },
             {
               "Shortcode": "V14.2.3",
@@ -3164,7 +3944,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "No third-party trackers or analytics are embedded; the optional telemetry feature (version check, anonymous metrics) is opt-in and documented."
+              "Evidence": "No third-party trackers or analytics are embedded; the optional telemetry feature (version check, anonymous metrics) is opt-in and documented. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/telemetry.repository.ts:3"
+              }
             },
             {
               "Shortcode": "V14.2.4",
@@ -3174,7 +3957,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No per-protection-level control implementation exists because no protection levels are defined."
+              "Evidence": "No per-protection-level control implementation exists because no protection levels are defined. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/schema/tables/user.table.ts:1"
+              }
             },
             {
               "Shortcode": "V14.2.5",
@@ -3215,7 +4001,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Logout clears auth cookies and deletes the server session; the web app clears its local state on logout. No Clear-Site-Data header is sent and offline cleanup is not guaranteed."
+              "Evidence": "Logout clears auth cookies and deletes the server session; the web app clears its local state on logout. No Clear-Site-Data header is sent and offline cleanup is not guaranteed. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:79",
+                "E2": "server/src/utils/response.ts:42"
+              }
             },
             {
               "Shortcode": "V14.3.2",
@@ -3225,7 +4015,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Originals are served with 'private, no-cache, no-transform' and thumbnails with 'private, max-age...' (cacheControlHeaders in server/src/utils/file.ts); responses are not marked no-store across the API."
+              "Evidence": "Originals are served with 'private, no-cache, no-transform' and thumbnails with 'private, max-age...' (cacheControlHeaders in server/src/utils/file.ts); responses are not marked no-store across the API. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/file.ts:43",
+                "E2": "server/src/utils/file.ts:42"
+              }
             },
             {
               "Shortcode": "V14.3.3",
@@ -3235,7 +4029,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Browser storage contains only UI preferences (search query type, scroll position); session tokens live in HttpOnly cookies, and the non-HttpOnly isAuthenticated cookie only signals auth state."
+              "Evidence": "Browser storage contains only UI preferences (search query type, scroll position); session tokens live in HttpOnly cookies, and the non-HttpOnly isAuthenticated cookie only signals auth state. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/utils/response.ts:42",
+                "E2": "server/src/enum.ts:20"
+              }
             }
           ]
         }
@@ -3260,7 +4058,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No documentation defines risk-based remediation time frames for vulnerable dependencies; renovate.json automates update PRs but has no security-timeframe policy."
+              "Evidence": "No documentation defines risk-based remediation time frames for vulnerable dependencies; renovate.json automates update PRs but has no security-timeframe policy. See [E1].",
+              "evidence_references": {
+                "E1": "renovate.json:1"
+              }
             },
             {
               "Shortcode": "V15.1.2",
@@ -3270,7 +4071,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No SBOM is maintained in the repository; dependency tracking relies on lockfiles and GitHub's dependency graph."
+              "Evidence": "No SBOM is maintained in the repository; dependency tracking relies on lockfiles and GitHub's dependency graph. See [E1].",
+              "evidence_references": {
+                "E1": "server/package.json:1"
+              }
             },
             {
               "Shortcode": "V15.1.3",
@@ -3280,7 +4084,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "docs describe hardware transcoding and job queues at a high level, but there is no documentation identifying resource-demanding functionality and defenses against availability loss."
+              "Evidence": "docs describe hardware transcoding and job queues at a high level, but there is no documentation identifying resource-demanding functionality and defenses against availability loss. See [E1].",
+              "evidence_references": {
+                "E1": "docs/docs/administration/jobs-workers.md:1"
+              }
             },
             {
               "Shortcode": "V15.1.4",
@@ -3309,7 +4116,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Renovate continuously updates dependencies, but there is no policy or verification that components stay within defined remediation time frames."
+              "Evidence": "Renovate continuously updates dependencies, but there is no policy or verification that components stay within defined remediation time frames. See [E1].",
+              "evidence_references": {
+                "E1": "renovate.json:1"
+              }
             },
             {
               "Shortcode": "V15.2.2",
@@ -3319,7 +4129,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Heavy work (thumbnailing, transcoding, ML) runs asynchronously through BullMQ job queues with per-queue concurrency limits and job deduplication; upload/download streams are throttled by backpressure. Covered partially by job service specs."
+              "Evidence": "Heavy work (thumbnailing, transcoding, ML) runs asynchronously through BullMQ job queues with per-queue concurrency limits and job deduplication; upload/download streams are throttled by backpressure. Covered partially by job service specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/job.repository.ts:147",
+                "E2": "server/src/repositories/job.repository.ts:97"
+              }
             },
             {
               "Shortcode": "V15.2.3",
@@ -3329,7 +4143,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Dev-only behavior is gated behind isDev() (CORS, swagger writing); the production image contains only built server/web artifacts, but the Swagger UI remains exposed in production."
+              "Evidence": "Dev-only behavior is gated behind isDev() (CORS, swagger writing); the production image contains only built server/web artifacts, but the Swagger UI remains exposed in production. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:59",
+                "E2": "server/src/app.common.ts:66"
+              }
             },
             {
               "Shortcode": "V15.2.4",
@@ -3358,7 +4176,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "API responses are produced by explicit DTO mappers that whitelist fields (mapUser/mapUserAdmin never include password hashes); response shapes asserted in service and controller specs."
+              "Evidence": "API responses are produced by explicit DTO mappers that whitelist fields (mapUser/mapUserAdmin never include password hashes); response shapes asserted in service and controller specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/dtos/user.dto.ts:53",
+                "E2": "server/src/dtos/user.dto.ts:134"
+              }
             },
             {
               "Shortcode": "V15.3.2",
@@ -3368,7 +4190,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Outbound fetches (version check, ML ping, OAuth metadata/JWKS) use default redirect-following; the URLs are fixed constants or admin-configured, which limits but does not eliminate redirect-based SSRF."
+              "Evidence": "Outbound fetches (version check, ML ping, OAuth metadata/JWKS) use default redirect-following; the URLs are fixed constants or admin-configured, which limits but does not eliminate redirect-based SSRF. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/workflow-execution.service.ts:97"
+              }
             },
             {
               "Shortcode": "V15.3.3",
@@ -3378,7 +4203,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "All write endpoints accept zod DTOs that strip unknown keys; entity updates map only whitelisted fields, so mass assignment of unintended fields is not possible. Covered by validation and service specs."
+              "Evidence": "All write endpoints accept zod DTOs that strip unknown keys; entity updates map only whitelisted fields, so mass assignment of unintended fields is not possible. Covered by validation and service specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:137",
+                "E2": "server/src/dtos/user.dto.ts:53"
+              }
             },
             {
               "Shortcode": "V15.3.4",
@@ -3388,7 +4217,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Express trust proxy is restricted to loopback + configured trustedProxies, so clientIp used for logging/security decisions comes only from trusted hops; covered by config repository specs."
+              "Evidence": "Express trust proxy is restricted to loopback + configured trustedProxies, so clientIp used for logging/security decisions comes only from trusted hops; covered by config repository specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/app.common.ts:47",
+                "E2": "server/src/repositories/config.repository.ts:362"
+              }
             },
             {
               "Shortcode": "V15.3.5",
@@ -3398,7 +4231,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "TypeScript with strict type checking and zod runtime validation enforces correct types; comparisons use strict equality consistently (lint-enforced) preventing type juggling."
+              "Evidence": "TypeScript with strict type checking and zod runtime validation enforces correct types; comparisons use strict equality consistently (lint-enforced) preventing type juggling. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:117"
+              }
             },
             {
               "Shortcode": "V15.3.6",
@@ -3408,7 +4244,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "User input is parsed into fresh objects by zod (no recursive merge of user-controlled keys into prototypes); no prototype-pollution-prone deep-merge utilities were found, though there is no explicit hardening test."
+              "Evidence": "User input is parsed into fresh objects by zod (no recursive merge of user-controlled keys into prototypes); no prototype-pollution-prone deep-merge utilities were found, though there is no explicit hardening test. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/validation.ts:137"
+              }
             },
             {
               "Shortcode": "V15.3.7",
@@ -3418,7 +4257,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Header extraction takes the first value deliberately (fromMaybeArray in utils/request.ts) and zod rejects unexpected duplicates for most inputs, but there is no systematic HTTP parameter pollution defense."
+              "Evidence": "Header extraction takes the first value deliberately (fromMaybeArray in utils/request.ts) and zod rejects unexpected duplicates for most inputs, but there is no systematic HTTP parameter pollution defense. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/utils/request.ts:8"
+              }
             }
           ]
         },
@@ -3474,7 +4316,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "No logging inventory exists; logging behavior (stdout/JSON, levels, telemetry) is only implicitly defined by the code and env variables."
+              "Evidence": "No logging inventory exists; logging behavior (stdout/JSON, levels, telemetry) is only implicitly defined by the code and env variables. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/logging.repository.ts:1"
+              }
             }
           ]
         },
@@ -3491,7 +4336,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Log entries include timestamp, severity, app context and a per-request correlation id via AsyncLocalStorage (logging.repository.ts, logging.interceptor.ts), but not the acting user or target resource in every entry."
+              "Evidence": "Log entries include timestamp, severity, app context and a per-request correlation id via AsyncLocalStorage (logging.repository.ts, logging.interceptor.ts), but not the acting user or target resource in every entry. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/logging.repository.ts:48",
+                "E2": "server/src/middleware/logging.interceptor.ts:1"
+              }
             },
             {
               "Shortcode": "V16.2.2",
@@ -3501,7 +4350,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Timestamps come from the host clock in ISO format; UTC usage is not enforced and time synchronization is a deployment concern."
+              "Evidence": "Timestamps come from the host clock in ISO format; UTC usage is not enforced and time synchronization is a deployment concern. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/logging.repository.ts:48"
+              }
             },
             {
               "Shortcode": "V16.2.3",
@@ -3511,7 +4363,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Logs go to stdout (optionally JSON) and optionally to OTLP telemetry endpoints; destinations are bounded by env config but not by a documented inventory."
+              "Evidence": "Logs go to stdout (optionally JSON) and optionally to OTLP telemetry endpoints; destinations are bounded by env config but not by a documented inventory. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/repositories/logging.repository.ts:1",
+                "E2": "server/src/repositories/telemetry.repository.ts:3"
+              }
             },
             {
               "Shortcode": "V16.2.4",
@@ -3521,7 +4377,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "no",
-              "Evidence": "A JSON log format is available (LogFormat json via env) and the console format is consistent, allowing correlation by log processors."
+              "Evidence": "A JSON log format is available (LogFormat json via env) and the console format is consistent, allowing correlation by log processors. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/logging.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V16.2.5",
@@ -3531,7 +4390,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Passwords/tokens are not logged by the logger, but user emails are logged on failed login (auth.service.ts warn) and no formal protection-level-based logging rules or redaction pipeline exist."
+              "Evidence": "Passwords/tokens are not logged by the logger, but user emails are logged on failed login (auth.service.ts warn) and no formal protection-level-based logging rules or redaction pipeline exist. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:72",
+                "E2": "server/src/repositories/logging.repository.ts:48"
+              }
             }
           ]
         },
@@ -3548,7 +4411,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Failed logins are logged with IP and email (auth.service.ts); successful logins create session rows (device/OS/IP recorded) rather than log lines; no factor metadata is logged. Partially covered by auth service specs."
+              "Evidence": "Failed logins are logged with IP and email (auth.service.ts); successful logins create session rows (device/OS/IP recorded) rather than log lines; no factor metadata is logged. Partially covered by auth service specs. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:72"
+              }
             },
             {
               "Shortcode": "V16.3.2",
@@ -3558,7 +4424,10 @@
               "Applicability": "yes",
               "Implemented": "no",
               "Tested": "no",
-              "Evidence": "Failed authorization attempts (403 from AuthGuard/access checks) are not systematically logged."
+              "Evidence": "Failed authorization attempts (403 from AuthGuard/access checks) are not systematically logged. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:114"
+              }
             },
             {
               "Shortcode": "V16.3.3",
@@ -3568,7 +4437,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Some security events are logged (failed logins, upload validation failures) but there is no defined security event list and bypass attempts (validation, anti-automation) are not logged."
+              "Evidence": "Some security events are logged (failed logins, upload validation failures) but there is no defined security event list and bypass attempts (validation, anti-automation) are not logged. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:72",
+                "E2": "server/src/middleware/file-upload.interceptor.ts:89"
+              }
             },
             {
               "Shortcode": "V16.3.4",
@@ -3578,7 +4451,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Unexpected errors are caught by the global exception filter and logged with stack traces (middleware/global-exception.filter.ts); job failures are logged via the job repository."
+              "Evidence": "Unexpected errors are caught by the global exception filter and logged with stack traces (middleware/global-exception.filter.ts); job failures are logged via the job repository. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/global-exception.filter.ts:19"
+              }
             }
           ]
         },
@@ -3595,7 +4471,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Log messages are built via template literals into structured entries; user-controlled values (e.g. email in login warnings) are included without encoding, so log injection via newlines is not fully prevented."
+              "Evidence": "Log messages are built via template literals into structured entries; user-controlled values (e.g. email in login warnings) are included without encoding, so log injection via newlines is not fully prevented. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/services/auth.service.ts:72",
+                "E2": "server/src/repositories/logging.repository.ts:48"
+              }
             },
             {
               "Shortcode": "V16.4.2",
@@ -3605,7 +4485,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Logs are written to container stdout with normal file permissions; protection against unauthorized access/modification is a deployment (Docker/host) concern, not enforced by the app."
+              "Evidence": "Logs are written to container stdout with normal file permissions; protection against unauthorized access/modification is a deployment (Docker/host) concern, not enforced by the app. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/logging.repository.ts:1"
+              }
             },
             {
               "Shortcode": "V16.4.3",
@@ -3615,7 +4498,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "no",
-              "Evidence": "Optional OTLP telemetry can ship signals to a separate collector (telemetry.repository.ts), but logs themselves are not transmitted to a separate system by default."
+              "Evidence": "Optional OTLP telemetry can ship signals to a separate collector (telemetry.repository.ts), but logs themselves are not transmitted to a separate system by default. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/telemetry.repository.ts:3"
+              }
             }
           ]
         },
@@ -3632,7 +4518,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The global exception filter maps errors to generic HTTP exceptions without stack traces or SQL; unhandled errors return a generic 500 message. Covered by error interceptor/filter specs."
+              "Evidence": "The global exception filter maps errors to generic HTTP exceptions without stack traces or SQL; unhandled errors return a generic 500 message. Covered by error interceptor/filter specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/global-exception.filter.ts:19",
+                "E2": "server/src/middleware/error.interceptor.ts:34"
+              }
             },
             {
               "Shortcode": "V16.5.2",
@@ -3642,7 +4532,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Failures of external resources (ML service, Redis, DB) are handled with retries/queue re-runs and logged errors rather than crashing, but there is no circuit-breaker pattern."
+              "Evidence": "Failures of external resources (ML service, Redis, DB) are handled with retries/queue re-runs and logged errors rather than crashing, but there is no circuit-breaker pattern. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/repositories/job.repository.ts:147"
+              }
             },
             {
               "Shortcode": "V16.5.3",
@@ -3652,7 +4545,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The app fails closed: AuthGuard throws on any validation error (no fail-open), zod validation rejects malformed input, and upload errors abort the pipeline; covered by guard and validation specs."
+              "Evidence": "The app fails closed: AuthGuard throws on any validation error (no fail-open), zod validation rejects malformed input, and upload errors abort the pipeline; covered by guard and validation specs. See [E1, E2].",
+              "evidence_references": {
+                "E1": "server/src/middleware/auth.guard.ts:102",
+                "E2": "server/src/validation.ts:137"
+              }
             },
             {
               "Shortcode": "V16.5.4",
@@ -3683,7 +4580,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No TURN service or NAT traversal exists; Immich does not use WebRTC."
+              "Evidence": "No TURN service or NAT traversal exists; Immich does not use WebRTC. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V17.1.2",
@@ -3706,7 +4606,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No DTLS/SRTP media server exists; streaming is done via HTTP(S) progressive download and HLS/DASH from the app server."
+              "Evidence": "No DTLS/SRTP media server exists; streaming is done via HTTP(S) progressive download and HLS/DASH from the app server. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V17.2.2",
@@ -3716,7 +4619,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No DTLS-SRTP media server exists in the stack."
+              "Evidence": "No DTLS-SRTP media server exists in the stack. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V17.2.3",
@@ -3726,7 +4632,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No SRTP streams are processed by the application."
+              "Evidence": "No SRTP streams are processed by the application. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V17.2.4",
@@ -3736,7 +4645,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No SRTP packets are handled by the application."
+              "Evidence": "No SRTP packets are handled by the application. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V17.2.5",
@@ -3777,7 +4689,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No WebRTC signaling server exists (socket.io is used for app notifications, not media signaling)."
+              "Evidence": "No WebRTC signaling server exists (socket.io is used for app notifications, not media signaling). See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             },
             {
               "Shortcode": "V17.3.2",
@@ -3787,7 +4702,10 @@
               "Applicability": "no",
               "Implemented": "n/a",
               "Tested": "n/a",
-              "Evidence": "No WebRTC signaling messages are processed by the application."
+              "Evidence": "No WebRTC signaling messages are processed by the application. See [E1].",
+              "evidence_references": {
+                "E1": "server/src/middleware/websocket.adapter.ts:13"
+              }
             }
           ]
         }
