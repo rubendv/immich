@@ -1,0 +1,5688 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:01acb651-a1ae-4024-89be-3974909f8574",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-12T13:39:20.746154+00:00",
+  "component": {
+   "type": "application",
+   "name": "immich",
+   "version": "3.4.0-rc.0",
+   "purl": "pkg:github/rubendv/immich"
+  },
+  "tools": [
+   {
+    "vendor": "immich",
+    "name": "sbom-from-lockfiles"
+   }
+  ],
+  "properties": [
+   {
+    "name": "immich:sbom:scope",
+    "value": "direct (top-level) dependencies only, resolved versions from lockfiles"
+   },
+   {
+    "name": "immich:sbom:inputs",
+    "value": "pnpm-lock.yaml, machine-learning/uv.lock, native/Cargo.lock, mobile/pubspec.yaml"
+   }
+  ]
+ },
+ "components": [
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "."
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier-plugin-sort-json",
+   "version": "4.2.0(prettier@3.9.10)",
+   "purl": "pkg:npm/prettier-plugin-sort-json@4.2.0(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "."
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": ".github"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/core",
+   "version": "3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "purl": "pkg:npm/@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/preset-classic",
+   "version": "3.10.2(@algolia/client-search@5.56.0)(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@types/react@19.3.0)(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(search-insights@2.17.3)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "purl": "pkg:npm/@docusaurus/preset-classic@3.10.2(@algolia/client-search@5.56.0)(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@types/react@19.3.0)(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(search-insights@2.17.3)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/theme-common",
+   "version": "3.10.2(@docusaurus/plugin-content-docs@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3))(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "purl": "pkg:npm/@docusaurus/theme-common@3.10.2(@docusaurus/plugin-content-docs@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3))(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/theme-mermaid",
+   "version": "3.10.2(@docusaurus/plugin-content-docs@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "purl": "pkg:npm/@docusaurus/theme-mermaid@3.10.2(@docusaurus/plugin-content-docs@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@mdi/js",
+   "version": "7.4.47",
+   "purl": "pkg:npm/@mdi/js@7.4.47",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@mdi/react",
+   "version": "1.6.1",
+   "purl": "pkg:npm/@mdi/react@1.6.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@mdx-js/react",
+   "version": "3.1.1(@types/react@19.3.0)(react@19.3.1)",
+   "purl": "pkg:npm/@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "autoprefixer",
+   "version": "10.6.2(postcss@8.5.32)",
+   "purl": "pkg:npm/autoprefixer@10.6.2(postcss@8.5.32)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "docusaurus-lunr-search",
+   "version": "3.6.0(@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)",
+   "purl": "pkg:npm/docusaurus-lunr-search@3.6.0(@docusaurus/core@3.10.2(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.1))(@swc/core@1.16.20(@swc/helpers@0.5.23))(@typescript/typescript6@6.0.2)(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(debug@4.4.3(supports-color@8.1.1))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "lunr",
+   "version": "2.3.9",
+   "purl": "pkg:npm/lunr@2.3.9",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "postcss",
+   "version": "8.5.32",
+   "purl": "pkg:npm/postcss@8.5.32",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prism-react-renderer",
+   "version": "2.4.1(react@19.3.1)",
+   "purl": "pkg:npm/prism-react-renderer@2.4.1(react@19.3.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "raw-loader",
+   "version": "4.0.2(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3))",
+   "purl": "pkg:npm/raw-loader@4.0.2(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "react",
+   "version": "19.3.1",
+   "purl": "pkg:npm/react@19.3.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "react-dom",
+   "version": "19.3.1(react@19.3.1)",
+   "purl": "pkg:npm/react-dom@19.3.1(react@19.3.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tailwindcss",
+   "version": "3.4.19(tsx@4.23.15)(yaml@2.9.1)",
+   "purl": "pkg:npm/tailwindcss@3.4.19(tsx@4.23.15)(yaml@2.9.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "url",
+   "version": "0.11.4",
+   "purl": "pkg:npm/url@0.11.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/module-type-aliases",
+   "version": "3.10.2(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "purl": "pkg:npm/@docusaurus/module-type-aliases@3.10.2(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/tsconfig",
+   "version": "3.10.2",
+   "purl": "pkg:npm/@docusaurus/tsconfig@3.10.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@docusaurus/types",
+   "version": "3.10.2(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "purl": "pkg:npm/@docusaurus/types@3.10.2(@swc/core@1.16.20(@swc/helpers@0.5.23))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.32))(csso@5.0.5)(esbuild@0.28.2)(html-minifier-terser@7.2.0)(lightningcss@1.33.0)(postcss@8.5.32)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)(uglify-js@3.19.3)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@typescript/native",
+   "version": "typescript@7.0.2",
+   "purl": "pkg:npm/@typescript/native@typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "@typescript/typescript6@6.0.2",
+   "purl": "pkg:npm/typescript@@typescript/typescript6@6.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "docs"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@eslint/js",
+   "version": "10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/@eslint/js@10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@futo-org/backups-orchestrator-ui",
+   "version": "1.12.1(@immich/ui@0.90.0(@sveltejs/kit@2.70.3(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(@lingui/cli@6.10.1(esbuild@0.28.2)(rolldown@1.2.15)(supports-color@8.1.1))(@typescript/typescript6@6.0.2)(supports-color@8.1.1)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/@futo-org/backups-orchestrator-ui@1.12.1(@immich/ui@0.90.0(@sveltejs/kit@2.70.3(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(@lingui/cli@6.10.1(esbuild@0.28.2)(rolldown@1.2.15)(supports-color@8.1.1))(@typescript/typescript6@6.0.2)(supports-color@8.1.1)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/cli",
+   "version": "link:../packages/cli",
+   "purl": "pkg:npm/@immich/cli@link:../packages/cli",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/e2e-auth-server",
+   "version": "link:../packages/e2e-auth-server",
+   "purl": "pkg:npm/@immich/e2e-auth-server@link:../packages/e2e-auth-server",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/sdk",
+   "version": "link:../packages/sdk",
+   "purl": "pkg:npm/@immich/sdk@link:../packages/sdk",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@playwright/test",
+   "version": "1.64.1",
+   "purl": "pkg:npm/@playwright/test@1.64.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@socket.io/component-emitter",
+   "version": "3.1.2",
+   "purl": "pkg:npm/@socket.io/component-emitter@3.1.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/luxon",
+   "version": "3.7.6",
+   "purl": "pkg:npm/@types/luxon@3.7.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/pg",
+   "version": "8.23.1",
+   "purl": "pkg:npm/@types/pg@8.23.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/pngjs",
+   "version": "6.0.5",
+   "purl": "pkg:npm/@types/pngjs@6.0.5",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/supertest",
+   "version": "7.2.1",
+   "purl": "pkg:npm/@types/supertest@7.2.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@typescript/native",
+   "version": "typescript@7.0.2",
+   "purl": "pkg:npm/@typescript/native@typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "dotenv",
+   "version": "18.0.9",
+   "purl": "pkg:npm/dotenv@18.0.9",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint",
+   "version": "10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-config-prettier",
+   "version": "10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-prettier",
+   "version": "5.5.7(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.10)",
+   "purl": "pkg:npm/eslint-plugin-prettier@5.5.7(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-unicorn",
+   "version": "78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint-plugin-unicorn@78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "exiftool-vendored",
+   "version": "39.0.1",
+   "purl": "pkg:npm/exiftool-vendored@39.0.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "globals",
+   "version": "17.13.0",
+   "purl": "pkg:npm/globals@17.13.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "luxon",
+   "version": "3.7.2",
+   "purl": "pkg:npm/luxon@3.7.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pg",
+   "version": "8.23.1",
+   "purl": "pkg:npm/pg@8.23.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pngjs",
+   "version": "7.0.0",
+   "purl": "pkg:npm/pngjs@7.0.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier-plugin-organize-imports",
+   "version": "4.3.0(@typescript/typescript6@6.0.2)(prettier@3.9.10)",
+   "purl": "pkg:npm/prettier-plugin-organize-imports@4.3.0(@typescript/typescript6@6.0.2)(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "socket.io-client",
+   "version": "4.8.4(supports-color@8.1.1)",
+   "purl": "pkg:npm/socket.io-client@4.8.4(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "supertest",
+   "version": "7.3.1(supports-color@8.1.1)",
+   "purl": "pkg:npm/supertest@7.3.1(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "@typescript/typescript6@6.0.2",
+   "purl": "pkg:npm/typescript@@typescript/typescript6@6.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript-eslint",
+   "version": "8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/typescript-eslint@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "utimes",
+   "version": "5.2.1(supports-color@8.1.1)",
+   "purl": "pkg:npm/utimes@5.2.1(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vitest",
+   "version": "5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/vitest@5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "e2e"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "chokidar",
+   "version": "6.0.0",
+   "purl": "pkg:npm/chokidar@6.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fast-glob",
+   "version": "3.3.3",
+   "purl": "pkg:npm/fast-glob@3.3.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fastq",
+   "version": "1.20.3",
+   "purl": "pkg:npm/fastq@1.20.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "lodash-es",
+   "version": "4.18.1",
+   "purl": "pkg:npm/lodash-es@4.18.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "micromatch",
+   "version": "4.0.8",
+   "purl": "pkg:npm/micromatch@4.0.8",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "semver",
+   "version": "7.8.5",
+   "purl": "pkg:npm/semver@7.8.5",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@eslint/js",
+   "version": "10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/@eslint/js@10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/sdk",
+   "version": "link:../sdk",
+   "purl": "pkg:npm/@immich/sdk@link:../sdk",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/byte-size",
+   "version": "8.1.2",
+   "purl": "pkg:npm/@types/byte-size@8.1.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/cli-progress",
+   "version": "3.11.6",
+   "purl": "pkg:npm/@types/cli-progress@3.11.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/lodash-es",
+   "version": "4.17.12",
+   "purl": "pkg:npm/@types/lodash-es@4.17.12",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/micromatch",
+   "version": "4.0.10",
+   "purl": "pkg:npm/@types/micromatch@4.0.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/mock-fs",
+   "version": "4.13.4",
+   "purl": "pkg:npm/@types/mock-fs@4.13.4",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@typescript/native",
+   "version": "typescript@7.0.2",
+   "purl": "pkg:npm/@typescript/native@typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@vitest/coverage-v8",
+   "version": "5.0.5(vitest@5.0.5)",
+   "purl": "pkg:npm/@vitest/coverage-v8@5.0.5(vitest@5.0.5)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "byte-size",
+   "version": "9.0.2",
+   "purl": "pkg:npm/byte-size@9.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "cli-progress",
+   "version": "3.12.0",
+   "purl": "pkg:npm/cli-progress@3.12.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "commander",
+   "version": "15.0.0",
+   "purl": "pkg:npm/commander@15.0.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint",
+   "version": "10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-config-prettier",
+   "version": "10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-prettier",
+   "version": "5.5.7(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.10)",
+   "purl": "pkg:npm/eslint-plugin-prettier@5.5.7(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-unicorn",
+   "version": "78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint-plugin-unicorn@78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "globals",
+   "version": "17.13.0",
+   "purl": "pkg:npm/globals@17.13.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "mock-fs",
+   "version": "5.5.0",
+   "purl": "pkg:npm/mock-fs@5.5.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier-plugin-organize-imports",
+   "version": "4.3.0(@typescript/typescript6@6.0.2)(prettier@3.9.10)",
+   "purl": "pkg:npm/prettier-plugin-organize-imports@4.3.0(@typescript/typescript6@6.0.2)(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "@typescript/typescript6@6.0.2",
+   "purl": "pkg:npm/typescript@@typescript/typescript6@6.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript-eslint",
+   "version": "8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/typescript-eslint@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vite",
+   "version": "8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)",
+   "purl": "pkg:npm/vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vitest",
+   "version": "5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/vitest@5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vitest-fetch-mock",
+   "version": "0.4.5(vitest@5.0.5)",
+   "purl": "pkg:npm/vitest-fetch-mock@0.4.5(vitest@5.0.5)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "yaml",
+   "version": "2.9.1",
+   "purl": "pkg:npm/yaml@2.9.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/cli"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/oidc-provider",
+   "version": "9.13.0",
+   "purl": "pkg:npm/@types/oidc-provider@9.13.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/e2e-auth-server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "jose",
+   "version": "6.2.13",
+   "purl": "pkg:npm/jose@6.2.13",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/e2e-auth-server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "oidc-provider",
+   "version": "9.13.2(supports-color@8.1.1)",
+   "purl": "pkg:npm/oidc-provider@9.13.2(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/e2e-auth-server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tsx",
+   "version": "4.23.15",
+   "purl": "pkg:npm/tsx@4.23.15",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/e2e-auth-server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@extism/js-pdk",
+   "version": "1.1.1",
+   "purl": "pkg:npm/@extism/js-pdk@1.1.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-core"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/plugin-sdk",
+   "version": "link:../plugin-sdk",
+   "purl": "pkg:npm/@immich/plugin-sdk@link:../plugin-sdk",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-core"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/sdk",
+   "version": "link:../sdk",
+   "purl": "pkg:npm/@immich/sdk@link:../sdk",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-core"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "esbuild",
+   "version": "0.28.2",
+   "purl": "pkg:npm/esbuild@0.28.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-core"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "7.0.2",
+   "purl": "pkg:npm/typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-core"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "commander",
+   "version": "15.0.0",
+   "purl": "pkg:npm/commander@15.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@extism/js-pdk",
+   "version": "1.1.1",
+   "purl": "pkg:npm/@extism/js-pdk@1.1.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/sdk",
+   "version": "link:../sdk",
+   "purl": "pkg:npm/@immich/sdk@link:../sdk",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "esbuild",
+   "version": "0.28.2",
+   "purl": "pkg:npm/esbuild@0.28.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tsc-alias",
+   "version": "1.9.9",
+   "purl": "pkg:npm/tsc-alias@1.9.9",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "7.0.2",
+   "purl": "pkg:npm/typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/plugin-sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "commander",
+   "version": "15.0.0",
+   "purl": "pkg:npm/commander@15.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "semver",
+   "version": "7.8.5",
+   "purl": "pkg:npm/semver@7.8.5",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "yaml",
+   "version": "2.9.1",
+   "purl": "pkg:npm/yaml@2.9.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/semver",
+   "version": "7.8.0",
+   "purl": "pkg:npm/@types/semver@7.8.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vite",
+   "version": "8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)",
+   "purl": "pkg:npm/vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vitest",
+   "version": "5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/vitest@5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/scripts"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@oazapfts/runtime",
+   "version": "1.2.0",
+   "purl": "pkg:npm/@oazapfts/runtime@1.2.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "7.0.2",
+   "purl": "pkg:npm/typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "packages/sdk"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@extism/extism",
+   "version": "2.0.0-rc13",
+   "purl": "pkg:npm/@extism/extism@2.0.0-rc13",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@futo-org/backups-orchestrator-api",
+   "version": "1.12.1(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@nestjs/platform-socket.io@12.3.2)(@nestjs/schedule@12.0.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2))(@nestjs/swagger@12.0.5(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@typescript/typescript6@6.0.2)(reflect-metadata@0.2.2))(@nestjs/websockets@12.3.2)(reflect-metadata@0.2.2)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@futo-org/backups-orchestrator-api@1.12.1(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@nestjs/platform-socket.io@12.3.2)(@nestjs/schedule@12.0.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2))(@nestjs/swagger@12.0.5(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@typescript/typescript6@6.0.2)(reflect-metadata@0.2.2))(@nestjs/websockets@12.3.2)(reflect-metadata@0.2.2)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/plugin-sdk",
+   "version": "link:../packages/plugin-sdk",
+   "purl": "pkg:npm/@immich/plugin-sdk@link:../packages/plugin-sdk",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/sql-tools",
+   "version": "0.6.6",
+   "purl": "pkg:npm/@immich/sql-tools@0.6.6",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/bullmq",
+   "version": "12.0.0(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(bullmq@6.5.1(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.1))",
+   "purl": "pkg:npm/@nestjs/bullmq@12.0.0(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(bullmq@6.5.1(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/common",
+   "version": "12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/core",
+   "version": "12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/platform-express@12.3.2)(@nestjs/websockets@12.3.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)",
+   "purl": "pkg:npm/@nestjs/core@12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/platform-express@12.3.2)(@nestjs/websockets@12.3.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/platform-express",
+   "version": "12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@nestjs/platform-express@12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/platform-socket.io",
+   "version": "12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/websockets@12.3.2)(rxjs@7.8.2)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@nestjs/platform-socket.io@12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/websockets@12.3.2)(rxjs@7.8.2)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/schedule",
+   "version": "12.0.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)",
+   "purl": "pkg:npm/@nestjs/schedule@12.0.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/swagger",
+   "version": "12.0.5(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@typescript/typescript6@6.0.2)(reflect-metadata@0.2.2)",
+   "purl": "pkg:npm/@nestjs/swagger@12.0.5(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@typescript/typescript6@6.0.2)(reflect-metadata@0.2.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/websockets",
+   "version": "12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@nestjs/platform-socket.io@12.3.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)",
+   "purl": "pkg:npm/@nestjs/websockets@12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@nestjs/platform-socket.io@12.3.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/api",
+   "version": "1.10.0",
+   "purl": "pkg:npm/@opentelemetry/api@1.10.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/context-async-hooks",
+   "version": "3.0.0(@opentelemetry/api@1.10.0)",
+   "purl": "pkg:npm/@opentelemetry/context-async-hooks@3.0.0(@opentelemetry/api@1.10.0)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/exporter-prometheus",
+   "version": "0.300.0(@opentelemetry/api@1.10.0)",
+   "purl": "pkg:npm/@opentelemetry/exporter-prometheus@0.300.0(@opentelemetry/api@1.10.0)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/instrumentation-http",
+   "version": "0.300.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@opentelemetry/instrumentation-http@0.300.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/instrumentation-ioredis",
+   "version": "0.72.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@opentelemetry/instrumentation-ioredis@0.72.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/instrumentation-nestjs-core",
+   "version": "0.71.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@opentelemetry/instrumentation-nestjs-core@0.71.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/instrumentation-pg",
+   "version": "0.77.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@opentelemetry/instrumentation-pg@0.77.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/resources",
+   "version": "3.0.0(@opentelemetry/api@1.10.0)",
+   "purl": "pkg:npm/@opentelemetry/resources@3.0.0(@opentelemetry/api@1.10.0)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/sdk-metrics",
+   "version": "3.0.0(@opentelemetry/api@1.10.0)",
+   "purl": "pkg:npm/@opentelemetry/sdk-metrics@3.0.0(@opentelemetry/api@1.10.0)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/sdk-node",
+   "version": "0.300.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@opentelemetry/sdk-node@0.300.0(@opentelemetry/api@1.10.0)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@opentelemetry/semantic-conventions",
+   "version": "1.44.0",
+   "purl": "pkg:npm/@opentelemetry/semantic-conventions@1.44.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@simplewebauthn/server",
+   "version": "14.0.3",
+   "purl": "pkg:npm/@simplewebauthn/server@14.0.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@socket.io/redis-adapter",
+   "version": "8.3.0(socket.io-adapter@2.5.8(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/@socket.io/redis-adapter@8.3.0(socket.io-adapter@2.5.8(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "aaguids",
+   "version": "0.0.72",
+   "purl": "pkg:npm/aaguids@0.0.72",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "archiver",
+   "version": "8.0.0",
+   "purl": "pkg:npm/archiver@8.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "async-lock",
+   "version": "1.4.1",
+   "purl": "pkg:npm/async-lock@1.4.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "bcrypt",
+   "version": "6.0.0",
+   "purl": "pkg:npm/bcrypt@6.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "body-parser",
+   "version": "2.4.0(supports-color@8.1.1)",
+   "purl": "pkg:npm/body-parser@2.4.0(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "bullmq",
+   "version": "6.5.1(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.1)",
+   "purl": "pkg:npm/bullmq@6.5.1(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "chokidar",
+   "version": "6.0.0",
+   "purl": "pkg:npm/chokidar@6.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "compression",
+   "version": "1.8.2(supports-color@8.1.1)",
+   "purl": "pkg:npm/compression@1.8.2(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "cookie",
+   "version": "2.0.1",
+   "purl": "pkg:npm/cookie@2.0.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "cookie-parser",
+   "version": "1.4.7",
+   "purl": "pkg:npm/cookie-parser@1.4.7",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "cron",
+   "version": "4.4.0",
+   "purl": "pkg:npm/cron@4.4.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "exiftool-vendored",
+   "version": "39.0.1",
+   "purl": "pkg:npm/exiftool-vendored@39.0.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "express",
+   "version": "5.3.0(supports-color@8.1.1)",
+   "purl": "pkg:npm/express@5.3.0(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fast-glob",
+   "version": "3.3.3",
+   "purl": "pkg:npm/fast-glob@3.3.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fluent-ffmpeg",
+   "version": "2.1.3",
+   "purl": "pkg:npm/fluent-ffmpeg@2.1.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "generic-pool",
+   "version": "3.9.0",
+   "purl": "pkg:npm/generic-pool@3.9.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "geo-tz",
+   "version": "8.1.10",
+   "purl": "pkg:npm/geo-tz@8.1.10",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "handlebars",
+   "version": "4.7.10",
+   "purl": "pkg:npm/handlebars@4.7.10",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "helmet",
+   "version": "8.3.0",
+   "purl": "pkg:npm/helmet@8.3.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "ioredis",
+   "version": "6.0.0(supports-color@8.1.1)",
+   "purl": "pkg:npm/ioredis@6.0.0(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "jose",
+   "version": "6.2.13",
+   "purl": "pkg:npm/jose@6.2.13",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "js-yaml",
+   "version": "5.5.0",
+   "purl": "pkg:npm/js-yaml@5.5.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "jsonwebtoken",
+   "version": "9.0.3",
+   "purl": "pkg:npm/jsonwebtoken@9.0.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "kysely",
+   "version": "0.29.7",
+   "purl": "pkg:npm/kysely@0.29.7",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "kysely-postgres-js",
+   "version": "5.0.1(kysely@0.29.7)(postgres@3.4.9)",
+   "purl": "pkg:npm/kysely-postgres-js@5.0.1(kysely@0.29.7)(postgres@3.4.9)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "lodash-es",
+   "version": "4.18.1",
+   "purl": "pkg:npm/lodash-es@4.18.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "luxon",
+   "version": "3.7.2",
+   "purl": "pkg:npm/luxon@3.7.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "mnemonist",
+   "version": "0.40.6",
+   "purl": "pkg:npm/mnemonist@0.40.6",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "multer",
+   "version": "2.5.0",
+   "purl": "pkg:npm/multer@2.5.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "nest-commander",
+   "version": "3.21.0(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@types/inquirer@8.2.13)(@types/node@24.19.2)(@typescript/typescript6@6.0.2)",
+   "purl": "pkg:npm/nest-commander@3.21.0(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@types/inquirer@8.2.13)(@types/node@24.19.2)(@typescript/typescript6@6.0.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "nestjs-cls",
+   "version": "7.0.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)",
+   "purl": "pkg:npm/nestjs-cls@7.0.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(reflect-metadata@0.2.2)(rxjs@7.8.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "nestjs-kysely",
+   "version": "3.1.4(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(kysely@0.29.7)(reflect-metadata@0.2.2)",
+   "purl": "pkg:npm/nestjs-kysely@3.1.4(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(kysely@0.29.7)(reflect-metadata@0.2.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "nestjs-otel",
+   "version": "8.1.1(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(rxjs@7.8.2)",
+   "purl": "pkg:npm/nestjs-otel@8.1.1(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(rxjs@7.8.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "nestjs-zod",
+   "version": "5.5.0(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/swagger@12.0.5(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@typescript/typescript6@6.0.2)(reflect-metadata@0.2.2))(rxjs@7.8.2)(zod@4.4.3)",
+   "purl": "pkg:npm/nestjs-zod@5.5.0(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/swagger@12.0.5(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@typescript/typescript6@6.0.2)(reflect-metadata@0.2.2))(rxjs@7.8.2)(zod@4.4.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "nodemailer",
+   "version": "10.3.0",
+   "purl": "pkg:npm/nodemailer@10.3.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "openid-client",
+   "version": "6.8.8",
+   "purl": "pkg:npm/openid-client@6.8.8",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pg",
+   "version": "8.23.1",
+   "purl": "pkg:npm/pg@8.23.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "picomatch",
+   "version": "4.0.7",
+   "purl": "pkg:npm/picomatch@4.0.7",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "postgres",
+   "version": "3.4.9",
+   "purl": "pkg:npm/postgres@3.4.9",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "react",
+   "version": "19.3.1",
+   "purl": "pkg:npm/react@19.3.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "react-dom",
+   "version": "19.3.1(react@19.3.1)",
+   "purl": "pkg:npm/react-dom@19.3.1(react@19.3.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "react-email",
+   "version": "6.11.5(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)",
+   "purl": "pkg:npm/react-email@6.11.5(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "reflect-metadata",
+   "version": "0.2.2",
+   "purl": "pkg:npm/reflect-metadata@0.2.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "rxjs",
+   "version": "7.8.2",
+   "purl": "pkg:npm/rxjs@7.8.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sanitize-filename",
+   "version": "1.6.4",
+   "purl": "pkg:npm/sanitize-filename@1.6.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "semver",
+   "version": "7.8.5",
+   "purl": "pkg:npm/semver@7.8.5",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sharp",
+   "version": "0.35.5(@types/node@24.19.2)",
+   "purl": "pkg:npm/sharp@0.35.5(@types/node@24.19.2)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sirv",
+   "version": "3.0.2",
+   "purl": "pkg:npm/sirv@3.0.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "socket.io",
+   "version": "4.8.4(supports-color@8.1.1)",
+   "purl": "pkg:npm/socket.io@4.8.4(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tailwindcss-preset-email",
+   "version": "1.4.2(tailwindcss@3.4.19(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/tailwindcss-preset-email@1.4.2(tailwindcss@3.4.19(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "thumbhash",
+   "version": "0.1.1",
+   "purl": "pkg:npm/thumbhash@0.1.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "transformation-matrix",
+   "version": "3.1.0",
+   "purl": "pkg:npm/transformation-matrix@3.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "ua-parser-js",
+   "version": "2.0.10",
+   "purl": "pkg:npm/ua-parser-js@2.0.10",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "uuid",
+   "version": "14.0.3",
+   "purl": "pkg:npm/uuid@14.0.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "validator",
+   "version": "13.15.35",
+   "purl": "pkg:npm/validator@13.15.35",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "zod",
+   "version": "4.4.3",
+   "purl": "pkg:npm/zod@4.4.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@eslint/js",
+   "version": "10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/@eslint/js@10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@ianvs/prettier-plugin-sort-imports",
+   "version": "4.7.1(prettier@3.9.10)(supports-color@8.1.1)",
+   "purl": "pkg:npm/@ianvs/prettier-plugin-sort-imports@4.7.1(prettier@3.9.10)(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/cli",
+   "version": "12.0.11(@swc/core@1.16.20(@swc/helpers@0.5.23))(@types/node@24.19.2)(fork-ts-checker-webpack-plugin@9.1.0(@typescript/typescript6@6.0.2)(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3)))(prettier@3.9.10)(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3))",
+   "purl": "pkg:npm/@nestjs/cli@12.0.11(@swc/core@1.16.20(@swc/helpers@0.5.23))(@types/node@24.19.2)(fork-ts-checker-webpack-plugin@9.1.0(@typescript/typescript6@6.0.2)(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3)))(prettier@3.9.10)(tsconfig-paths-webpack-plugin@4.2.0)(webpack-node-externals@3.0.0)(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/schematics",
+   "version": "12.0.12(@typescript/typescript6@6.0.2)(chokidar@6.0.0)(prettier@3.9.10)",
+   "purl": "pkg:npm/@nestjs/schematics@12.0.12(@typescript/typescript6@6.0.2)(chokidar@6.0.0)(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@nestjs/testing",
+   "version": "12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@nestjs/platform-express@12.3.2)",
+   "purl": "pkg:npm/@nestjs/testing@12.3.2(@nestjs/common@12.3.2(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@8.1.1))(@nestjs/core@12.3.2)(@nestjs/platform-express@12.3.2)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@swc/core",
+   "version": "1.16.20(@swc/helpers@0.5.23)",
+   "purl": "pkg:npm/@swc/core@1.16.20(@swc/helpers@0.5.23)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/archiver",
+   "version": "8.0.0",
+   "purl": "pkg:npm/@types/archiver@8.0.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/async-lock",
+   "version": "1.4.2",
+   "purl": "pkg:npm/@types/async-lock@1.4.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/bcrypt",
+   "version": "6.0.0",
+   "purl": "pkg:npm/@types/bcrypt@6.0.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/body-parser",
+   "version": "1.19.6",
+   "purl": "pkg:npm/@types/body-parser@1.19.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/compression",
+   "version": "1.8.1",
+   "purl": "pkg:npm/@types/compression@1.8.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/cookie-parser",
+   "version": "1.4.10(@types/express@5.0.6)",
+   "purl": "pkg:npm/@types/cookie-parser@1.4.10(@types/express@5.0.6)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/express",
+   "version": "5.0.6",
+   "purl": "pkg:npm/@types/express@5.0.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/fluent-ffmpeg",
+   "version": "2.1.28",
+   "purl": "pkg:npm/@types/fluent-ffmpeg@2.1.28",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/js-yaml",
+   "version": "4.0.9",
+   "purl": "pkg:npm/@types/js-yaml@4.0.9",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/jsonwebtoken",
+   "version": "9.0.10",
+   "purl": "pkg:npm/@types/jsonwebtoken@9.0.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/lodash-es",
+   "version": "4.17.12",
+   "purl": "pkg:npm/@types/lodash-es@4.17.12",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/luxon",
+   "version": "3.7.6",
+   "purl": "pkg:npm/@types/luxon@3.7.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/mock-fs",
+   "version": "4.13.4",
+   "purl": "pkg:npm/@types/mock-fs@4.13.4",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/multer",
+   "version": "2.3.0",
+   "purl": "pkg:npm/@types/multer@2.3.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/nodemailer",
+   "version": "8.0.2",
+   "purl": "pkg:npm/@types/nodemailer@8.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/picomatch",
+   "version": "4.0.3",
+   "purl": "pkg:npm/@types/picomatch@4.0.3",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/pngjs",
+   "version": "6.0.5",
+   "purl": "pkg:npm/@types/pngjs@6.0.5",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/react",
+   "version": "19.3.0",
+   "purl": "pkg:npm/@types/react@19.3.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/semver",
+   "version": "7.8.0",
+   "purl": "pkg:npm/@types/semver@7.8.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/supertest",
+   "version": "7.2.1",
+   "purl": "pkg:npm/@types/supertest@7.2.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/ua-parser-js",
+   "version": "0.7.39",
+   "purl": "pkg:npm/@types/ua-parser-js@0.7.39",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/validator",
+   "version": "13.15.10",
+   "purl": "pkg:npm/@types/validator@13.15.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@typescript/native",
+   "version": "typescript@7.0.2",
+   "purl": "pkg:npm/@typescript/native@typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@vitest/coverage-v8",
+   "version": "5.0.5(vitest@5.0.5)",
+   "purl": "pkg:npm/@vitest/coverage-v8@5.0.5(vitest@5.0.5)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint",
+   "version": "10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-config-prettier",
+   "version": "10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-import-resolver-typescript",
+   "version": "4.4.5(eslint-plugin-import-x@4.17.1(@typescript-eslint/utils@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1))(eslint-import-resolver-node@0.3.10(supports-color@8.1.1))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint-import-resolver-typescript@4.4.5(eslint-plugin-import-x@4.17.1(@typescript-eslint/utils@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1))(eslint-import-resolver-node@0.3.10(supports-color@8.1.1))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-import-x",
+   "version": "4.17.1(@typescript-eslint/utils@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1))(eslint-import-resolver-node@0.3.10(supports-color@8.1.1))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint-plugin-import-x@4.17.1(@typescript-eslint/utils@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1))(eslint-import-resolver-node@0.3.10(supports-color@8.1.1))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-unicorn",
+   "version": "78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint-plugin-unicorn@78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "globals",
+   "version": "17.13.0",
+   "purl": "pkg:npm/globals@17.13.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "mock-fs",
+   "version": "5.5.0",
+   "purl": "pkg:npm/mock-fs@5.5.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pngjs",
+   "version": "7.0.0",
+   "purl": "pkg:npm/pngjs@7.0.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier-eslint",
+   "version": "17.1.2(@typescript/typescript6@6.0.2)(jiti@2.7.0)(prettier-plugin-svelte@4.1.1(prettier@3.9.10)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(supports-color@8.1.1)(svelte-eslint-parser@1.10.0(svelte@5.57.3(@typescript-eslint/types@8.72.1)))",
+   "purl": "pkg:npm/prettier-eslint@17.1.2(@typescript/typescript6@6.0.2)(jiti@2.7.0)(prettier-plugin-svelte@4.1.1(prettier@3.9.10)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(supports-color@8.1.1)(svelte-eslint-parser@1.10.0(svelte@5.57.3(@typescript-eslint/types@8.72.1)))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sql-formatter",
+   "version": "15.9.0",
+   "purl": "pkg:npm/sql-formatter@15.9.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "supertest",
+   "version": "7.3.1(supports-color@8.1.1)",
+   "purl": "pkg:npm/supertest@7.3.1(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tailwindcss",
+   "version": "3.4.19(tsx@4.23.15)(yaml@2.9.1)",
+   "purl": "pkg:npm/tailwindcss@3.4.19(tsx@4.23.15)(yaml@2.9.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "testcontainers",
+   "version": "12.2.1(supports-color@8.1.1)",
+   "purl": "pkg:npm/testcontainers@12.2.1(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "@typescript/typescript6@6.0.2",
+   "purl": "pkg:npm/typescript@@typescript/typescript6@6.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript-eslint",
+   "version": "8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/typescript-eslint@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "unplugin-swc",
+   "version": "2.0.0(@swc/core@1.16.20(@swc/helpers@0.5.23))(esbuild@0.28.2)(rolldown@1.2.15)(rollup@4.62.0)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3))",
+   "purl": "pkg:npm/unplugin-swc@2.0.0(@swc/core@1.16.20(@swc/helpers@0.5.23))(esbuild@0.28.2)(rolldown@1.2.15)(rollup@4.62.0)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))(webpack@5.108.4(@swc/core@1.16.20(@swc/helpers@0.5.23))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.32)(uglify-js@3.19.3))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vitest",
+   "version": "5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/vitest@5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "server"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@formatjs/icu-messageformat-parser",
+   "version": "3.5.22",
+   "purl": "pkg:npm/@formatjs/icu-messageformat-parser@3.5.22",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@futo-org/backups-orchestrator-ui",
+   "version": "1.12.1(@immich/ui@0.91.1(@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1))(zod@4.4.3))(@lingui/cli@6.10.1(esbuild@0.28.2)(rolldown@1.2.15)(supports-color@8.1.1))(@typescript/typescript6@6.0.2)(supports-color@8.1.1)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/@futo-org/backups-orchestrator-ui@1.12.1(@immich/ui@0.91.1(@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1))(zod@4.4.3))(@lingui/cli@6.10.1(esbuild@0.28.2)(rolldown@1.2.15)(supports-color@8.1.1))(@typescript/typescript6@6.0.2)(supports-color@8.1.1)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/justified-layout-wasm",
+   "version": "0.4.5",
+   "purl": "pkg:npm/@immich/justified-layout-wasm@0.4.5",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/sdk",
+   "version": "link:../packages/sdk",
+   "purl": "pkg:npm/@immich/sdk@link:../packages/sdk",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@immich/ui",
+   "version": "0.91.1(@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1))(zod@4.4.3)",
+   "purl": "pkg:npm/@immich/ui@0.91.1(@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(svelte@5.57.3(@typescript-eslint/types@8.72.1))(zod@4.4.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@mdi/js",
+   "version": "7.4.47",
+   "purl": "pkg:npm/@mdi/js@7.4.47",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@noble/hashes",
+   "version": "2.4.0",
+   "purl": "pkg:npm/@noble/hashes@2.4.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@photo-sphere-viewer/core",
+   "version": "5.15.1",
+   "purl": "pkg:npm/@photo-sphere-viewer/core@5.15.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@photo-sphere-viewer/equirectangular-video-adapter",
+   "version": "5.15.1(@photo-sphere-viewer/core@5.15.1)(@photo-sphere-viewer/video-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1))",
+   "purl": "pkg:npm/@photo-sphere-viewer/equirectangular-video-adapter@5.15.1(@photo-sphere-viewer/core@5.15.1)(@photo-sphere-viewer/video-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@photo-sphere-viewer/markers-plugin",
+   "version": "5.15.1(@photo-sphere-viewer/core@5.15.1)",
+   "purl": "pkg:npm/@photo-sphere-viewer/markers-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@photo-sphere-viewer/resolution-plugin",
+   "version": "5.15.1(@photo-sphere-viewer/core@5.15.1)(@photo-sphere-viewer/settings-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1))",
+   "purl": "pkg:npm/@photo-sphere-viewer/resolution-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1)(@photo-sphere-viewer/settings-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@photo-sphere-viewer/settings-plugin",
+   "version": "5.15.1(@photo-sphere-viewer/core@5.15.1)",
+   "purl": "pkg:npm/@photo-sphere-viewer/settings-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@photo-sphere-viewer/video-plugin",
+   "version": "5.15.1(@photo-sphere-viewer/core@5.15.1)",
+   "purl": "pkg:npm/@photo-sphere-viewer/video-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@simplewebauthn/browser",
+   "version": "14.0.0",
+   "purl": "pkg:npm/@simplewebauthn/browser@14.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@tanstack/svelte-query",
+   "version": "6.3.6(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/@tanstack/svelte-query@6.3.6(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/geojson",
+   "version": "7946.0.16",
+   "purl": "pkg:npm/@types/geojson@7946.0.16",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@zoom-image/core",
+   "version": "0.43.1",
+   "purl": "pkg:npm/@zoom-image/core@0.43.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@zoom-image/svelte",
+   "version": "0.3.11(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/@zoom-image/svelte@0.3.11(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "dom-to-image",
+   "version": "2.6.0",
+   "purl": "pkg:npm/dom-to-image@2.6.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fabric",
+   "version": "7.4.0(supports-color@8.1.1)",
+   "purl": "pkg:npm/fabric@7.4.0(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "geo-coordinates-parser",
+   "version": "1.7.4",
+   "purl": "pkg:npm/geo-coordinates-parser@1.7.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "geojson",
+   "version": "0.5.0",
+   "purl": "pkg:npm/geojson@0.5.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "handlebars",
+   "version": "4.7.10",
+   "purl": "pkg:npm/handlebars@4.7.10",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "happy-dom",
+   "version": "21.0.4",
+   "purl": "pkg:npm/happy-dom@21.0.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "hash-wasm",
+   "version": "4.12.0",
+   "purl": "pkg:npm/hash-wasm@4.12.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "hls-video-element",
+   "version": "1.5.12",
+   "purl": "pkg:npm/hls-video-element@1.5.12",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "hls.js",
+   "version": "1.7.4",
+   "purl": "pkg:npm/hls.js@1.7.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "intl-messageformat",
+   "version": "12.1.4",
+   "purl": "pkg:npm/intl-messageformat@12.1.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "justified-layout",
+   "version": "4.1.0",
+   "purl": "pkg:npm/justified-layout@4.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "lodash-es",
+   "version": "4.18.1",
+   "purl": "pkg:npm/lodash-es@4.18.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "luxon",
+   "version": "3.7.2",
+   "purl": "pkg:npm/luxon@3.7.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "maplibre-gl",
+   "version": "6.16.0",
+   "purl": "pkg:npm/maplibre-gl@6.16.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "media-chrome",
+   "version": "4.19.4(react@19.3.1)",
+   "purl": "pkg:npm/media-chrome@4.19.4(react@19.3.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pmtiles",
+   "version": "4.5.0",
+   "purl": "pkg:npm/pmtiles@4.5.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "qrcode",
+   "version": "1.5.4",
+   "purl": "pkg:npm/qrcode@1.5.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "simple-icons",
+   "version": "16.36.0",
+   "purl": "pkg:npm/simple-icons@16.36.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "socket.io-client",
+   "version": "4.8.4(supports-color@8.1.1)",
+   "purl": "pkg:npm/socket.io-client@4.8.4(supports-color@8.1.1)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-confetti",
+   "version": "2.3.2(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-confetti@2.3.2(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-gestures",
+   "version": "5.2.2",
+   "purl": "pkg:npm/svelte-gestures@5.2.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-i18n",
+   "version": "4.0.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-i18n@4.0.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-jsoneditor",
+   "version": "3.13.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-jsoneditor@3.13.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-maplibre",
+   "version": "2.0.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-maplibre@2.0.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-persisted-store",
+   "version": "0.12.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-persisted-store@0.12.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tabbable",
+   "version": "6.5.1",
+   "purl": "pkg:npm/tabbable@6.5.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tailwind-merge",
+   "version": "3.7.0",
+   "purl": "pkg:npm/tailwind-merge@3.7.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tailwind-variants",
+   "version": "3.3.1(tailwind-merge@3.7.0)(tailwindcss@4.3.3)",
+   "purl": "pkg:npm/tailwind-variants@3.3.1(tailwind-merge@3.7.0)(tailwindcss@4.3.3)",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "thumbhash",
+   "version": "0.1.1",
+   "purl": "pkg:npm/thumbhash@0.1.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "transformation-matrix",
+   "version": "3.1.0",
+   "purl": "pkg:npm/transformation-matrix@3.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "uplot",
+   "version": "1.6.32",
+   "purl": "pkg:npm/uplot@1.6.32",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@eslint/js",
+   "version": "10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/@eslint/js@10.0.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@koddsson/eslint-plugin-tscompat",
+   "version": "0.4.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/@koddsson/eslint-plugin-tscompat@0.4.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@playwright/test",
+   "version": "1.64.1",
+   "purl": "pkg:npm/@playwright/test@1.64.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@socket.io/component-emitter",
+   "version": "3.1.2",
+   "purl": "pkg:npm/@socket.io/component-emitter@3.1.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@sveltejs/adapter-static",
+   "version": "4.0.0(@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))",
+   "purl": "pkg:npm/@sveltejs/adapter-static@4.0.0(@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@sveltejs/enhanced-img",
+   "version": "1.0.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@types/node@24.19.2)(rollup@4.62.0)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/@sveltejs/enhanced-img@1.0.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@types/node@24.19.2)(rollup@4.62.0)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@sveltejs/kit",
+   "version": "3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/@sveltejs/kit@3.1.0(@opentelemetry/api@1.10.0)(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)))(@typescript/typescript6@6.0.2)(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@sveltejs/vite-plugin-svelte",
+   "version": "7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@tailwindcss/vite",
+   "version": "4.3.3(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/@tailwindcss/vite@4.3.3(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@testing-library/jest-dom",
+   "version": "7.0.1(@testing-library/dom@10.4.1)(vitest@5.0.5)",
+   "purl": "pkg:npm/@testing-library/jest-dom@7.0.1(@testing-library/dom@10.4.1)(vitest@5.0.5)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@testing-library/svelte",
+   "version": "5.4.2(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))(vitest@5.0.5)",
+   "purl": "pkg:npm/@testing-library/svelte@5.4.2(svelte@5.57.3(@typescript-eslint/types@8.72.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))(vitest@5.0.5)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@testing-library/user-event",
+   "version": "14.6.8(@testing-library/dom@10.4.1)",
+   "purl": "pkg:npm/@testing-library/user-event@14.6.8(@testing-library/dom@10.4.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@trivago/prettier-plugin-sort-imports",
+   "version": "6.0.2(prettier-plugin-svelte@4.1.1(prettier@3.9.10)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(prettier@3.9.10)(supports-color@8.1.1)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/@trivago/prettier-plugin-sort-imports@6.0.2(prettier-plugin-svelte@4.1.1(prettier@3.9.10)(svelte@5.57.3(@typescript-eslint/types@8.72.1)))(prettier@3.9.10)(supports-color@8.1.1)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/chromecast-caf-sender",
+   "version": "1.0.11",
+   "purl": "pkg:npm/@types/chromecast-caf-sender@1.0.11",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/dom-to-image",
+   "version": "2.6.7",
+   "purl": "pkg:npm/@types/dom-to-image@2.6.7",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/justified-layout",
+   "version": "4.1.4",
+   "purl": "pkg:npm/@types/justified-layout@4.1.4",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/lodash-es",
+   "version": "4.17.12",
+   "purl": "pkg:npm/@types/lodash-es@4.17.12",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/luxon",
+   "version": "3.7.6",
+   "purl": "pkg:npm/@types/luxon@3.7.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/node",
+   "version": "24.19.2",
+   "purl": "pkg:npm/@types/node@24.19.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@types/qrcode",
+   "version": "1.5.6",
+   "purl": "pkg:npm/@types/qrcode@1.5.6",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@typescript/native",
+   "version": "typescript@7.0.2",
+   "purl": "pkg:npm/@typescript/native@typescript@7.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "@vitest/coverage-v8",
+   "version": "5.0.5(vitest@5.0.5)",
+   "purl": "pkg:npm/@vitest/coverage-v8@5.0.5(vitest@5.0.5)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "dotenv",
+   "version": "18.0.9",
+   "purl": "pkg:npm/dotenv@18.0.9",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint",
+   "version": "10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-config-prettier",
+   "version": "10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-better-tailwindcss",
+   "version": "4.10.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(tailwindcss@4.3.3)",
+   "purl": "pkg:npm/eslint-plugin-better-tailwindcss@4.10.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(tailwindcss@4.3.3)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-compat",
+   "version": "7.0.2(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "purl": "pkg:npm/eslint-plugin-compat@7.0.2(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-prettier",
+   "version": "5.5.7(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.10)",
+   "purl": "pkg:npm/eslint-plugin-prettier@5.5.7(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1)))(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-svelte",
+   "version": "3.23.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/eslint-plugin-svelte@3.23.1(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "eslint-plugin-unicorn",
+   "version": "78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/eslint-plugin-unicorn@78.0.0(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "globals",
+   "version": "17.13.0",
+   "purl": "pkg:npm/globals@17.13.0",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "parse5",
+   "version": "8.0.1",
+   "purl": "pkg:npm/parse5@8.0.1",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier",
+   "version": "3.9.10",
+   "purl": "pkg:npm/prettier@3.9.10",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier-plugin-sort-json",
+   "version": "4.2.0(prettier@3.9.10)",
+   "purl": "pkg:npm/prettier-plugin-sort-json@4.2.0(prettier@3.9.10)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "prettier-plugin-svelte",
+   "version": "4.1.1(prettier@3.9.10)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/prettier-plugin-svelte@4.1.1(prettier@3.9.10)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "rollup-plugin-visualizer",
+   "version": "7.1.1(rolldown@1.2.15)(rollup@4.62.0)",
+   "purl": "pkg:npm/rollup-plugin-visualizer@7.1.1(rolldown@1.2.15)(rollup@4.62.0)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte",
+   "version": "5.57.3(@typescript-eslint/types@8.72.1)",
+   "purl": "pkg:npm/svelte@5.57.3(@typescript-eslint/types@8.72.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-check",
+   "version": "4.7.7(@typescript/typescript6@6.0.2)(picomatch@4.0.7)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-check@4.7.7(@typescript/typescript6@6.0.2)(picomatch@4.0.7)(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "svelte-eslint-parser",
+   "version": "1.10.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "purl": "pkg:npm/svelte-eslint-parser@1.10.0(svelte@5.57.3(@typescript-eslint/types@8.72.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tailwindcss",
+   "version": "4.3.3",
+   "purl": "pkg:npm/tailwindcss@4.3.3",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript",
+   "version": "@typescript/typescript6@6.0.2",
+   "purl": "pkg:npm/typescript@@typescript/typescript6@6.0.2",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "typescript-eslint",
+   "version": "8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "purl": "pkg:npm/typescript-eslint@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.13.0(jiti@2.7.0)(supports-color@8.1.1))(supports-color@8.1.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vite",
+   "version": "8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)",
+   "purl": "pkg:npm/vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1)",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "vitest",
+   "version": "5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "purl": "pkg:npm/vitest@5.0.5(@opentelemetry/api@1.10.0)(@types/node@24.19.2)(@vitest/coverage-v8@5.0.5)(happy-dom@21.0.4)(jsdom@26.1.0(canvas@3.2.3)(supports-color@8.1.1))(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(tsx@4.23.15)(yaml@2.9.1))",
+   "scope": "excluded",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "web"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fastapi",
+   "version": "0.162.0",
+   "purl": "pkg:pypi/fastapi@0.162.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "gunicorn",
+   "version": "26.2.0",
+   "purl": "pkg:pypi/gunicorn@26.2.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "huggingface-hub",
+   "version": "1.33.0",
+   "purl": "pkg:pypi/huggingface-hub@1.33.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "numpy",
+   "version": "2.5.4",
+   "purl": "pkg:pypi/numpy@2.5.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "onnx",
+   "version": "1.23.2",
+   "purl": "pkg:pypi/onnx@1.23.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "opencv-python-headless",
+   "version": "4.14.0.94",
+   "purl": "pkg:pypi/opencv-python-headless@4.14.0.94",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "orjson",
+   "version": "3.13.0",
+   "purl": "pkg:pypi/orjson@3.13.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pillow",
+   "version": "13.0.0",
+   "purl": "pkg:pypi/pillow@13.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pillow-jxl-plugin",
+   "version": "1.3.8",
+   "purl": "pkg:pypi/pillow-jxl-plugin@1.3.8",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pydantic",
+   "version": "2.14.1",
+   "purl": "pkg:pypi/pydantic@2.14.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pydantic-settings",
+   "version": "2.16.1",
+   "purl": "pkg:pypi/pydantic-settings@2.16.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "python-multipart",
+   "version": "0.0.32",
+   "purl": "pkg:pypi/python-multipart@0.0.32",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "rich",
+   "version": "15.0.0",
+   "purl": "pkg:pypi/rich@15.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "tokenizers",
+   "version": "0.23.3",
+   "purl": "pkg:pypi/tokenizers@0.23.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "uvicorn",
+   "version": "0.54.0",
+   "purl": "pkg:pypi/uvicorn@0.54.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "rapidocr",
+   "version": "3.10.0",
+   "purl": "pkg:pypi/rapidocr@3.10.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "onnxruntime-gpu",
+   "version": "1.27.1",
+   "purl": "pkg:pypi/onnxruntime-gpu@1.27.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "machine-learning"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "cbindgen",
+   "version": "0.29.4",
+   "purl": "pkg:cargo/cbindgen@0.29.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "jni",
+   "version": "0.22.4",
+   "purl": "pkg:cargo/jni@0.22.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "jxl",
+   "version": "0.8.0",
+   "purl": "pkg:cargo/jxl@0.8.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "libc",
+   "version": "0.2.191",
+   "purl": "pkg:cargo/libc@0.2.191",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "moxcms",
+   "version": "0.9.1",
+   "purl": "pkg:cargo/moxcms@0.9.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pic-scale",
+   "version": "0.7.12",
+   "purl": "pkg:cargo/pic-scale@0.7.12",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "quick_cache",
+   "version": "0.7.0",
+   "purl": "pkg:cargo/quick_cache@0.7.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "rayon",
+   "version": "1.12.0",
+   "purl": "pkg:cargo/rayon@1.12.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "native"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter",
+   "version": "3.47.2",
+   "purl": "pkg:pub/flutter@3.47.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "async",
+   "version": "2.13.1",
+   "purl": "pkg:pub/async@2.13.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "auto_route",
+   "version": "11.1.0",
+   "purl": "pkg:pub/auto_route@11.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "background_downloader",
+   "version": "9.5.6",
+   "purl": "pkg:pub/background_downloader@9.5.6",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "cast",
+   "version": "2.1.0",
+   "purl": "pkg:pub/cast@2.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "collection",
+   "version": "1.19.1",
+   "purl": "pkg:pub/collection@1.19.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "connectivity_plus",
+   "version": "7.3.0",
+   "purl": "pkg:pub/connectivity_plus@7.3.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "crop_image",
+   "version": "1.0.17",
+   "purl": "pkg:pub/crop_image@1.0.17",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "crypto",
+   "version": "3.0.7",
+   "purl": "pkg:pub/crypto@3.0.7",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "device_info_plus",
+   "version": "12.4.0",
+   "purl": "pkg:pub/device_info_plus@12.4.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "diacritic",
+   "version": "0.1.6",
+   "purl": "pkg:pub/diacritic@0.1.6",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "drift",
+   "version": "2.34.0",
+   "purl": "pkg:pub/drift@2.34.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "drift_sqlite_async",
+   "version": "0.3.1",
+   "purl": "pkg:pub/drift_sqlite_async@0.3.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "dynamic_color",
+   "version": "1.8.1",
+   "purl": "pkg:pub/dynamic_color@1.8.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "easy_localization",
+   "version": "3.0.8",
+   "purl": "pkg:pub/easy_localization@3.0.8",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "ffi",
+   "version": "2.2.0",
+   "purl": "pkg:pub/ffi@2.2.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_displaymode",
+   "version": "0.7.0",
+   "purl": "pkg:pub/flutter_displaymode@0.7.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_hooks",
+   "version": "0.21.3+1",
+   "purl": "pkg:pub/flutter_hooks@0.21.3+1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_local_notifications",
+   "version": "17.2.4",
+   "purl": "pkg:pub/flutter_local_notifications@17.2.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_secure_storage",
+   "version": "9.2.4",
+   "purl": "pkg:pub/flutter_secure_storage@9.2.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_svg",
+   "version": "2.2.4",
+   "purl": "pkg:pub/flutter_svg@2.2.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_udid",
+   "version": "4.1.6",
+   "purl": "pkg:pub/flutter_udid@4.1.6",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_web_auth_2",
+   "version": "5.0.2",
+   "purl": "pkg:pub/flutter_web_auth_2@5.0.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fluttertoast",
+   "version": "8.2.14",
+   "purl": "pkg:pub/fluttertoast@8.2.14",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "geolocator",
+   "version": "14.0.2",
+   "purl": "pkg:pub/geolocator@14.0.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "home_widget",
+   "version": "0.9.3",
+   "purl": "pkg:pub/home_widget@0.9.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "hooks_riverpod",
+   "version": "2.6.1",
+   "purl": "pkg:pub/hooks_riverpod@2.6.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "http",
+   "version": "1.6.0",
+   "purl": "pkg:pub/http@1.6.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "image_picker",
+   "version": "1.2.3",
+   "purl": "pkg:pub/image_picker@1.2.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "intl",
+   "version": "0.20.2",
+   "purl": "pkg:pub/intl@0.20.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "local_auth",
+   "version": "2.3.0",
+   "purl": "pkg:pub/local_auth@2.3.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "logging",
+   "version": "1.3.0",
+   "purl": "pkg:pub/logging@1.3.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "maplibre_gl",
+   "version": "0.27.0",
+   "purl": "pkg:pub/maplibre_gl@0.27.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "network_info_plus",
+   "version": "6.1.4",
+   "purl": "pkg:pub/network_info_plus@6.1.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "octo_image",
+   "version": "2.1.0",
+   "purl": "pkg:pub/octo_image@2.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "package_info_plus",
+   "version": "8.3.1",
+   "purl": "pkg:pub/package_info_plus@8.3.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "path",
+   "version": "1.9.1",
+   "purl": "pkg:pub/path@1.9.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "path_provider",
+   "version": "2.1.6",
+   "purl": "pkg:pub/path_provider@2.1.6",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "path_provider_foundation",
+   "version": "2.6.0",
+   "purl": "pkg:pub/path_provider_foundation@2.6.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "permission_handler",
+   "version": "11.4.0",
+   "purl": "pkg:pub/permission_handler@11.4.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "photo_manager",
+   "version": "3.9.0",
+   "purl": "pkg:pub/photo_manager@3.9.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pinput",
+   "version": "5.0.2",
+   "purl": "pkg:pub/pinput@5.0.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "punycode",
+   "version": "1.0.0",
+   "purl": "pkg:pub/punycode@1.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "scroll_date_picker",
+   "version": "3.8.0",
+   "purl": "pkg:pub/scroll_date_picker@3.8.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "scrollable_positioned_list",
+   "version": "0.3.8",
+   "purl": "pkg:pub/scrollable_positioned_list@0.3.8",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "share_handler",
+   "version": "0.0.25",
+   "purl": "pkg:pub/share_handler@0.0.25",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "share_plus",
+   "version": "10.1.4",
+   "purl": "pkg:pub/share_plus@10.1.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sliver_tools",
+   "version": "0.2.12",
+   "purl": "pkg:pub/sliver_tools@0.2.12",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "stream_transform",
+   "version": "2.1.1",
+   "purl": "pkg:pub/stream_transform@2.1.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sqlite3",
+   "version": "3.4.0",
+   "purl": "pkg:pub/sqlite3@3.4.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sqlite_async",
+   "version": "0.14.2",
+   "purl": "pkg:pub/sqlite_async@0.14.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "sqlite3_connection_pool",
+   "version": "0.2.13",
+   "purl": "pkg:pub/sqlite3_connection_pool@0.2.13",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "timezone",
+   "version": "0.9.4",
+   "purl": "pkg:pub/timezone@0.9.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "url_launcher",
+   "version": "6.3.2",
+   "purl": "pkg:pub/url_launcher@6.3.2",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "uuid",
+   "version": "4.6.0",
+   "purl": "pkg:pub/uuid@4.6.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "wakelock_plus",
+   "version": "1.3.3",
+   "purl": "pkg:pub/wakelock_plus@1.3.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "worker_manager",
+   "version": "7.2.9",
+   "purl": "pkg:pub/worker_manager@7.2.9",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "web_socket",
+   "version": "1.0.1",
+   "purl": "pkg:pub/web_socket@1.0.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "freezed_annotation",
+   "version": "3.1.0",
+   "purl": "pkg:pub/freezed_annotation@3.1.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "auto_route_generator",
+   "version": "10.5.0",
+   "purl": "pkg:pub/auto_route_generator@10.5.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "build_runner",
+   "version": "2.15.1",
+   "purl": "pkg:pub/build_runner@2.15.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "drift_dev",
+   "version": "2.34.0",
+   "purl": "pkg:pub/drift_dev@2.34.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "fake_async",
+   "version": "1.3.3",
+   "purl": "pkg:pub/fake_async@1.3.3",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "file",
+   "version": "7.0.1",
+   "purl": "pkg:pub/file@7.0.1",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_launcher_icons",
+   "version": "0.14.4",
+   "purl": "pkg:pub/flutter_launcher_icons@0.14.4",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_lints",
+   "version": "6.0.0",
+   "purl": "pkg:pub/flutter_lints@6.0.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "flutter_native_splash",
+   "version": "2.4.7",
+   "purl": "pkg:pub/flutter_native_splash@2.4.7",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "freezed",
+   "version": "3.2.5",
+   "purl": "pkg:pub/freezed@3.2.5",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "mocktail",
+   "version": "1.0.5",
+   "purl": "pkg:pub/mocktail@1.0.5",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "pigeon",
+   "version": "27.3.0",
+   "purl": "pkg:pub/pigeon@27.3.0",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "name": "bonsoir",
+   "version": "5.1.11",
+   "purl": "pkg:pub/bonsoir@5.1.11",
+   "scope": "required",
+   "properties": [
+    {
+     "name": "immich:workspace",
+     "value": "mobile"
+    }
+   ]
+  }
+ ]
+}
