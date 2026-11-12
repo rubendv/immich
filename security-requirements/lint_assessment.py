@@ -25,6 +25,15 @@ APPLICABILITY_VALUES = {"yes", "no", "partial"}
 VERDICT_VALUES = {"yes", "partial", "no", "n/a"}
 EVIDENCE_CODE_PATTERN = re.compile(r"\[(E\d+(?:,\s*E\d+)*)\]")
 REFERENCE_PATTERN = re.compile(r"^(?P<path>[^:]+):(?P<line>[0-9]+)$")
+TEST_OR_PRACTICE_PATTERN = re.compile(
+    r"\.spec\.[a-z]+|\.e2e-spec\.|(^|/)e2e/|^server/test/|^docs/|eslint\.config\.|^biome\.jsonc?"
+)
+
+
+def is_test_or_practice(reference: str) -> bool:
+    """True if the reference points to a test, e2e spec, docs page, or enforced lint/review practice."""
+    path = reference.rpartition(":")[0]
+    return bool(TEST_OR_PRACTICE_PATTERN.search(path))
 
 
 def flatten(items, path=""):
@@ -141,6 +150,15 @@ def main():
                 if implemented == "n/a" or tested == "n/a":
                     errors.append(f"{key}: applicable requirement must not use 'n/a' verdicts")
             check_references(key, evidence, out.get("evidence_references"), errors)
+            if implemented in ("yes", "partial") and tested in ("yes", "partial"):
+                references = out.get("evidence_references")
+                if isinstance(references, dict) and not any(
+                    is_test_or_practice(reference) for reference in references.values()
+                ):
+                    errors.append(
+                        f"{key}: Tested '{tested}' requires an evidence_reference to a test, "
+                        "e2e spec, documented practice, or enforced lint rule"
+                    )
         else:
             counts["L3"] += 1
             for field in ASSESSMENT_FIELDS + ("evidence_references",):

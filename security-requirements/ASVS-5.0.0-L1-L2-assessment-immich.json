@@ -11,7 +11,8 @@
     "Legend": {
       "Applicability": "yes = requirement applies to this project; no = out of scope (e.g. Immich is not an authorization server, no LDAP/SAML/WebRTC); partial = applies only in part or depends on deployment.",
       "Implemented": "yes = implemented; partial = partially implemented or delegated to deployment/reverse proxy; no = not implemented; n/a = not applicable.",
-      "Tested": "yes = sufficient automated test coverage found; partial = some related tests exist but do not fully verify the requirement; no = no coverage found; n/a = not applicable."
+      "Tested": "yes = sufficient automated test coverage found; partial = some related tests exist but do not fully verify the requirement; no = no coverage found; n/a = not applicable. Any verdict other than 'no' must be backed by an evidence_reference pointing to a test, e2e spec, documented practice, or enforced lint rule.",
+      "evidence_references": "Maps evidence codes (E1, E2, ...) cited in the Evidence text to concrete repository locations ('<file>:<line>') — implementations of security controls, security-sensitive configuration, tests, or documented/enforced practices."
     }
   },
   "Requirements": [
@@ -48,7 +49,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Output encoding happens at the last step: Svelte escapes at render time and NestJS serializes JSON at response time; no pre-encoded fragments are stored and re-emitted. See [E1, E2].",
               "evidence_references": {
                 "E1": "web/src/routes/auth/login/+page.svelte:183",
@@ -69,7 +70,7 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Web UI is Svelte, which context-escapes all interpolated output by default; API responses are serialized JSON (server/src/controllers, web/src). No manual HTML string building found. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/controllers/asset.controller.ts:22",
@@ -97,7 +98,7 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "All API responses are JSON serialized by NestJS; the web app consumes JSON via typed fetch wrappers and renders through Svelte's escaping. No dynamic JS/JSON string building found. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/dtos/user.dto.ts:53",
@@ -112,10 +113,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Server uses Kysely query builder with bound parameters (server/src/repositories); the few sql.raw/sql fragments interpolate only internal constants (e.g. interval strings, array casts), not user input. See [E1, E2].",
+              "Evidence": "Server uses Kysely query builder with bound parameters (server/src/repositories); the few sql.raw/sql fragments interpolate only internal constants (e.g. interval strings, array casts), not user input. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/repositories/access.repository.ts:16",
-                "E2": "server/src/repositories/api-key.repository.ts:1"
+                "E2": "server/src/repositories/api-key.repository.ts:1",
+                "E3": "server/test/medium/specs/repositories/asset.repository.spec.ts:1"
               }
             },
             {
@@ -126,10 +128,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "External tools (ffmpeg, exiftool) are invoked via child_process spawn with argument arrays and no shell interpolation (server/src/repositories/process.repository.ts); user data never reaches a shell command line. See [E1, E2].",
+              "Evidence": "External tools (ffmpeg, exiftool) are invoked via child_process spawn with argument arrays and no shell interpolation (server/src/repositories/process.repository.ts); user data never reaches a shell command line. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/repositories/process.repository.ts:26",
-                "E2": "server/src/services/metadata.service.ts:2"
+                "E2": "server/src/services/metadata.service.ts:2",
+                "E3": "server/src/repositories/process.repository.spec.ts:42"
               }
             },
             {
@@ -179,10 +182,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "The one dynamic-regex site escapes special characters before building the pattern (server/src/utils/workflow.ts isAllowedHost escapes regex metacharacters around '*' wildcards); no other RegExp is built from user input. Covered by workflow utils spec. See [E1, E2].",
+              "Evidence": "The one dynamic-regex site escapes special characters before building the pattern (server/src/utils/workflow.ts isAllowedHost escapes regex metacharacters around '*' wildcards); no other RegExp is built from user input. Covered by workflow utils spec. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/utils/workflow.ts:74",
-                "E2": "server/src/services/workflow-execution.service.ts:97"
+                "E2": "server/src/services/workflow-execution.service.ts:97",
+                "E3": "server/src/utils/workflow.spec.ts:39"
               }
             },
             {
@@ -219,10 +223,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "No eval()/new Function() in server or web source. External plugins execute in a separate sandboxed process and are admin-installed packages, not user input. See [E1, E2].",
+              "Evidence": "No eval()/new Function() in server or web source. External plugins execute in a separate sandboxed process and are admin-installed packages, not user input. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/workflow-execution.service.ts:283",
-                "E2": "server/src/repositories/process.repository.ts:26"
+                "E2": "server/src/repositories/process.repository.ts:26",
+                "E3": "server/test/medium/specs/workflow/workflow-core-plugin.spec.ts:98"
               }
             },
             {
@@ -430,10 +435,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Only JSON.parse of request bodies (via zod validation) is performed; no object-type-directed deserialization (no unserialize, no class-transformer of untrusted payloads) exists. See [E1, E2].",
+              "Evidence": "Only JSON.parse of request bodies (via zod validation) is performed; no object-type-directed deserialization (no unserialize, no class-transformer of untrusted payloads) exists. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/validation.ts:137",
-                "E2": "server/src/middleware/file-upload.interceptor.ts:89"
+                "E2": "server/src/middleware/file-upload.interceptor.ts:89",
+                "E3": "server/src/validation.spec.ts:5"
               }
             },
             {
@@ -513,10 +519,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Every endpoint DTO is validated by zod schemas (server/src/dtos, validation.ts) with typed constraints (lengths, enums, UUIDs, regex); server/test/validation.spec.ts covers parts of the schema surface. See [E1, E2].",
+              "Evidence": "Every endpoint DTO is validated by zod schemas (server/src/dtos, validation.ts) with typed constraints (lengths, enums, UUIDs, regex); server/test/validation.spec.ts covers parts of the schema surface. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/validation.ts:117",
-                "E2": "server/src/dtos/auth.dto.ts:138"
+                "E2": "server/src/dtos/auth.dto.ts:138",
+                "E3": "server/src/validation.spec.ts:5"
               }
             },
             {
@@ -527,10 +534,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Validation runs in the NestJS server via zod DTOs; web/mobile validation is UX-only. The security-relevant decisions (auth, permissions, quotas) are all validated server-side. See [E1, E2].",
+              "Evidence": "Validation runs in the NestJS server via zod DTOs; web/mobile validation is UX-only. The security-relevant decisions (auth, permissions, quotas) are all validated server-side. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/validation.ts:137",
-                "E2": "server/src/middleware/auth.guard.ts:100"
+                "E2": "server/src/middleware/auth.guard.ts:100",
+                "E3": "e2e/src/specs/server/api/asset.e2e-spec.ts:234"
               }
             },
             {
@@ -562,10 +570,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Critical flows are sequence-guarded: admin onboarding is only available before an admin exists (auth.guard.ts setup routes) and setup is disabled afterwards; most other flows are single-step and need no ordering. See [E1, E2].",
+              "Evidence": "Critical flows are sequence-guarded: admin onboarding is only available before an admin exists (auth.guard.ts setup routes) and setup is disabled afterwards; most other flows are single-step and need no ordering. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/middleware/auth.guard.ts:105",
-                "E2": "server/src/services/base.service.ts:330"
+                "E2": "server/src/services/base.service.ts:330",
+                "E3": "server/src/middleware/auth.guard.spec.ts:41"
               }
             },
             {
@@ -576,10 +585,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Quotas are enforced at upload time and job concurrency is bounded, but these limits are not derived from documented expectations; some flows lack explicit business limits. See [E1, E2].",
+              "Evidence": "Quotas are enforced at upload time and job concurrency is bounded, but these limits are not derived from documented expectations; some flows lack explicit business limits. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/asset-media.service.ts:93",
-                "E2": "server/src/services/user-admin.service.ts:1"
+                "E2": "server/src/services/user-admin.service.ts:1",
+                "E3": "server/src/services/asset-media.service.spec.ts:308"
               }
             },
             {
@@ -590,9 +600,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Multi-step operations run inside database transactions (Kysely transaction(), e.g. asset deletion, trash restore); covered partially by repository/service specs. See [E1].",
+              "Evidence": "Multi-step operations run inside database transactions (Kysely transaction(), e.g. asset deletion, trash restore); covered partially by repository/service specs. See [E1, E2].",
               "evidence_references": {
-                "E1": "server/src/repositories/access.repository.ts:16"
+                "E1": "server/src/repositories/access.repository.ts:16",
+                "E2": "e2e/src/specs/server/api/trash.e2e-spec.ts:22"
               }
             },
             {
@@ -689,9 +700,9 @@
               "Description": "Verify that content intended to be displayed as text, rather than rendered as HTML, is handled using safe rendering functions (such as createTextNode or textContent) to prevent unintended execution of content such as HTML or JavaScript.",
               "L": "1",
               "Applicability": "yes",
-              "Implemented": "yes",
-              "Tested": "partial",
-              "Evidence": "The web app renders untrusted content (file names, comments, metadata) exclusively through Svelte text interpolation, which escapes by default; no innerHTML/dangerouslySetInnerHTML usage found. See [E1].",
+              "Implemented": "partial",
+              "Tested": "no",
+              "Evidence": "The web app renders untrusted content (file names, comments, metadata) through Svelte text interpolation, which escapes by default. One raw-HTML site exists: the admin-configured login page message is rendered with Svelte {@html} on the login page, so an administrator can inject arbitrary HTML/JS into unauthenticated pages; regular user input never reaches an HTML sink. No test covers the escaping behavior or the {@html} site. See [E1].",
               "evidence_references": {
                 "E1": "web/src/routes/auth/login/+page.svelte:183"
               }
@@ -1013,10 +1024,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Redirects to other hosts occur only in the OAuth flow (to the configured IdP and back via the configured redirect URI, incl. mobile redirect handling) and to the IdP logout endpoint; these are admin-configured, effectively an allowlist. No generic redirect parameters were found. See [E1, E2].",
+              "Evidence": "Redirects to other hosts occur only in the OAuth flow (to the configured IdP and back via the configured redirect URI, incl. mobile redirect handling) and to the IdP logout endpoint; these are admin-configured, effectively an allowlist. No generic redirect parameters were found. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/auth.service.ts:274",
-                "E2": "server/src/constants.ts:1"
+                "E2": "server/src/constants.ts:1",
+                "E3": "server/src/controllers/oauth.controller.spec.ts:34"
               }
             },
             {
@@ -1059,8 +1071,8 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
-              "Evidence": "NestJS/Express sets application/json; charset=utf-8 for API responses; asset/file responses set the correct media type from the internal mime-type map. Covered indirectly by API e2e specs. See [E1, E2].",
+              "Tested": "no",
+              "Evidence": "NestJS/Express sets application/json; charset=utf-8 for API responses; asset/file responses set the correct media type from the internal mime-type map. No test asserts the response content type. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/controllers/asset-file.controller.ts:23",
                 "E2": "server/src/utils/file.ts:70"
@@ -1087,10 +1099,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Express is configured with 'trust proxy' limited to loopback + admin-configured trustedProxies (app.common.ts), so X-Forwarded-* from untrusted hops are ignored and clientIp comes from a trusted field. Covered partially by auth.service.spec.ts IP handling. See [E1, E2].",
+              "Evidence": "Express is configured with 'trust proxy' limited to loopback + admin-configured trustedProxies (app.common.ts), so X-Forwarded-* from untrusted hops are ignored and clientIp comes from a trusted field. Covered partially by auth.service.spec.ts IP handling. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/app.common.ts:47",
-                "E2": "server/src/repositories/config.repository.ts:362"
+                "E2": "server/src/repositories/config.repository.ts:362",
+                "E3": "server/src/repositories/config.repository.spec.ts:267"
               }
             },
             {
@@ -1223,10 +1236,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "WebSocket channels reuse the standard session management (same cookies/session tokens as HTTP) rather than a separate weaker mechanism; the web client passes the access token during the socket handshake. See [E1, E2].",
+              "Evidence": "WebSocket channels reuse the standard session management (same cookies/session tokens as HTTP) rather than a separate weaker mechanism; the web client passes the access token during the socket handshake. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/middleware/auth.guard.ts:114",
-                "E2": "server/src/services/auth.service.ts:553"
+                "E2": "server/src/services/auth.service.ts:553",
+                "E3": "e2e/src/specs/web/websocket.e2e-spec.ts:5"
               }
             },
             {
@@ -1354,7 +1368,7 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Uploads are stored in a storage folder outside the web root and served only through authenticated API endpoints that stream the file with a safe Content-Type; the static web root contains only built assets. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/controllers/asset-file.controller.ts:23",
@@ -1369,10 +1383,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Stored filenames are generated server-side: uuid + sanitized extension (asset-media.service.ts getUploadFilename uses sanitize() and only takes the extension from user input); folders are built from internal ids/uuids, preventing traversal. See [E1, E2].",
+              "Evidence": "Stored filenames are generated server-side: uuid + sanitized extension (asset-media.service.ts getUploadFilename uses sanitize() and only takes the extension from user input); folders are built from internal ids/uuids, preventing traversal. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/asset-media.service.ts:93",
-                "E2": "server/src/validation.ts:248"
+                "E2": "server/src/validation.ts:248",
+                "E3": "server/src/services/asset-media.service.spec.ts:259"
               }
             },
             {
@@ -1395,7 +1410,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Download responses set Content-Disposition with RFC 5987/6266 encoding (server/src/utils/file.ts filename*=UTF-8''..., integrity-admin.controller.ts uses attachment + encodeURIComponent); stored filenames are server-generated, user filenames are only echoed in this encoded form. See [E1].",
               "evidence_references": {
                 "E1": "server/src/utils/file.ts:70"
@@ -1552,7 +1567,7 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "yes",
+              "Tested": "no",
               "Evidence": "The only rule is minimum length; no character-class composition requirements exist in any password schema. See [E1].",
               "evidence_references": {
                 "E1": "server/src/dtos/auth.dto.ts:138"
@@ -1592,10 +1607,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Passwords are compared exactly as received via bcrypt compare (crypto.repository.ts compareBcrypt); no truncation, trimming or case transformation in the login/change-password paths. See [E1, E2].",
+              "Evidence": "Passwords are compared exactly as received via bcrypt compare (crypto.repository.ts compareBcrypt); no truncation, trimming or case transformation in the login/change-password paths. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/repositories/crypto.repository.ts:21",
-                "E2": "server/src/services/auth.service.ts:69"
+                "E2": "server/src/services/auth.service.ts:69",
+                "E3": "server/src/services/auth.service.spec.ts:105"
               }
             },
             {
@@ -1781,10 +1797,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "No self-service 'forgot password' email flow exists; a forgotten password is handled by an admin resetting it (user-admin service / CLI), which cannot bypass MFA since MFA is delegated to passkeys/IdP. No automated reset token exists at all. See [E1, E2].",
+              "Evidence": "No self-service 'forgot password' email flow exists; a forgotten password is handled by an admin resetting it (user-admin service / CLI), which cannot bypass MFA since MFA is delegated to passkeys/IdP. No automated reset token exists at all. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/user-admin.service.ts:82",
-                "E2": "server/src/services/auth.service.ts:136"
+                "E2": "server/src/services/auth.service.ts:136",
+                "E3": "e2e/src/specs/server/api/user-admin.e2e-spec.ts:100"
               }
             },
             {
@@ -2006,10 +2023,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "OIDC ID tokens are validated by openid-client / jose: signature via the IdP's JWKS or client secret, issuer and audience are checked (oauth.repository.ts; validateLogoutToken validates signature, iss, aud explicitly for logout tokens). See [E1, E2].",
+              "Evidence": "OIDC ID tokens are validated by openid-client / jose: signature via the IdP's JWKS or client secret, issuer and audience are checked (oauth.repository.ts; validateLogoutToken validates signature, iss, aud explicitly for logout tokens). See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/repositories/oauth.repository.ts:148",
-                "E2": "server/src/services/auth.service.ts:102"
+                "E2": "server/src/services/auth.service.ts:102",
+                "E3": "e2e/src/specs/server/api/oauth.e2e-spec.ts:148"
               }
             },
             {
@@ -2124,11 +2142,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "Each login generates a fresh random reference token stored hashed in the session table (base.service.ts createLoginResponse). Static API keys exist but are an explicit opt-in separate credential, not the session mechanism. See [E1, E2, E3].",
+              "Evidence": "Each login generates a fresh random reference token stored hashed in the session table (base.service.ts createLoginResponse). Static API keys exist but are an explicit opt-in separate credential, not the session mechanism. See [E1, E2, E3, E4].",
               "evidence_references": {
                 "E1": "server/src/services/base.service.ts:366",
                 "E2": "server/src/services/base.service.ts:372",
-                "E3": "server/src/services/api-key.service.ts:13"
+                "E3": "server/src/services/api-key.service.ts:13",
+                "E4": "e2e/src/specs/server/api/session.e2e-spec.ts:17"
               }
             },
             {
@@ -2139,10 +2158,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Session tokens are randomBytes(32) base64-encoded (>=128 bits entropy) from node crypto CSPRNG; only the SHA-256 hash is stored. Token format asserted in api-key/session specs; entropy is by construction, not measured by tests. See [E1, E2].",
+              "Evidence": "Session tokens are randomBytes(32) base64-encoded (>=128 bits entropy) from node crypto CSPRNG; only the SHA-256 hash is stored. Token generation and hashing asserted in api-key specs; entropy is by construction, not measured by tests. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/base.service.ts:372",
-                "E2": "server/src/schema/tables/session.table.ts:21"
+                "E2": "server/src/schema/tables/session.table.ts:21",
+                "E3": "server/src/services/api-key.service.spec.ts:24"
               }
             },
             {
@@ -2153,10 +2173,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "A new session token is created on every authentication, but previously issued sessions for the same user are not terminated on re-login; password change offers invalidateSessions as an opt-in. See [E1, E2].",
+              "Evidence": "A new session token is created on every authentication, but previously issued sessions for the same user are not terminated on re-login; password change offers invalidateSessions as an opt-in. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/base.service.ts:366",
-                "E2": "server/src/services/auth.service.ts:146"
+                "E2": "server/src/services/auth.service.ts:146",
+                "E3": "server/src/services/auth.service.spec.ts:49"
               }
             }
           ]
@@ -2223,10 +2244,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Sessions are FK-cascade deleted with the user (session.table.ts onDelete: CASCADE), so account deletion removes sessions; password change can invalidate all sessions (invalidateSessions flag). Merely disabling a user does not proactively kill existing sessions. See [E1, E2].",
+              "Evidence": "Sessions are FK-cascade deleted with the user (session.table.ts onDelete: CASCADE), so account deletion removes sessions; password change can invalidate all sessions (invalidateSessions flag). Merely disabling a user does not proactively kill existing sessions. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/schema/tables/session.table.ts:32",
-                "E2": "server/src/services/auth.service.ts:146"
+                "E2": "server/src/services/auth.service.ts:146",
+                "E3": "server/src/services/auth.service.spec.ts:93"
               }
             },
             {
@@ -2264,7 +2286,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "partial",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Admins can list a user's sessions (user-admin.service.ts) and deleting the user cascades sessions, but there is no admin endpoint to revoke an individual user's sessions without deleting the account. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/services/user-admin.service.ts:82",
@@ -2447,10 +2469,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Response DTOs whitelist fields per role (admin mappers expose more than user mappers; password hashes are never mapped), but there is no fine-grained per-field permission model beyond the admin/user split. See [E1, E2].",
+              "Evidence": "Response DTOs whitelist fields per role (admin mappers expose more than user mappers; password hashes are never mapped), but there is no fine-grained per-field permission model beyond the admin/user split. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/dtos/user.dto.ts:53",
-                "E2": "server/src/dtos/user.dto.ts:134"
+                "E2": "server/src/dtos/user.dto.ts:134",
+                "E3": "server/test/medium/specs/services/user.service.spec.ts:63"
               }
             },
             {
@@ -2474,10 +2497,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "All authorization decisions run in the NestJS server (guard + services + access repository); the web client only hides UI elements and never grants access. See [E1, E2].",
+              "Evidence": "All authorization decisions run in the NestJS server (guard + services + access repository); the web client only hides UI elements and never grants access. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/middleware/auth.guard.ts:114",
-                "E2": "server/src/repositories/access.repository.ts:16"
+                "E2": "server/src/repositories/access.repository.ts:16",
+                "E3": "server/test/medium/specs/services/api-key.service.spec.ts:35"
               }
             },
             {
@@ -2540,7 +2564,7 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Self-contained JWTs (workflow execution tokens) are verified with HS256 signature before use (crypto.repository.ts verifyJwt, workflow-execution.service.ts). See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/repositories/crypto.repository.ts:67",
@@ -2554,7 +2578,7 @@
               "L": "1",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "jwt.verify is called with an explicit algorithm allowlist algorithms: ['HS256'] and signing is pinned to HS256; 'none' cannot be accepted. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/repositories/crypto.repository.ts:64",
@@ -2659,10 +2683,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Backend-for-frontend pattern: the OAuth access/refresh tokens are stored server-side on the session row (oauthBearerToken); the browser only receives the HttpOnly session cookie, never upstream tokens. See [E1, E2].",
+              "Evidence": "Backend-for-frontend pattern: the OAuth access/refresh tokens are stored server-side on the session row (oauthBearerToken); the browser only receives the HttpOnly session cookie, never upstream tokens. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/schema/tables/session.table.ts:1",
-                "E2": "server/src/services/auth.service.ts:382"
+                "E2": "server/src/services/auth.service.ts:382",
+                "E3": "e2e/src/specs/server/api/oauth.e2e-spec.ts:148"
               }
             },
             {
@@ -2985,9 +3010,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The OIDC client (openid-client) generates and validates a nonce per authentication request, binding the ID token to the original request. See [E1].",
+              "Evidence": "The OIDC client (openid-client) generates and validates a nonce per authentication request, binding the ID token to the original request. See [E1, E2].",
               "evidence_references": {
-                "E1": "server/src/repositories/oauth.repository.ts:59"
+                "E1": "server/src/repositories/oauth.repository.ts:59",
+                "E2": "e2e/src/specs/server/api/oauth.e2e-spec.ts:148"
               }
             },
             {
@@ -2998,10 +3024,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Users are identified by the IdP's sub claim stored as a unique oauthId per user; emails may link accounts but the sub-based binding is not reassignable within the IdP. See [E1, E2].",
+              "Evidence": "Users are identified by the IdP's sub claim stored as a unique oauthId per user; emails may link accounts but the sub-based binding is not reassignable within the IdP. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/schema/tables/user.table.ts:61",
-                "E2": "server/src/services/auth.service.ts:301"
+                "E2": "server/src/services/auth.service.ts:301",
+                "E3": "e2e/src/specs/server/api/oauth.e2e-spec.ts:37"
               }
             },
             {
@@ -3011,7 +3038,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "openid-client validates the issuer in the server metadata against the pre-configured issuerUrl (new URL(issuerUrl) in oauth.repository.ts); metadata from a different issuer is rejected. See [E1].",
               "evidence_references": {
                 "E1": "server/src/repositories/oauth.repository.ts:1"
@@ -3024,7 +3051,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "openid-client validates the ID token aud claim against the configured clientId before accepting the login. See [E1].",
               "evidence_references": {
                 "E1": "server/src/repositories/oauth.repository.ts:1"
@@ -3341,10 +3368,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "SHA-256 (256-bit) is used for token hashing and integrity; bcrypt (with salt) for passwords. SHA-1 appears only for non-security asset checksums. See [E1, E2].",
+              "Evidence": "SHA-256 (256-bit) is used for token hashing and integrity; bcrypt (with salt) for passwords. SHA-1 appears only for non-security asset checksums. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/repositories/crypto.repository.ts:17",
-                "E2": "server/src/services/auth.service.ts:554"
+                "E2": "server/src/services/auth.service.ts:554",
+                "E3": "server/src/services/api-key.service.spec.ts:24"
               }
             },
             {
@@ -3375,11 +3403,12 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "All security-relevant random values use node crypto CSPRNG with at least 128 bits (session/API keys 32 bytes, shared-link keys 50 bytes, OAuth state/verifier); UUIDs are used only for entity identifiers, not as secrets. See [E1, E2, E3].",
+              "Evidence": "All security-relevant random values use node crypto CSPRNG with at least 128 bits (session/API keys 32 bytes, shared-link keys 50 bytes, OAuth state/verifier); UUIDs are used only for entity identifiers, not as secrets. See [E1, E2, E3, E4].",
               "evidence_references": {
                 "E1": "server/src/services/base.service.ts:372",
                 "E2": "server/src/services/shared-link.service.ts:94",
-                "E3": "server/src/services/api-key.service.ts:13"
+                "E3": "server/src/services/api-key.service.ts:13",
+                "E4": "server/src/services/api-key.service.spec.ts:35"
               }
             },
             {
@@ -3800,7 +3829,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "partial",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Production mode disables dev CORS and Swagger spec writing, and log levels are configurable; however the Swagger UI remains mounted in production unless disabled, and debug logging can be enabled via env. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/app.common.ts:59",
@@ -4001,10 +4030,11 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Logout clears auth cookies and deletes the server session; the web app clears its local state on logout. No Clear-Site-Data header is sent and offline cleanup is not guaranteed. See [E1, E2].",
+              "Evidence": "Logout clears auth cookies and deletes the server session; the web app clears its local state on logout. No Clear-Site-Data header is sent and offline cleanup is not guaranteed. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/services/auth.service.ts:79",
-                "E2": "server/src/utils/response.ts:42"
+                "E2": "server/src/utils/response.ts:42",
+                "E3": "e2e/src/specs/server/api/session.e2e-spec.ts:36"
               }
             },
             {
@@ -4028,7 +4058,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Browser storage contains only UI preferences (search query type, scroll position); session tokens live in HttpOnly cookies, and the non-HttpOnly isAuthenticated cookie only signals auth state. See [E1, E2].",
               "evidence_references": {
                 "E1": "server/src/utils/response.ts:42",
@@ -4129,10 +4159,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Heavy work (thumbnailing, transcoding, ML) runs asynchronously through BullMQ job queues with per-queue concurrency limits and job deduplication; upload/download streams are throttled by backpressure. Covered partially by job service specs. See [E1, E2].",
+              "Evidence": "Heavy work (thumbnailing, transcoding, ML) runs asynchronously through BullMQ job queues with per-queue concurrency limits and job deduplication; upload/download streams are throttled by backpressure. Covered partially by job service specs. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/repositories/job.repository.ts:147",
-                "E2": "server/src/repositories/job.repository.ts:97"
+                "E2": "server/src/repositories/job.repository.ts:97",
+                "E3": "e2e/src/specs/server/api/jobs.e2e-spec.ts:16"
               }
             },
             {
@@ -4176,10 +4207,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "API responses are produced by explicit DTO mappers that whitelist fields (mapUser/mapUserAdmin never include password hashes); response shapes asserted in service and controller specs. See [E1, E2].",
+              "Evidence": "API responses are produced by explicit DTO mappers that whitelist fields (mapUser/mapUserAdmin never include password hashes); response shapes asserted in service and controller specs. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/dtos/user.dto.ts:53",
-                "E2": "server/src/dtos/user.dto.ts:134"
+                "E2": "server/src/dtos/user.dto.ts:134",
+                "E3": "server/test/medium/specs/services/user.service.spec.ts:63"
               }
             },
             {
@@ -4203,10 +4235,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "yes",
-              "Evidence": "All write endpoints accept zod DTOs that strip unknown keys; entity updates map only whitelisted fields, so mass assignment of unintended fields is not possible. Covered by validation and service specs. See [E1, E2].",
+              "Evidence": "All write endpoints accept zod DTOs that strip unknown keys; entity updates map only whitelisted fields, so mass assignment of unintended fields is not possible. Covered by validation and service specs. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/validation.ts:137",
-                "E2": "server/src/dtos/user.dto.ts:53"
+                "E2": "server/src/dtos/user.dto.ts:53",
+                "E3": "server/src/validation.spec.ts:5"
               }
             },
             {
@@ -4217,10 +4250,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "Express trust proxy is restricted to loopback + configured trustedProxies, so clientIp used for logging/security decisions comes only from trusted hops; covered by config repository specs. See [E1, E2].",
+              "Evidence": "Express trust proxy is restricted to loopback + configured trustedProxies, so clientIp used for logging/security decisions comes only from trusted hops; covered by config repository specs. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/app.common.ts:47",
-                "E2": "server/src/repositories/config.repository.ts:362"
+                "E2": "server/src/repositories/config.repository.ts:362",
+                "E3": "server/src/repositories/config.repository.spec.ts:267"
               }
             },
             {
@@ -4231,9 +4265,10 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "TypeScript with strict type checking and zod runtime validation enforces correct types; comparisons use strict equality consistently (lint-enforced) preventing type juggling. See [E1].",
+              "Evidence": "TypeScript with strict type checking and zod runtime validation enforces correct types; comparisons use strict equality consistently (lint-enforced) preventing type juggling. See [E1, E2].",
               "evidence_references": {
-                "E1": "server/src/validation.ts:117"
+                "E1": "server/src/validation.ts:117",
+                "E2": "server/eslint.config.mjs:81"
               }
             },
             {
@@ -4410,8 +4445,8 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "partial",
-              "Tested": "partial",
-              "Evidence": "Failed logins are logged with IP and email (auth.service.ts); successful logins create session rows (device/OS/IP recorded) rather than log lines; no factor metadata is logged. Partially covered by auth service specs. See [E1].",
+              "Tested": "no",
+              "Evidence": "Failed logins are logged with IP and email (auth.service.ts); successful logins create session rows (device/OS/IP recorded) rather than log lines; no factor metadata is logged. No test asserts the content of security log entries. See [E1].",
               "evidence_references": {
                 "E1": "server/src/services/auth.service.ts:72"
               }
@@ -4450,7 +4485,7 @@
               "L": "2",
               "Applicability": "yes",
               "Implemented": "yes",
-              "Tested": "partial",
+              "Tested": "no",
               "Evidence": "Unexpected errors are caught by the global exception filter and logged with stack traces (middleware/global-exception.filter.ts); job failures are logged via the job repository. See [E1].",
               "evidence_references": {
                 "E1": "server/src/middleware/global-exception.filter.ts:19"
@@ -4518,10 +4553,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The global exception filter maps errors to generic HTTP exceptions without stack traces or SQL; unhandled errors return a generic 500 message. Covered by error interceptor/filter specs. See [E1, E2].",
+              "Evidence": "The global exception filter maps errors to generic HTTP exceptions without stack traces or SQL; unhandled errors return a generic 500 message. Covered by error interceptor/filter specs. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/middleware/global-exception.filter.ts:19",
-                "E2": "server/src/middleware/error.interceptor.ts:34"
+                "E2": "server/src/middleware/error.interceptor.ts:34",
+                "E3": "e2e/src/specs/server/api/oauth.e2e-spec.ts:331"
               }
             },
             {
@@ -4532,9 +4568,10 @@
               "Applicability": "yes",
               "Implemented": "partial",
               "Tested": "partial",
-              "Evidence": "Failures of external resources (ML service, Redis, DB) are handled with retries/queue re-runs and logged errors rather than crashing, but there is no circuit-breaker pattern. See [E1].",
+              "Evidence": "Failures of external resources (ML service, Redis, DB) are handled with retries/queue re-runs and logged errors rather than crashing, but there is no circuit-breaker pattern. See [E1, E2].",
               "evidence_references": {
-                "E1": "server/src/repositories/job.repository.ts:147"
+                "E1": "server/src/repositories/job.repository.ts:147",
+                "E2": "e2e/src/specs/server/api/jobs.e2e-spec.ts:16"
               }
             },
             {
@@ -4545,10 +4582,11 @@
               "Applicability": "yes",
               "Implemented": "yes",
               "Tested": "partial",
-              "Evidence": "The app fails closed: AuthGuard throws on any validation error (no fail-open), zod validation rejects malformed input, and upload errors abort the pipeline; covered by guard and validation specs. See [E1, E2].",
+              "Evidence": "The app fails closed: AuthGuard throws on any validation error (no fail-open), zod validation rejects malformed input, and upload errors abort the pipeline; covered by guard and validation specs. See [E1, E2, E3].",
               "evidence_references": {
                 "E1": "server/src/middleware/auth.guard.ts:102",
-                "E2": "server/src/validation.ts:137"
+                "E2": "server/src/validation.ts:137",
+                "E3": "server/src/middleware/auth.guard.spec.ts:41"
               }
             },
             {
