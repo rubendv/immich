@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://immich.example/security/harness/assessment.schema.json",
+  "title": "CRA due-diligence assessment of a single dependency",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "component",
+    "assessed_at",
+    "harness",
+    "criteria",
+    "overall"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 1 },
+    "component": {
+      "type": "object",
+      "required": ["purl", "name", "version", "ecosystem", "scope", "workspaces"],
+      "additionalProperties": false,
+      "properties": {
+        "purl": { "type": "string", "pattern": "^pkg:(npm|pypi|cargo|pub)/[^@]+@[^@]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "ecosystem": { "enum": ["npm", "pypi", "cargo", "pub"] },
+        "scope": { "enum": ["required", "optional", "excluded"] },
+        "workspaces": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "assessed_at": { "type": "string", "format": "date-time" },
+    "harness": {
+      "type": "object",
+      "required": ["subagent_pid", "deterministic", "input_digest"],
+      "additionalProperties": false,
+      "properties": {
+        "subagent_pid": { "type": "integer" },
+        "deterministic": { "type": "boolean", "const": true },
+        "input_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "criteria": {
+      "type": "object",
+      "required": [
+        "c01_ce_marking_and_eu_doc",
+        "c02_known_vulnerabilities",
+        "c03_security_patches_available",
+        "c04_vulnerability_disclosure_process",
+        "c05_risk_assessment",
+        "c06_additional_cybersecurity_testing",
+        "c07_technical_verification",
+        "c08_support_period",
+        "c09_recent_maintenance_activity",
+        "c10_oss_stewardship",
+        "c11_security_by_design_indicators",
+        "c12_regular_patch_publication",
+        "c13_intended_use_alignment"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "c01_ce_marking_and_eu_doc": { "$ref": "#/$defs/criterion" },
+        "c02_known_vulnerabilities": { "$ref": "#/$defs/criterion" },
+        "c03_security_patches_available": { "$ref": "#/$defs/criterion" },
+        "c04_vulnerability_disclosure_process": { "$ref": "#/$defs/criterion" },
+        "c05_risk_assessment": { "$ref": "#/$defs/criterion" },
+        "c06_additional_cybersecurity_testing": { "$ref": "#/$defs/criterion" },
+        "c07_technical_verification": { "$ref": "#/$defs/criterion" },
+        "c08_support_period": { "$ref": "#/$defs/criterion" },
+        "c09_recent_maintenance_activity": { "$ref": "#/$defs/criterion" },
+        "c10_oss_stewardship": { "$ref": "#/$defs/criterion" },
+        "c11_security_by_design_indicators": { "$ref": "#/$defs/criterion" },
+        "c12_regular_patch_publication": { "$ref": "#/$defs/criterion" },
+        "c13_intended_use_alignment": { "$ref": "#/$defs/criterion" }
+      }
+    },
+    "overall": {
+      "type": "object",
+      "required": ["risk_tier", "requires_followup", "followup_reasons"],
+      "additionalProperties": false,
+      "properties": {
+        "risk_tier": { "enum": ["low", "low-moderate", "moderate", "high", "not_assessed"] },
+        "requires_followup": { "type": "boolean" },
+        "followup_reasons": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "criterion": {
+      "type": "object",
+      "required": ["status", "rationale", "evidence_refs"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "satisfied",
+            "partially_satisfied",
+            "not_satisfied",
+            "not_applicable",
+            "pending_evidence"
+          ]
+        },
+        "rationale": { "type": "string", "minLength": 1 },
+        "evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    }
+  }
+}

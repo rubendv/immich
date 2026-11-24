@@ -129,3 +129,7 @@ All components are used within their intended purpose: web frameworks for the AP
 4. Complete evidence collection for the [P] components (rate-limited during this assessment): `fastapi`, `sharp`, `jose`, `bullmq`, `kysely`, `handlebars`, `bcrypt`, `exiftool-vendored`, `ua-parser-js`, `fluent-ffmpeg`, `maplibre-gl`, `fabric`, mobile plugins, and remaining ML/natives.
 5. Extend the SBOM to transitive dependencies and to binaries in release images (ffmpeg, exiftool, ONNX models) before external conformity assessment.
 6. Track a support/EOL policy per major dependency in the product's documentation.
+
+## 5. Assessment harness
+
+A deterministic harness (`security/harness/`) now automates this assessment per dependency. It spawns a dedicated sub-agent process per SBOM component, evaluates the 13 criteria as pure functions of the SBOM entry plus evidence files, and emits strict JSON conforming to a predefined schema (`assessment.schema.json`) that is enforced by a linter (`lint_assessments.py`) including SBOM cross-checks and input-digest verification. See `security/harness/README.md` for the current tier snapshot and how to add evidence.

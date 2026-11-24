@@ -1,0 +1,181 @@
+{
+ "_meta": {
+  "description": "Machine-verified per-component evidence keyed by SBOM purl. Collected 2026-11-12 from GitHub REST API (source=github-api), repository HTML pages (source=github-page), and crates.io API (source=crates-io). Components absent here are assessed as pending_evidence by the worker.",
+  "collected_at": "2026-11-12"
+ },
+ "npm/%40nestjs/core": {
+  "source": "github-api",
+  "repo": "nestjs/nest",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": true,
+  "stars": 77112
+ },
+ "npm/dom-to-image": {
+  "source": "github-api",
+  "repo": "tsayen/dom-to-image",
+  "pushed_at": "2024-04-08",
+  "archived": false,
+  "license": "NOASSERTION",
+  "security_policy": false,
+  "stars": 10768
+ },
+ "npm/hls.js": {
+  "source": "github-api",
+  "repo": "video-dev/hls.js",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "NOASSERTION",
+  "security_policy": false,
+  "stars": 17049
+ },
+ "npm/ioredis": {
+  "source": "github-api",
+  "repo": "redis/ioredis",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 15353
+ },
+ "npm/postgres": {
+  "source": "github-api",
+  "repo": "porsager/postgres",
+  "pushed_at": "2026-11-11",
+  "archived": false,
+  "license": "Unlicense",
+  "security_policy": false,
+  "stars": 8765
+ },
+ "npm/qrcode": {
+  "source": "github-api",
+  "repo": "soldair/node-qrcode",
+  "pushed_at": "2024-08-23",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 8191
+ },
+ "npm/react": {
+  "source": "github-api",
+  "repo": "facebook/react",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 252536
+ },
+ "npm/react-dom": {
+  "source": "github-page",
+  "repo": "facebook/react",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 252536
+ },
+ "npm/sanitize-filename": {
+  "source": "github-api",
+  "repo": "parshap/node-sanitize-filename",
+  "pushed_at": "2026-11-07",
+  "archived": false,
+  "license": "NOASSERTION",
+  "security_policy": false,
+  "stars": 372
+ },
+ "npm/socket.io": {
+  "source": "github-api",
+  "repo": "socketio/socket.io",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 63246
+ },
+ "npm/socket.io-client": {
+  "source": "github-api",
+  "repo": "socketio/socket.io",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 63246
+ },
+ "npm/svelte": {
+  "source": "github-api",
+  "repo": "sveltejs/svelte",
+  "pushed_at": "2026-11-12",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 88725
+ },
+ "npm/uuid": {
+  "source": "github-api",
+  "repo": "uuidjs/uuid",
+  "pushed_at": "2026-11-01",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 15346
+ },
+ "npm/express": {
+  "source": "github-page",
+  "repo": "expressjs/express",
+  "pushed_at": "2026-11-02",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": true,
+  "stars": 69674,
+  "latest_release": {
+   "tag": "v5.3.0",
+   "published_at": "2026-10-09"
+  }
+ },
+ "pypi/pydantic": {
+  "source": "github-api",
+  "repo": "pydantic/pydantic",
+  "pushed_at": "2026-11-10",
+  "archived": false,
+  "license": "MIT",
+  "security_policy": false,
+  "stars": 29473
+ },
+ "pypi/uvicorn": {
+  "source": "github-api",
+  "repo": "encode/uvicorn",
+  "pushed_at": "2026-11-01",
+  "archived": false,
+  "license": "BSD-3-Clause",
+  "security_policy": false,
+  "stars": 11097
+ },
+ "cargo/jxl": {
+  "source": "crates-io",
+  "repo": "libjxl/jxl-rs",
+  "pushed_at": "2026-10-19",
+  "created_at": "2025-09-05",
+  "versions_since_first": 23,
+  "license": "BSD-3-Clause",
+  "downloads": 395351
+ },
+ "cargo/moxcms": {
+  "source": "crates-io",
+  "repo": "awxkee/moxcms",
+  "pushed_at": "2026-11-07",
+  "created_at": "2025-02-26",
+  "versions_since_first": 37,
+  "license": "BSD-3-Clause OR Apache-2.0",
+  "downloads": 127927559
+ },
+ "cargo/pic-scale": {
+  "source": "crates-io",
+  "repo": "awxkee/pic-scale",
+  "pushed_at": "2026-09-10",
+  "created_at": "2024-06-05",
+  "versions_since_first": 89,
+  "license": "BSD-3-Clause OR Apache-2.0",
+  "downloads": 3756059
+ }
+}

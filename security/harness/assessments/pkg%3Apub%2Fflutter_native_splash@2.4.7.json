@@ -1,0 +1,120 @@
+{
+ "schema_version": 1,
+ "component": {
+  "purl": "pkg:pub/flutter_native_splash@2.4.7",
+  "name": "flutter_native_splash",
+  "version": "2.4.7",
+  "ecosystem": "pub",
+  "scope": "required",
+  "workspaces": [
+   "mobile"
+  ]
+ },
+ "assessed_at": "2026-11-12T00:00:00Z",
+ "harness": {
+  "subagent_pid": 859,
+  "deterministic": true,
+  "input_digest": "c09cafd5f2e9640275de9b7daf1fd1442c7356217e3822412214a0193b9ffe58"
+ },
+ "criteria": {
+  "c01_ce_marking_and_eu_doc": {
+   "status": "not_applicable",
+   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c02_known_vulnerabilities": {
+   "status": "pending_evidence",
+   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c03_security_patches_available": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "pending_evidence",
+   "rationale": "No release-cadence evidence collected.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c04_vulnerability_disclosure_process": {
+   "status": "pending_evidence",
+   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c05_risk_assessment": {
+   "status": "satisfied",
+   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c06_additional_cybersecurity_testing": {
+   "status": "partially_satisfied",
+   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c07_technical_verification": {
+   "status": "satisfied",
+   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pub). Binary-artifact components require checksum/provenance verification.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c08_support_period": {
+   "status": "pending_evidence",
+   "rationale": "Support period unverifiable without upstream activity data.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c09_recent_maintenance_activity": {
+   "status": "pending_evidence",
+   "rationale": "No maintenance-activity evidence collected for this component.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c10_oss_stewardship": {
+   "status": "pending_evidence",
+   "rationale": "No stewardship classification curated for this component.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c11_security_by_design_indicators": {
+   "status": "pending_evidence",
+   "rationale": "No security-by-design evidence captured for this component.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  },
+  "c13_intended_use_alignment": {
+   "status": "satisfied",
+   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "evidence_refs": [
+    "evidence/curated.json#product",
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter_native_splash@2.4.7"
+   ]
+  }
+ },
+ "overall": {
+  "risk_tier": "not_assessed",
+  "requires_followup": false,
+  "followup_reasons": [
+   "collect upstream evidence before assessment"
+  ]
+ }
+}

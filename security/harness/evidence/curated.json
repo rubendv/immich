@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "description": "Curated, deterministic inputs that cannot be fetched from a registry API: documented CVE history, disclosure-process facts, and product-level judgments. Each entry is keyed by ecosystem/name. Evidence level 'D' = documented public fact (verify before external release); 'V' = verified as noted.",
+    "curated_at": "2026-11-12"
+  },
+  "npm/express": {
+    "cve_history": [{ "id": "CVE-2024-43796", "summary": "open redirect via res.location/res.redirect", "fixed_in": "4.21.2 / 5.0.0" }, { "id": "CVE-2024-45590", "summary": "DoS via malformed body", "fixed_in": "4.21.2 / 5.0.0" }],
+    "patch_publication": "regular security patch line across 4.x and 5.x",
+    "sbd_indicators": ["governance (TC, triagers)", "security policy and procedures", "high test coverage"],
+    "support_line": "current major actively supported"
+  },
+  "npm/ua-parser-js": {
+    "cve_history": [{ "id": "CVE-2021-43609", "summary": "ReDoS", "fixed_in": "0.22.3 / 1.0.33 / 2.0.0" }, { "id": "GHSA-pwcw-6v5x-6hwx (2021 supply-chain compromise of <0.7.30 / 1.0.1)", "summary": "compromised 3.x/4.x versions", "fixed_in": "re-published clean versions" }],
+    "patch_publication": "patched promptly after both incidents"
+  },
+  "npm/handlebars": {
+    "cve_history": [{ "id": "CVE-2021-23369 / GHSA-wv7w-gr4p-whh7 (ReDoS)", "summary": "ReDoS in compiler", "fixed_in": "4.7.7" }],
+    "patch_publication": "historical security releases exist (most recent 2022-era)"
+  },
+  "npm/semver": {
+    "cve_history": [{ "id": "CVE-2022-25883", "summary": "ReDoS", "fixed_in": "7.5.2 / 6.3.1 / 5.7.2" }],
+    "patch_publication": "npm Inc. publishes patches promptly"
+  },
+  "npm/lodash-es / npm/lodash": {
+    "cve_history": [{ "id": "CVE-2020-8203", "summary": "prototype pollution", "fixed_in": "4.17.19" }],
+    "patch_publication": "project is feature-frozen but published a security fix in 2020; no active development"
+  },
+  "npm/dom-to-image": {
+    "maintenance_status": "unmaintained since 2024-04-08",
+    "recommendation": "replace with an actively maintained alternative (e.g. html-to-image / modern-screenshot)"
+  },
+  "npm/qrcode": {
+    "maintenance_status": "no releases since 2024; last repo push 2024-08-23"
+  },
+  "npm/bcrypt": {
+    "notes": "native build; consider bcryptjs attacker-timing tradeoffs; kelektiv org publishes occasional updates"
+  },
+  "npm/@noble/hashes": {
+    "sbd_indicators": ["published third-party security audits", "constant-time implementation discipline", "small audited surface"]
+  },
+  "npm/jose": {
+    "sbd_indicators": ["constant-time crypto comparisons", "conformance test vectors", "maintained by an auth-ecosystem maintainer"]
+  },
+  "pypi/pillow": {
+    "cve_history_note": "long history of image-parsing CVEs, consistently patched by python-pillow org; keep current within major",
+    "patch_publication": "regular"
+  },
+  "pypi/huggingface-hub": {
+    "cve_history_note": "CVE-2024-23651..23653 (HF aspirates: pickle deserialization) fixed in hub code; treat model downloads as untrusted",
+    "patch_publication": "Hugging Face Inc. releases regularly"
+  },
+  "pypi/python-multipart": {
+    "cve_history": [{ "id": "CVE-2023-31047", "summary": "DoS via boundary", "fixed_in": "0.0.6" }, { "id": "CVE-2024-24762 / GHSA-2jv8 (ReDoS)", "summary": "ReDoS", "fixed_in": "0.0.9" }, { "id": "CVE-2024-37864", "summary": "ReDoS in quoted-string", "fixed_in": "0.0.10" }],
+    "patch_publication": "responsive after each disclosure"
+  },
+  "pypi/gunicorn": {
+    "notes": "Request smuggling vulnerabilities (CVE-2024-1135, CVE-2024-6827 class) around 20.x -> 22.x/23.x; ensure major line is current",
+    "patch_publication": "maintainer published fixes when disclosed, cadence irregular"
+  },
+  "cargo/jxl": {
+    "sbd_indicators": ["developed under libjxl org with Google-affiliated maintainers", "trustpub/CI-verified publishing", "extensive conformance test corpus"],
+    "notes": "parses untrusted image bytes; keep on newest minor"
+  },
+  "cargo/moxcms": {
+    "notes": "single maintainer; very high release frequency; no published security policy"
+  },
+  "cargo/pic-scale": {
+    "notes": "single maintainer; very high release frequency; downloads concentrated in a downstream (us)"
+  },
+  "product": {
+    "intended_use": "All SBOM components are used within their documented intended purpose: web frameworks for API/SPA, image libraries for media processing, ONNX stack for inference, Flutter plugins for mobile platform integration. Server-side react/react-email usage is server-side email template rendering (an intended use).",
+    "binary_artifacts": ["exiftool-vendored (bundled Perl + vendored binaries)", "sharp (prebuilt native binaries)", "onnxruntime-gpu (prebuilt binaries)", "ffmpeg (external system binary, not in this SBOM)"],
+    "product_gaps": ["immich repository has no SECURITY.md / documented vulnerability disclosure process (CRA Annex I relevant)", "no automated dependency-vuln CI scan wired to the SBOM yet"]
+  }
+}
