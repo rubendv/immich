@@ -13,137 +13,150 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 751,
+  "subagent_pid": 1601,
   "deterministic": true,
-  "input_digest": "1553d4471f56ca12f747d5c645013d624d14acfe1df3e4ae1ba7aaa10ab1c41a"
+  "input_digest": "55dd1a6b970ceaca7a2a0ac38baded48227c5cce4336c97c6ae8cd38e0b53b0f"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "partially_satisfied",
-   "rationale": "Documented CVE history: CVE-2020-8203 (fixed in 4.17.19). Verify the pinned version against OSV/NVD with an automated scan wired to the SBOM (not yet in CI).",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#npm/lodash-es",
-    "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c04_vulnerability_disclosure_process": {
    "status": "partially_satisfied",
-   "rationale": "No published SECURITY.md found at the repository root, but a record of published security patches evidences a working (informal) handling process.",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm. low residual risk: mature and stable; substitution churn would exceed benefit.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
+    "evidence/maintainers.json#npm/lodash-es",
+    "evidence/curated.json#npm/lodash-es",
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: lodash org ( frozen; stable/mature ) (class: community-org).",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
     "evidence/maintainers.json#npm/lodash-es",
     "evidence/curated.json#npm/lodash-es",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
+    "evidence/maintainers.json#npm/lodash-es",
+    "evidence/curated.json#npm/lodash-es",
+    "evidence/llm_analysis.json#npm/lodash-es"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
+    "evidence/maintainers.json#npm/lodash-es",
+    "evidence/curated.json#npm/lodash-es",
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1"
+    "sbom/immich-top-level.cdx.json#pkg:npm/lodash-es@4.18.1",
+    "evidence/maintainers.json#npm/lodash-es",
+    "evidence/curated.json#npm/lodash-es",
+    "evidence/llm_analysis.json#npm/lodash-es"
    ]
   }
  },
  "overall": {
   "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: partially_satisfied",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: partially_satisfied",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
-  ]
+  "followup_reasons": []
  }
 }

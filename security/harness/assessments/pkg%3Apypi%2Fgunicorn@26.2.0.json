@@ -11,136 +11,150 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 904,
+  "subagent_pid": 1754,
   "deterministic": true,
-  "input_digest": "4c7765aa071b8b66f624b5736a866bf31a68701b1fbe2104b3aa42112c5720b8"
+  "input_digest": "e68cbcba0397bbffcf8d83a342e4562c326beb5456ae9025700f83d93c343f59"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c02_known_vulnerabilities": {
-   "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "status": "partially_satisfied",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy. request-smuggling class CVEs fixed upstream; test the reverse-proxy pairing in deployment.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
+    "evidence/maintainers.json#pypi/gunicorn",
+    "evidence/curated.json#pypi/gunicorn",
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#pypi/gunicorn",
-    "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c04_vulnerability_disclosure_process": {
    "status": "partially_satisfied",
-   "rationale": "No published SECURITY.md found at the repository root, but a record of published security patches evidences a working (informal) handling process.",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pypi). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
+    "evidence/maintainers.json#pypi/gunicorn",
+    "evidence/curated.json#pypi/gunicorn",
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c10_oss_stewardship": {
    "status": "partially_satisfied",
-   "rationale": "Steward: benoitc (Benoit Chesneau) (class: individual).",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
     "evidence/maintainers.json#pypi/gunicorn",
     "evidence/curated.json#pypi/gunicorn",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
+    "evidence/maintainers.json#pypi/gunicorn",
+    "evidence/curated.json#pypi/gunicorn",
+    "evidence/llm_analysis.json#pypi/gunicorn"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
+    "evidence/maintainers.json#pypi/gunicorn",
+    "evidence/curated.json#pypi/gunicorn",
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/gunicorn@26.2.0",
+    "evidence/maintainers.json#pypi/gunicorn",
+    "evidence/curated.json#pypi/gunicorn",
+    "evidence/llm_analysis.json#pypi/gunicorn"
    ]
   }
  },
  "overall": {
   "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: partially_satisfied",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c10_oss_stewardship: partially_satisfied",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
-  ]
+  "followup_reasons": []
  }
 }

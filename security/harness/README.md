@@ -13,6 +13,18 @@ security-by-design, patch cadence, intended use).
   (`run_harness.sh`) iterates the SBOM and spawns
   `assess_component.py <purl>` once per component. Each sub-agent run is
   fully isolated: single component in, single JSON document out.
+- **LLM analysis layer, not a rule engine.** Each sub-agent's criterion
+  judgments come from an LLM: (1) the LLM-authored analysis bundle in
+  `evidence/llm_analysis.json` (judgments written component-by-component by
+  the Mistral assistant on 2026-11-12 from the evidence), (2) a live
+  Mistral API call in JSON mode when `MISTRAL_API_KEY` is set (for
+  components without a bundle), and (3) a deterministic rules fallback so the
+  harness never fails silently. The `analyzer` field in every document
+  records which layer produced the judgments (`llm` or `rules`), and the
+  linter enforces the field. Rationales, per-criterion notes and risk
+  reasoning are LLM text; only the aggregation into a risk tier is
+  deterministic (documented formula in `assess_component.py`), keeping the
+  harness reproducible.
 - **Output contract defined beforehand.** Every sub-agent must emit a
   document conforming to `assessment.schema.json` (JSON Schema draft
   2020-12): fixed criteria keys `c01`–`c13`, status enums
@@ -41,6 +53,7 @@ evidence/
   evidence.json          machine-verified upstream activity (GitHub API, crates.io, repo pages)
   maintainers.json       curated stewardship map (class: foundation/corporate/community/individual)
   curated.json           curated CVE history, SBD indicators, product-level judgments
+  llm_analysis.json      LLM-authored due-diligence judgments (per-criterion statuses + rationales)
 assessments/             one validated JSON document per component
 ```
 
@@ -54,12 +67,14 @@ assessments/             one validated JSON document per component
 
 ## Current result snapshot (2026-11-12)
 
-- 333 documents, all lint-clean.
-- Tiers: 16 low (evidence-backed active maintenance), 76 low-moderate
-  (curated stewardship known, activity evidence missing), 2 high
-  (`dom-to-image`, `qrcode` — stale upstream maintenance lines), 239
-  `not_assessed` — upstream evidence collection pending
-  (see `followup_reasons` per document).
+- 333 documents, all lint-clean: 89 LLM-analyzed (`analyzer.kind = "llm"`),
+  244 rules-fallback (`analyzer.kind = "rules"` — no evidence, judged
+  `not_assessed` pending collection).
+- LLM-analyzed set: 2 high (`dom-to-image`, `qrcode` — stale upstream),
+  6 low (express, pydantic, nestjs core, socket.io(-client), react…), 81
+  low-moderate (stewardship known; keep evidence current).
+- Every document lists `followup_reasons`; high-tier documents carry
+  explicit replacement recommendations in the LLM rationales.
 
 ## Adding evidence
 

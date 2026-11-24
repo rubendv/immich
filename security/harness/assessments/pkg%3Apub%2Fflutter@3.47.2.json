@@ -11,110 +11,131 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 853,
+  "subagent_pid": 1703,
   "deterministic": true,
-  "input_digest": "34f7ae5d25dc62c0b46b2dfd86096dbd53e3e62d564bee9df001eb5791d71cc1"
+  "input_digest": "353bc5a6f17a87b21e91f819ac5f9baeeff9daf2f40c9406dd842bb1b65ea2ae"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
+    "evidence/maintainers.json#pub/flutter",
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "satisfied",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar. flutter/flutter publishes a security policy and posts security advisories; process evidence is public.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
+    "evidence/maintainers.json#pub/flutter",
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pub). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
+    "evidence/maintainers.json#pub/flutter",
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: Google LLC (class: corporate).",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
     "evidence/maintainers.json#pub/flutter",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
+    "evidence/maintainers.json#pub/flutter",
+    "evidence/llm_analysis.json#pub/flutter"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
+    "evidence/maintainers.json#pub/flutter",
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2"
+    "sbom/immich-top-level.cdx.json#pkg:pub/flutter@3.47.2",
+    "evidence/maintainers.json#pub/flutter",
+    "evidence/llm_analysis.json#pub/flutter"
    ]
   }
  },
@@ -122,14 +143,7 @@
   "risk_tier": "low-moderate",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

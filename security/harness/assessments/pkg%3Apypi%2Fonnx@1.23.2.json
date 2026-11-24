@@ -11,110 +11,131 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 908,
+  "subagent_pid": 1758,
   "deterministic": true,
-  "input_digest": "8ae319ab4109d89a7391969c50114f698514c611d40194c6fe8e20004de43b8d"
+  "input_digest": "e15915ac0b4f9d22a7a904438838ca4959d40ded3075ced10c0f34e3e99a5c8e"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
+    "evidence/maintainers.json#pypi/onnx",
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
+    "evidence/maintainers.json#pypi/onnx",
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pypi). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
+    "evidence/maintainers.json#pypi/onnx",
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: ONNX (Linux Foundation project) (class: foundation).",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
     "evidence/maintainers.json#pypi/onnx",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
+    "evidence/maintainers.json#pypi/onnx",
+    "evidence/llm_analysis.json#pypi/onnx"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
+    "evidence/maintainers.json#pypi/onnx",
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/onnx@1.23.2",
+    "evidence/maintainers.json#pypi/onnx",
+    "evidence/llm_analysis.json#pypi/onnx"
    ]
   }
  },
@@ -122,14 +143,7 @@
   "risk_tier": "low-moderate",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

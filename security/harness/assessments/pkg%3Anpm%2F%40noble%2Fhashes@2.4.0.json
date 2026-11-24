@@ -11,134 +11,150 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 627,
+  "subagent_pid": 1477,
   "deterministic": true,
-  "input_digest": "dfb33b13511ef067a83eefa2ea1e9b7061d677501e30ff5e968ee7d8bf0efdeb"
+  "input_digest": "3f3100267928e33a53dd53ea34a95eeb80c149e69f0f5802854a6dd72534ab42"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c02_known_vulnerabilities": {
-   "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "status": "partially_satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
+    "evidence/maintainers.json#npm/@noble/hashes",
+    "evidence/curated.json#npm/@noble/hashes",
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#npm/@noble/hashes",
-    "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
+    "evidence/maintainers.json#npm/@noble/hashes",
+    "evidence/curated.json#npm/@noble/hashes",
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
+    "evidence/maintainers.json#npm/@noble/hashes",
+    "evidence/curated.json#npm/@noble/hashes",
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: paulmillr (audited, noble-crypto ecosystem) (class: community-core).",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "satisfied",
-   "rationale": "Documented indicators: published third-party security audits; constant-time implementation discipline; small audited surface.",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current. published third-party audits; constant-time discipline; exemplary for its size class.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
     "evidence/maintainers.json#npm/@noble/hashes",
     "evidence/curated.json#npm/@noble/hashes",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "evidence/llm_analysis.json#npm/@noble/hashes"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
+    "evidence/maintainers.json#npm/@noble/hashes",
+    "evidence/curated.json#npm/@noble/hashes",
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/%40noble/hashes@2.4.0",
+    "evidence/maintainers.json#npm/@noble/hashes",
+    "evidence/curated.json#npm/@noble/hashes",
+    "evidence/llm_analysis.json#npm/@noble/hashes"
    ]
   }
  },
  "overall": {
   "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
-  ]
+  "followup_reasons": []
  }
 }

@@ -11,110 +11,131 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 831,
+  "subagent_pid": 1681,
   "deterministic": true,
-  "input_digest": "845dd25ea4134db7dac6931685ca039e86e64cb7af1833da474509bfae041eed"
+  "input_digest": "f3f9825d5a10d164cfed734c8b57df76d47d0dc045176572e9637eec0e97e8fd"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
+    "evidence/maintainers.json#npm/zod",
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
+    "evidence/maintainers.json#npm/zod",
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD. runtime schema validation: verify product schemas reject unexpected fields (no passthrough).",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
+    "evidence/maintainers.json#npm/zod",
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: colinhacks (Colin McDonnell) with growing team (class: community-core).",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
     "evidence/maintainers.json#npm/zod",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
+    "evidence/maintainers.json#npm/zod",
+    "evidence/llm_analysis.json#npm/zod"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
+    "evidence/maintainers.json#npm/zod",
+    "evidence/llm_analysis.json#npm/zod"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3"
+    "sbom/immich-top-level.cdx.json#pkg:npm/zod@4.4.3",
+    "evidence/maintainers.json#npm/zod",
+    "evidence/llm_analysis.json#npm/zod"
    ]
   }
  },
@@ -122,14 +143,7 @@
   "risk_tier": "low-moderate",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

@@ -11,146 +11,170 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 781,
+  "subagent_pid": 1631,
   "deterministic": true,
-  "input_digest": "0f65321742e911a056b2643880f6701889e28697f0c7e2ebcadbe70659772c3a"
+  "input_digest": "805a2a9ef04b9f1854dd3e6d63cf6a405dbea517f6f11d4f87063c0dc631424d"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/qrcode",
+    "evidence/curated.json#npm/qrcode",
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c03_security_patches_available": {
    "status": "not_satisfied",
-   "rationale": "Upstream inactive for 811 days; security patches are unlikely.",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "not_satisfied",
-   "rationale": "No releases/pushes for 811 days.",
-   "evidence_refs": [
-    "evidence/evidence.json#npm/qrcode",
-    "evidence-source:github-api",
-    "evidence/maintainers.json#npm/qrcode",
-    "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched. moderate-high: stale upstream; monitor for CVEs and pre-plan a replacement.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c08_support_period": {
    "status": "not_satisfied",
-   "rationale": "Inactive upstream: outside any reasonable support period.",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c09_recent_maintenance_activity": {
    "status": "not_satisfied",
-   "rationale": "No upstream activity for 811 days (last push 2024-08-23).",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c10_oss_stewardship": {
    "status": "partially_satisfied",
-   "rationale": "Steward: soldair (individual) (class: individual).",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "partially_satisfied",
-   "rationale": "Widely deployed (8191 stars); standardized review and advisory exposure exist, but no explicit SBD documentation captured.",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
     "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/qrcode",
     "evidence/curated.json#npm/qrcode",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/llm_analysis.json#npm/qrcode"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "not_satisfied",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
+   "evidence_refs": [
+    "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/qrcode",
+    "evidence/curated.json#npm/qrcode",
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4"
+    "evidence/evidence.json#npm/qrcode",
+    "sbom/immich-top-level.cdx.json#pkg:npm/qrcode@1.5.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/qrcode",
+    "evidence/curated.json#npm/qrcode",
+    "evidence/llm_analysis.json#npm/qrcode"
    ]
   }
  },
@@ -160,12 +184,8 @@
   "followup_reasons": [
    "c02_known_vulnerabilities: pending_evidence",
    "c03_security_patches_available: not_satisfied",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
    "c08_support_period: not_satisfied",
    "c09_recent_maintenance_activity: not_satisfied",
-   "c10_oss_stewardship: partially_satisfied",
-   "c11_security_by_design_indicators: partially_satisfied",
    "c12_regular_patch_publication: not_satisfied"
   ]
  }

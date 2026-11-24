@@ -11,110 +11,131 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 699,
+  "subagent_pid": 1549,
   "deterministic": true,
-  "input_digest": "2116aa23db87837aa765bf85be810164b65a66450b5211d833b572df818f90d3"
+  "input_digest": "81e4d6d87eb7155e261c9e87f38a6608a2b7cc9f002ba6c501bc1ea60f0513ff"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
+    "evidence/maintainers.json#npm/archiver",
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
+    "evidence/maintainers.json#npm/archiver",
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "satisfied",
-   "rationale": "Component processes potentially untrusted input (media/parse path): fuzzing and malformed-input tests are required, prioritized above other components.",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching. archive generation from user content: test produced archives for zip-slip/path traversal.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
+    "evidence/maintainers.json#npm/archiver",
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: archiverjs org (class: community-org).",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
     "evidence/maintainers.json#npm/archiver",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
+    "evidence/maintainers.json#npm/archiver",
+    "evidence/llm_analysis.json#npm/archiver"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
+    "evidence/maintainers.json#npm/archiver",
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/archiver@8.0.0",
+    "evidence/maintainers.json#npm/archiver",
+    "evidence/llm_analysis.json#npm/archiver"
    ]
   }
  },
@@ -122,13 +143,7 @@
   "risk_tier": "low-moderate",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

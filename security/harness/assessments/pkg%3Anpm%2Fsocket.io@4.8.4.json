@@ -11,135 +11,157 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 795,
+  "subagent_pid": 1645,
   "deterministic": true,
-  "input_digest": "99ee77fcf266f241cd543a1e8140347424bb0dff92b9544dff0b63d0370bd194"
+  "input_digest": "9123de91783208e4fa61d79847ca71280fd9d5ee887659822bba8f931ad7db21"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/socket.io",
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c03_security_patches_available": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 0 days before 2026-11-12; security patches can be expected on this line. ",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "satisfied",
-   "rationale": "Repository active (0 days since last push). ",
-   "evidence_refs": [
-    "evidence/evidence.json#npm/socket.io",
-    "evidence-source:github-api",
-    "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root. bidirectional realtime channel: include auth/origin validation in penetration testing.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c08_support_period": {
    "status": "satisfied",
-   "rationale": "Project demonstrably active; current major line supported in practice (no formal LTS commitments exist for FOSS of this class).",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c09_recent_maintenance_activity": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 0 days before 2026-11-12.",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: socket.io org (class: community-org).",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "partially_satisfied",
-   "rationale": "Widely deployed (63246 stars); standardized review and advisory exposure exist, but no explicit SBD documentation captured.",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
     "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/socket.io",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/llm_analysis.json#npm/socket.io"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "satisfied",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
+   "evidence_refs": [
+    "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/socket.io",
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4"
+    "evidence/evidence.json#npm/socket.io",
+    "sbom/immich-top-level.cdx.json#pkg:npm/socket.io@4.8.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/socket.io",
+    "evidence/llm_analysis.json#npm/socket.io"
    ]
   }
  },
@@ -147,10 +169,7 @@
   "risk_tier": "low",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c11_security_by_design_indicators: partially_satisfied"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

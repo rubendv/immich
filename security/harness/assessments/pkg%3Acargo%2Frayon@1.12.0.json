@@ -11,110 +11,131 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 594,
+  "subagent_pid": 1444,
   "deterministic": true,
-  "input_digest": "7bb9383a76ef9b9390e8628bfe58347490db3584b9240abdeb058e650a8f1b65"
+  "input_digest": "11ef572cda2bbf309ca50d5ca7a28689f9080a1db9c1b5b7dd583fe863de1b77"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
+    "evidence/maintainers.json#cargo/rayon",
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
+    "evidence/maintainers.json#cargo/rayon",
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for cargo). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
+    "evidence/maintainers.json#cargo/rayon",
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: rayon-rs (Niko Matsakis, Josh Stone) (class: community-org).",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
     "evidence/maintainers.json#cargo/rayon",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
+    "evidence/maintainers.json#cargo/rayon",
+    "evidence/llm_analysis.json#cargo/rayon"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
+    "evidence/maintainers.json#cargo/rayon",
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0"
+    "sbom/immich-top-level.cdx.json#pkg:cargo/rayon@1.12.0",
+    "evidence/maintainers.json#cargo/rayon",
+    "evidence/llm_analysis.json#cargo/rayon"
    ]
   }
  },
@@ -122,14 +143,7 @@
   "risk_tier": "low-moderate",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

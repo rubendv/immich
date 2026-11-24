@@ -11,137 +11,150 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 915,
+  "subagent_pid": 1765,
   "deterministic": true,
-  "input_digest": "39cb30f8874a6fcac6dcd4fb15a39243f8843bb2340d9cb94ff7447154e11a4f"
+  "input_digest": "73bb468c52edf21bd092a5fabe88d3b76eee74c12e83e9d4d13cd8e5b084c76c"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "partially_satisfied",
-   "rationale": "Documented CVE history: CVE-2023-31047 (fixed in 0.0.6), CVE-2024-24762 / GHSA-2jv8 (ReDoS) (fixed in 0.0.9), CVE-2024-37864 (fixed in 0.0.10). Verify the pinned version against OSV/NVD with an automated scan wired to the SBOM (not yet in CI).",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current. CVE-2023-31047 and the 2024 ReDoS issues all fixed in released versions.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#pypi/python-multipart",
-    "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c04_vulnerability_disclosure_process": {
    "status": "partially_satisfied",
-   "rationale": "No published SECURITY.md found at the repository root, but a record of published security patches evidences a working (informal) handling process.",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pypi). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
+    "evidence/maintainers.json#pypi/python-multipart",
+    "evidence/curated.json#pypi/python-multipart",
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: python-multipart org (Yousef Ourabi origin, community maintained) (class: community-org).",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
     "evidence/maintainers.json#pypi/python-multipart",
     "evidence/curated.json#pypi/python-multipart",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
+    "evidence/maintainers.json#pypi/python-multipart",
+    "evidence/curated.json#pypi/python-multipart",
+    "evidence/llm_analysis.json#pypi/python-multipart"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
+    "evidence/maintainers.json#pypi/python-multipart",
+    "evidence/curated.json#pypi/python-multipart",
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/python-multipart@0.0.32",
+    "evidence/maintainers.json#pypi/python-multipart",
+    "evidence/curated.json#pypi/python-multipart",
+    "evidence/llm_analysis.json#pypi/python-multipart"
    ]
   }
  },
  "overall": {
   "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: partially_satisfied",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: partially_satisfied",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
-  ]
+  "followup_reasons": []
  }
 }

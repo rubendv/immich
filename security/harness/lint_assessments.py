@@ -26,7 +26,7 @@ SBOM_PATH = HARNESS_DIR.parent / "sbom" / "immich-top-level.cdx.json"
 ASSESSMENTS_DIR = HARNESS_DIR / "assessments"
 
 # Fields of the evidence record that feed the input digest computed by the worker.
-DIGEST_FIELDS = ("evidence", "maintainers", "curated")
+DIGEST_FIELDS = ("evidence", "maintainers", "curated", "llm_analysis")
 
 
 def load(path: Path):

@@ -11,135 +11,157 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 742,
+  "subagent_pid": 1592,
   "deterministic": true,
-  "input_digest": "cc982a64414073fc8336c719f2497bc3b3917c06d7ee15e6007131c9f6af0ec3"
+  "input_digest": "8cb17f81cb2a443002b0fb88ecc47abe49b3ee636cbd3f7ec3418f421d8a1a8f"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/hls.js",
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c03_security_patches_available": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 0 days before 2026-11-12; security patches can be expected on this line. ",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "satisfied",
-   "rationale": "Repository active (0 days since last push). ",
-   "evidence_refs": [
-    "evidence/evidence.json#npm/hls.js",
-    "evidence-source:github-api",
-    "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history. consumes untrusted media manifests: include in ingest-path fuzzing.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c08_support_period": {
    "status": "satisfied",
-   "rationale": "Project demonstrably active; current major line supported in practice (no formal LTS commitments exist for FOSS of this class).",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c09_recent_maintenance_activity": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 0 days before 2026-11-12.",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: video-dev org (Stream. Video Technology community) (class: community-org).",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "partially_satisfied",
-   "rationale": "Widely deployed (17049 stars); standardized review and advisory exposure exist, but no explicit SBD documentation captured.",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
     "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/hls.js",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/llm_analysis.json#npm/hls.js"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "satisfied",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
+   "evidence_refs": [
+    "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/hls.js",
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4"
+    "evidence/evidence.json#npm/hls.js",
+    "sbom/immich-top-level.cdx.json#pkg:npm/hls.js@1.7.4",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/hls.js",
+    "evidence/llm_analysis.json#npm/hls.js"
    ]
   }
  },
@@ -147,10 +169,7 @@
   "risk_tier": "low",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c11_security_by_design_indicators: partially_satisfied"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

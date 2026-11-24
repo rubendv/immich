@@ -14,22 +14,26 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "rules"
+ },
  "harness": {
-  "subagent_pid": 736,
+  "subagent_pid": 1586,
   "deterministic": true,
-  "input_digest": "2b4442373092a1865f810434963f260a0eefca24010e08ed4cf8aa3c17bf34bf"
+  "input_digest": "40f7c3d5b09e056b7a12e8f783a1bd523e83436224852d26c775df118b07fccf"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
    "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0",
+    "evidence/llm_analysis.json#npm/globals"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "No automated vulnerability-database query was performed and no curated CVE history exists.",
    "evidence_refs": [
     "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
    ]
@@ -43,7 +47,21 @@
   },
   "c12_regular_patch_publication": {
    "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+   ]
+  },
+  "c08_support_period": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+   ]
+  },
+  "c09_recent_maintenance_activity": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
    "evidence_refs": [
     "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
    ]
@@ -57,37 +75,26 @@
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Risk tier computed deterministically from these criteria (see overall.risk_tier).",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0",
+    "evidence/llm_analysis.json#npm/globals"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Baseline SAST/dependency review recommended.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0",
+    "evidence/llm_analysis.json#npm/globals"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "FOSS with public sources: source scanning, review and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components need checksum/provenance verification.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
-   ]
-  },
-  "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
-   "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
-   ]
-  },
-  "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
-   "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0",
+    "evidence/llm_analysis.json#npm/globals"
    ]
   },
   "c10_oss_stewardship": {
@@ -101,7 +108,8 @@
    "status": "pending_evidence",
    "rationale": "No security-by-design evidence captured for this component.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0"
+    "sbom/immich-top-level.cdx.json#pkg:npm/globals@17.13.0",
+    "evidence/llm_analysis.json#npm/globals"
    ]
   },
   "c13_intended_use_alignment": {

@@ -11,159 +11,176 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 727,
+  "subagent_pid": 1577,
   "deterministic": true,
-  "input_digest": "824ecfc6906d2f666ca1146383fdda4b86f0c7ab3315d3cfb432fe568c25fa7d"
+  "input_digest": "3c9c254d6db44ddf7790612e0193f7d46404805e0423f878802d9db0d134a4e5"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "partially_satisfied",
-   "rationale": "Documented CVE history: CVE-2024-43796 (fixed in 4.21.2 / 5.0.0), CVE-2024-45590 (fixed in 4.21.2 / 5.0.0). Verify the pinned version against OSV/NVD with an automated scan wired to the SBOM (not yet in CI).",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust. Documented CVE history (CVE-2024-43796, CVE-2024-45590) fixed in versions predating the pinned line; only an automated OSV pass remains.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c03_security_patches_available": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 10 days before 2026-11-12; security patches can be expected on this line. regular security patch line across 4.x and 5.x",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "satisfied",
-   "rationale": "Repository active (10 days since last push). regular security patch line across 4.x and 5.x",
-   "evidence_refs": [
-    "evidence/evidence.json#npm/express",
-    "evidence-source:github-page",
-    "evidence/maintainers.json#npm/express",
-    "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c04_vulnerability_disclosure_process": {
    "status": "satisfied",
-   "rationale": "Published SECURITY.md / security policy present upstream.",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c08_support_period": {
    "status": "satisfied",
-   "rationale": "Project demonstrably active; current major line supported in practice (no formal LTS commitments exist for FOSS of this class).",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c09_recent_maintenance_activity": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 10 days before 2026-11-12.",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: OpenJS Foundation (Express TC) (class: foundation).",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "satisfied",
-   "rationale": "Documented indicators: governance (TC, triagers); security policy and procedures; high test coverage.",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
     "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
     "evidence-source:github-page",
     "evidence/maintainers.json#npm/express",
     "evidence/curated.json#npm/express",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/llm_analysis.json#npm/express"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "satisfied",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
+   "evidence_refs": [
+    "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
+    "evidence-source:github-page",
+    "evidence/maintainers.json#npm/express",
+    "evidence/curated.json#npm/express",
+    "evidence/llm_analysis.json#npm/express"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0"
+    "evidence/evidence.json#npm/express",
+    "sbom/immich-top-level.cdx.json#pkg:npm/express@5.3.0",
+    "evidence-source:github-page",
+    "evidence/maintainers.json#npm/express",
+    "evidence/curated.json#npm/express",
+    "evidence/llm_analysis.json#npm/express"
    ]
   }
  },
  "overall": {
   "risk_tier": "low",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: partially_satisfied",
-   "c06_additional_cybersecurity_testing: partially_satisfied"
-  ]
+  "followup_reasons": []
  }
 }

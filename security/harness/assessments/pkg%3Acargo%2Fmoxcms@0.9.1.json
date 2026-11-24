@@ -11,157 +11,178 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 591,
+  "subagent_pid": 1441,
   "deterministic": true,
-  "input_digest": "fdb9d0b3a032e229ff2b82c43bb7b422bce7637a87482ad1c79a88f6aebc60d2"
+  "input_digest": "ac4b9f84c132ae1f27499377a5b5e5a2b27663244ba6c2a9eff6541989dbc6ed"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
+    "evidence-source:crates-io",
+    "evidence/maintainers.json#cargo/moxcms",
+    "evidence/curated.json#cargo/moxcms",
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c03_security_patches_available": {
-   "status": "satisfied",
-   "rationale": "Upstream pushed 5 days before 2026-11-12; security patches can be expected on this line. ",
+   "status": "partially_satisfied",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "satisfied",
-   "rationale": "Repository active (5 days since last push). ",
-   "evidence_refs": [
-    "evidence/evidence.json#cargo/moxcms",
-    "evidence-source:crates-io",
-    "evidence/maintainers.json#cargo/moxcms",
-    "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline. moderate: activity high, organization thin; code review and exact version pinning required.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "satisfied",
-   "rationale": "Component processes potentially untrusted input (media/parse path): fuzzing and malformed-input tests are required, prioritized above other components.",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline. processes color profile data from untrusted images: include in the native fuzz corpus.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for cargo). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c08_support_period": {
-   "status": "satisfied",
-   "rationale": "Project demonstrably active; current major line supported in practice (no formal LTS commitments exist for FOSS of this class).",
+   "status": "partially_satisfied",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "satisfied",
-   "rationale": "Upstream pushed 5 days before 2026-11-12.",
+   "status": "partially_satisfied",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c10_oss_stewardship": {
    "status": "partially_satisfied",
-   "rationale": "Steward: awxkee (Radzivon Bartoshyk) (class: individual).",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline. individually maintained with commercial-grade activity but not formally stewarded for commercial purposes.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
     "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
     "evidence-source:crates-io",
     "evidence/maintainers.json#cargo/moxcms",
     "evidence/curated.json#cargo/moxcms",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/llm_analysis.json#cargo/moxcms"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
+   "evidence_refs": [
+    "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
+    "evidence-source:crates-io",
+    "evidence/maintainers.json#cargo/moxcms",
+    "evidence/curated.json#cargo/moxcms",
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1"
+    "evidence/evidence.json#cargo/moxcms",
+    "sbom/immich-top-level.cdx.json#pkg:cargo/moxcms@0.9.1",
+    "evidence-source:crates-io",
+    "evidence/maintainers.json#cargo/moxcms",
+    "evidence/curated.json#cargo/moxcms",
+    "evidence/llm_analysis.json#cargo/moxcms"
    ]
   }
  },
  "overall": {
-  "risk_tier": "low",
+  "risk_tier": "low-moderate",
   "requires_followup": false,
   "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c10_oss_stewardship: partially_satisfied",
-   "c11_security_by_design_indicators: pending_evidence"
+   "c02_known_vulnerabilities: pending_evidence"
   ]
  }
 }

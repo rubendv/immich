@@ -11,146 +11,170 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 714,
+  "subagent_pid": 1564,
   "deterministic": true,
-  "input_digest": "7b6d4fce103c0827f2dba616163b3fa7c9e270072dae0f3c106bdc26058d4017"
+  "input_digest": "78bcd8239bd4441eafae3047ccd02e38461caf923d1ff7f496d5af79f23b4e7f"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed. Upstream evidence pending collection for a firm conclusion on this criterion.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/dom-to-image",
+    "evidence/curated.json#npm/dom-to-image",
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c03_security_patches_available": {
    "status": "not_satisfied",
-   "rationale": "Upstream inactive for 948 days; security patches are unlikely.",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "not_satisfied",
-   "rationale": "No releases/pushes for 948 days.",
-   "evidence_refs": [
-    "evidence/evidence.json#npm/dom-to-image",
-    "evidence-source:github-api",
-    "evidence/maintainers.json#npm/dom-to-image",
-    "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed. highest-risk component in the SBOM: stale upstream plus untrusted-input exposure.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c08_support_period": {
    "status": "not_satisfied",
-   "rationale": "Inactive upstream: outside any reasonable support period.",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c09_recent_maintenance_activity": {
    "status": "not_satisfied",
-   "rationale": "No upstream activity for 948 days (last push 2024-04-08).",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c10_oss_stewardship": {
    "status": "partially_satisfied",
-   "rationale": "Steward: tsayen (individual) (class: individual).",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "partially_satisfied",
-   "rationale": "Widely deployed (10768 stars); standardized review and advisory exposure exist, but no explicit SBD documentation captured.",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
    "evidence_refs": [
     "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
     "evidence-source:github-api",
     "evidence/maintainers.json#npm/dom-to-image",
     "evidence/curated.json#npm/dom-to-image",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/llm_analysis.json#npm/dom-to-image"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "not_satisfied",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
+   "evidence_refs": [
+    "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/dom-to-image",
+    "evidence/curated.json#npm/dom-to-image",
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed. intended use is technically as-designed, but the maintenance posture makes continuing this use inadvisable.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0"
+    "evidence/evidence.json#npm/dom-to-image",
+    "sbom/immich-top-level.cdx.json#pkg:npm/dom-to-image@2.6.0",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#npm/dom-to-image",
+    "evidence/curated.json#npm/dom-to-image",
+    "evidence/llm_analysis.json#npm/dom-to-image"
    ]
   }
  },
@@ -160,12 +184,8 @@
   "followup_reasons": [
    "c02_known_vulnerabilities: pending_evidence",
    "c03_security_patches_available: not_satisfied",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
    "c08_support_period: not_satisfied",
    "c09_recent_maintenance_activity: not_satisfied",
-   "c10_oss_stewardship: partially_satisfied",
-   "c11_security_by_design_indicators: partially_satisfied",
    "c12_regular_patch_publication: not_satisfied"
   ]
  }

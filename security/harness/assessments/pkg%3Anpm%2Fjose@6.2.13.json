@@ -12,24 +12,28 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "rules"
+ },
  "harness": {
-  "subagent_pid": 745,
+  "subagent_pid": 1595,
   "deterministic": true,
-  "input_digest": "54caf92b64c4f00897825f8a6ea2f927d970ac296a05636fd12667951d15ecfc"
+  "input_digest": "a2627f474e436c299098b6e9f3e2240c8dba57d0a0a95b08605c5e005b0919bc"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
    "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13",
     "evidence/maintainers.json#npm/jose",
     "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+    "evidence/llm_analysis.json#npm/jose"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "No automated vulnerability-database query was performed and no curated CVE history exists.",
    "evidence_refs": [
     "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
    ]
@@ -38,17 +42,27 @@
    "status": "pending_evidence",
    "rationale": "No repository activity evidence collected.",
    "evidence_refs": [
-    "evidence/maintainers.json#npm/jose",
-    "evidence/curated.json#npm/jose",
     "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
    ]
   },
   "c12_regular_patch_publication": {
    "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
+   "rationale": "No repository activity evidence collected.",
    "evidence_refs": [
-    "evidence/maintainers.json#npm/jose",
-    "evidence/curated.json#npm/jose",
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+   ]
+  },
+  "c08_support_period": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+   ]
+  },
+  "c09_recent_maintenance_activity": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
     "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
    ]
   },
@@ -61,63 +75,52 @@
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Risk tier computed deterministically from these criteria (see overall.risk_tier).",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13",
     "evidence/maintainers.json#npm/jose",
     "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+    "evidence/llm_analysis.json#npm/jose"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Baseline SAST/dependency review recommended.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13",
     "evidence/maintainers.json#npm/jose",
     "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+    "evidence/llm_analysis.json#npm/jose"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "FOSS with public sources: source scanning, review and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components need checksum/provenance verification.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13",
     "evidence/maintainers.json#npm/jose",
     "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
-   ]
-  },
-  "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
-   "evidence_refs": [
-    "evidence/maintainers.json#npm/jose",
-    "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
-   ]
-  },
-  "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
-   "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+    "evidence/llm_analysis.json#npm/jose"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
    "rationale": "Steward: panva (Filip Skokan), widely deployed in Auth0/Okta ecosystems (class: community-core).",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13",
     "evidence/maintainers.json#npm/jose",
     "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+    "evidence/llm_analysis.json#npm/jose"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "satisfied",
    "rationale": "Documented indicators: constant-time crypto comparisons; conformance test vectors; maintained by an auth-ecosystem maintainer.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13",
     "evidence/maintainers.json#npm/jose",
     "evidence/curated.json#npm/jose",
-    "sbom/immich-top-level.cdx.json#pkg:npm/jose@6.2.13"
+    "evidence/llm_analysis.json#npm/jose"
    ]
   },
   "c13_intended_use_alignment": {
@@ -136,7 +139,6 @@
    "c02_known_vulnerabilities: pending_evidence",
    "c03_security_patches_available: pending_evidence",
    "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
    "c08_support_period: pending_evidence",
    "c09_recent_maintenance_activity: pending_evidence",
    "c12_regular_patch_publication: pending_evidence"

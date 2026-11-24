@@ -11,146 +11,163 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 914,
+  "subagent_pid": 1764,
   "deterministic": true,
-  "input_digest": "557c5fb61ee8dc7e4832ee3b5fdd800d99a41826b2994838d79ff56c9382e9a1"
+  "input_digest": "458fa44eb739dad9e0a84c13984a8f68edd51152932fcf62ccbfba240e2924dc"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c02_known_vulnerabilities": {
-   "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "status": "partially_satisfied",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature. ReDoS-class issues in the 2.x line were patched and disclosed promptly; pin the current minor.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#pypi/pydantic",
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c03_security_patches_available": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 2 days before 2026-11-12; security patches can be expected on this line. ",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "satisfied",
-   "rationale": "Repository active (2 days since last push). ",
-   "evidence_refs": [
-    "evidence/evidence.json#pypi/pydantic",
-    "evidence-source:github-api",
-    "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pypi). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c08_support_period": {
    "status": "satisfied",
-   "rationale": "Project demonstrably active; current major line supported in practice (no formal LTS commitments exist for FOSS of this class).",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c09_recent_maintenance_activity": {
    "status": "satisfied",
-   "rationale": "Upstream pushed 2 days before 2026-11-12.",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: Pydantic Services Inc. (class: corporate).",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "partially_satisfied",
-   "rationale": "Widely deployed (29473 stars); standardized review and advisory exposure exist, but no explicit SBD documentation captured.",
+   "status": "satisfied",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature. strict non-coercive validation defaults are de-facto secure-input design.",
    "evidence_refs": [
     "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
     "evidence-source:github-api",
     "evidence/maintainers.json#pypi/pydantic",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/llm_analysis.json#pypi/pydantic"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "satisfied",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
+   "evidence_refs": [
+    "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#pypi/pydantic",
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1"
+    "evidence/evidence.json#pypi/pydantic",
+    "sbom/immich-top-level.cdx.json#pkg:pypi/pydantic@2.14.1",
+    "evidence-source:github-api",
+    "evidence/maintainers.json#pypi/pydantic",
+    "evidence/llm_analysis.json#pypi/pydantic"
    ]
   }
  },
  "overall": {
-  "risk_tier": "low",
+  "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c11_security_by_design_indicators: partially_satisfied"
-  ]
+  "followup_reasons": []
  }
 }

@@ -13,23 +13,27 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "rules"
+ },
  "harness": {
-  "subagent_pid": 753,
+  "subagent_pid": 1603,
   "deterministic": true,
-  "input_digest": "ac9356b6daf6e8d2f002764e2f0bc015e5f4656da1d04b500ab787038aac331e"
+  "input_digest": "c0f14cb51c0ba3fe360ab54aab4cda86a1256313a921c2535f88624b430c6590"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
    "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2",
     "evidence/maintainers.json#npm/luxon",
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+    "evidence/llm_analysis.json#npm/luxon"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "rationale": "No automated vulnerability-database query was performed and no curated CVE history exists.",
    "evidence_refs": [
     "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
    ]
@@ -38,15 +42,27 @@
    "status": "pending_evidence",
    "rationale": "No repository activity evidence collected.",
    "evidence_refs": [
-    "evidence/maintainers.json#npm/luxon",
     "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
    ]
   },
   "c12_regular_patch_publication": {
    "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
+   "rationale": "No repository activity evidence collected.",
    "evidence_refs": [
-    "evidence/maintainers.json#npm/luxon",
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+   ]
+  },
+  "c08_support_period": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+   ]
+  },
+  "c09_recent_maintenance_activity": {
+   "status": "pending_evidence",
+   "rationale": "No repository activity evidence collected.",
+   "evidence_refs": [
     "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
    ]
   },
@@ -59,56 +75,47 @@
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Risk tier computed deterministically from these criteria (see overall.risk_tier).",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2",
     "evidence/maintainers.json#npm/luxon",
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+    "evidence/llm_analysis.json#npm/luxon"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "rationale": "Baseline SAST/dependency review recommended.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2",
     "evidence/maintainers.json#npm/luxon",
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+    "evidence/llm_analysis.json#npm/luxon"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "FOSS with public sources: source scanning, review and rebuild-from-source are feasible (version pinned via lockfile for npm). Binary-artifact components need checksum/provenance verification.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2",
     "evidence/maintainers.json#npm/luxon",
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
-   ]
-  },
-  "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
-   "evidence_refs": [
-    "evidence/maintainers.json#npm/luxon",
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
-   ]
-  },
-  "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
-   "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+    "evidence/llm_analysis.json#npm/luxon"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
    "rationale": "Steward: moment org (class: community-org).",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2",
     "evidence/maintainers.json#npm/luxon",
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+    "evidence/llm_analysis.json#npm/luxon"
    ]
   },
   "c11_security_by_design_indicators": {
    "status": "pending_evidence",
    "rationale": "No security-by-design evidence captured for this component.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2"
+    "sbom/immich-top-level.cdx.json#pkg:npm/luxon@3.7.2",
+    "evidence/maintainers.json#npm/luxon",
+    "evidence/llm_analysis.json#npm/luxon"
    ]
   },
   "c13_intended_use_alignment": {
@@ -127,7 +134,6 @@
    "c02_known_vulnerabilities: pending_evidence",
    "c03_security_patches_available: pending_evidence",
    "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
    "c08_support_period: pending_evidence",
    "c09_recent_maintenance_activity: pending_evidence",
    "c11_security_by_design_indicators: pending_evidence",

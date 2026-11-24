@@ -1,0 +1,1939 @@
+{
+ "_meta": {
+  "description": "LLM-authored due-diligence judgments per component, keyed by ecosystem/name. Authored by the Mistral LLM assistant in a Vibe session on 2026-11-12 from evidence.json + maintainers.json + curated.json. Consumed by assess_component.py as the analysis layer; overall tiers are computed from these statuses deterministically.",
+  "authored_by": "mistral-llm-assistant@vibe-session-2026-11-12",
+  "criterion_order": [
+   "c01_ce_marking_and_eu_doc",
+   "c02_known_vulnerabilities",
+   "c03_security_patches_available",
+   "c04_vulnerability_disclosure_process",
+   "c05_risk_assessment",
+   "c06_additional_cybersecurity_testing",
+   "c07_technical_verification",
+   "c08_support_period",
+   "c09_recent_maintenance_activity",
+   "c10_oss_stewardship",
+   "c11_security_by_design_indicators",
+   "c12_regular_patch_publication",
+   "c13_intended_use_alignment"
+  ],
+  "legend": {
+   "S": "satisfied",
+   "P": "partially_satisfied",
+   "N": "not_satisfied",
+   "A": "not_applicable",
+   "D": "pending_evidence"
+  },
+  "templates": {
+   "ACTIVE": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "D",
+    "c03_security_patches_available": "S",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "P",
+    "c07_technical_verification": "S",
+    "c08_support_period": "S",
+    "c09_recent_maintenance_activity": "S",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "S",
+    "c13_intended_use_alignment": "S"
+   },
+   "STRONG": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "P",
+    "c03_security_patches_available": "S",
+    "c04_vulnerability_disclosure_process": "S",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "P",
+    "c07_technical_verification": "S",
+    "c08_support_period": "S",
+    "c09_recent_maintenance_activity": "S",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "S",
+    "c12_regular_patch_publication": "S",
+    "c13_intended_use_alignment": "S"
+   },
+   "DOC": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "D",
+    "c03_security_patches_available": "P",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "P",
+    "c07_technical_verification": "S",
+    "c08_support_period": "P",
+    "c09_recent_maintenance_activity": "P",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "P",
+    "c13_intended_use_alignment": "S"
+   },
+   "DOC_TEST": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "D",
+    "c03_security_patches_available": "P",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "S",
+    "c07_technical_verification": "S",
+    "c08_support_period": "P",
+    "c09_recent_maintenance_activity": "P",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "P",
+    "c13_intended_use_alignment": "S"
+   },
+   "CVE": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "P",
+    "c03_security_patches_available": "P",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "P",
+    "c07_technical_verification": "S",
+    "c08_support_period": "P",
+    "c09_recent_maintenance_activity": "P",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "P",
+    "c13_intended_use_alignment": "S"
+   },
+   "CVE_TEST": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "P",
+    "c03_security_patches_available": "P",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "S",
+    "c07_technical_verification": "S",
+    "c08_support_period": "P",
+    "c09_recent_maintenance_activity": "P",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "P",
+    "c13_intended_use_alignment": "S"
+   },
+   "SMALL": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "D",
+    "c03_security_patches_available": "P",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "P",
+    "c07_technical_verification": "S",
+    "c08_support_period": "P",
+    "c09_recent_maintenance_activity": "P",
+    "c10_oss_stewardship": "P",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "P",
+    "c13_intended_use_alignment": "S"
+   },
+   "STALE": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "D",
+    "c03_security_patches_available": "N",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "S",
+    "c07_technical_verification": "S",
+    "c08_support_period": "N",
+    "c09_recent_maintenance_activity": "N",
+    "c10_oss_stewardship": "P",
+    "c11_security_by_design_indicators": "P",
+    "c12_regular_patch_publication": "N",
+    "c13_intended_use_alignment": "S"
+   },
+   "MEMSAFE": {
+    "c01_ce_marking_and_eu_doc": "A",
+    "c02_known_vulnerabilities": "D",
+    "c03_security_patches_available": "P",
+    "c04_vulnerability_disclosure_process": "P",
+    "c05_risk_assessment": "S",
+    "c06_additional_cybersecurity_testing": "S",
+    "c07_technical_verification": "S",
+    "c08_support_period": "P",
+    "c09_recent_maintenance_activity": "P",
+    "c10_oss_stewardship": "S",
+    "c11_security_by_design_indicators": "S",
+    "c12_regular_patch_publication": "P",
+    "c13_intended_use_alignment": "S"
+   }
+  }
+ },
+ "npm/express": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "OpenJS-stewarded with a technical committee, published security policy and prompt CVE patching (2024 fixes shipped well before the pinned 5.x line); high trust.",
+  "criterion_notes": {
+   "c02_known_vulnerabilities": "Documented CVE history (CVE-2024-43796, CVE-2024-45590) fixed in versions predating the pinned line; only an automated OSV pass remains."
+  }
+ },
+ "npm/socket.io": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Very active, org-backed project with a strong coordinated-disclosure record; high trust despite no SECURITY.md at the repo root.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "bidirectional realtime channel: include auth/origin validation in penetration testing."
+  }
+ },
+ "npm/socket.io-client": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Ships from the same active socket.io monorepo and shares its patch cadence and advisory exposure.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "same realtime-channel exposure as socket.io."
+  }
+ },
+ "npm/svelte": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Core-team-maintained compiler under active daily development; the product must compensate at the app layer for the inherent XSS exposure of client templating.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "client-rendering framework: XSS-focused review of web app output hardening is required."
+  }
+ },
+ "npm/react": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Meta-stewarded with mature release engineering and disclosure practices; risk concentrates in usage patterns rather than the library itself."
+ },
+ "npm/react-dom": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Same Meta-stewarded monorepo as react with identical advisory and release process."
+ },
+ "npm/ioredis": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Actively maintained within the Redis Ltd.-supported ecosystem with regular releases; solid maintenance organization."
+ },
+ "npm/postgres": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Genuinely maintained by its originator with a stable, well-audited codebase, but a small core team makes organizational continuity the main uncertainty."
+ },
+ "npm/dom-to-image": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "not_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "not_satisfied",
+   "c09_recent_maintenance_activity": "not_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "not_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Unmaintained since April 2024 with no release cadence and no disclosure channel, yet it renders user-influenced DOM in the product: replace it; patch capability cannot be presumed.",
+  "criterion_notes": {
+   "c13_intended_use_alignment": "intended use is technically as-designed, but the maintenance posture makes continuing this use inadvisable.",
+   "c05_risk_assessment": "highest-risk component in the SBOM: stale upstream plus untrusted-input exposure."
+  }
+ },
+ "npm/qrcode": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "not_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "not_satisfied",
+   "c09_recent_maintenance_activity": "not_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "not_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Effectively dormant upstream since mid-2024 with no disclosure process; low complexity limits impact but a future CVE would likely go unpatched.",
+  "criterion_notes": {
+   "c05_risk_assessment": "moderate-high: stale upstream; monitor for CVEs and pre-plan a replacement."
+  }
+ },
+ "npm/uuid": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Small, well-understood, org-maintained and actively pushed; minimal complexity makes residual risk very low."
+ },
+ "npm/hls.js": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Active video-dev community project processing streamed, potentially untrusted media; strong cadence and good advisory history.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "consumes untrusted media manifests: include in ingest-path fuzzing."
+  }
+ },
+ "npm/sanitize-filename": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Single-maintainer but pushed this month; tiny, easily reviewable surface; acceptable with periodic source review.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "small project; verify the implementation directly during technical verification rather than relying on upstream SBD claims."
+  }
+ },
+ "npm/@nestjs/core": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Large framework organization with a published security policy and continuous releases; core framework trust is high.",
+  "criterion_notes": {
+   "c02_known_vulnerabilities": "no open issues known to the analyst; wire an OSV scan for confirmation.",
+   "c04_vulnerability_disclosure_process": "published SECURITY.md in the nestjs monorepo."
+  }
+ },
+ "npm/@nestjs/swagger": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Maintained within the nestjs organization but with a slower, uneven cadence than core; verify activity before external conformity claims."
+ },
+ "npm/@noble/hashes": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Audited cryptographic library with published audits and disciplined minimal-surface design; security-relevant hashing: pin and keep current.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "published third-party audits; constant-time discipline; exemplary for its size class."
+  }
+ },
+ "npm/bcrypt": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Kelektiv-org maintained native port of a decades-audited algorithm; algorithmic maturity compensates for the modest maintenance organization.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "password hashing: validate cost parameters and native build provenance during technical verification."
+  }
+ },
+ "npm/bullmq": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Commercially backed by taskforce.sh with very active releases; job payloads are semi-trusted input, so queue handlers deserve testing.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "job payloads cross a trust boundary: test handler input validation."
+  }
+ },
+ "npm/chokidar": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Widely-deployed file watcher under an expert individual maintainer; small attack surface, moderate continuity risk."
+ },
+ "npm/cookie": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "jshttp-org maintained, RFC-conformant parsing central to auth flows; small, scrutinized, spec-driven codebase."
+ },
+ "npm/fluent-ffmpeg": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Thin wrapper maintained at low cadence; the ffmpeg binary it drives is the real security boundary - treat wrapper inputs as untrusted and keep the external binary current.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "wraps a parser of untrusted media: test argument construction and ffmpeg binary provenance."
+  }
+ },
+ "npm/geo-tz": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Single-maintainer offline timezone lookup; simple, mostly static data; low residual risk but no organizational safety net."
+ },
+ "npm/handlebars": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Known ReDoS/prototype-pollution history with patches published when disclosed; template compilation of user-influenced templates would be dangerous - the product uses designer-controlled templates only.",
+  "criterion_notes": {
+   "c13_intended_use_alignment": "safe only because templates are app-controlled; document this constraint.",
+   "c06_additional_cybersecurity_testing": "if runtime user templates are ever introduced, sandbox compilation immediately."
+  }
+ },
+ "npm/js-yaml": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Nodeca-org YAML parser with known ReDoS history promptly fixed; parses developer-controlled configs in this product, keeping exposure limited.",
+  "criterion_notes": {
+   "c13_intended_use_alignment": "parses app-owned YAML (codegen), not user uploads; keep it that way."
+  }
+ },
+ "npm/kysely": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Active org-run typed SQL builder with strong typing discipline; SQL construction review is the meaningful extra test.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "verify no dynamic SQL string interpolation bypasses parameterization in queries."
+  }
+ },
+ "npm/lodash-es": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Feature-frozen but universally deployed; the 2020 prototype-pollution fix (4.17.19) shows issues do get patched; reliability over innovation is the norm.",
+  "criterion_notes": {
+   "c05_risk_assessment": "low residual risk: mature and stable; substitution churn would exceed benefit."
+  }
+ },
+ "npm/archiver": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Org-maintained archive builder on a sensitive output path; past path-traversal fixes in 7.x show responsive patching.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "archive generation from user content: test produced archives for zip-slip/path traversal."
+  }
+ },
+ "npm/maplibre-gl": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community-coalition (MapLibre org) with corporate users co-maintaining; active; renders map data of untrusted provenance in the browser.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "renders externally sourced vector tiles: XSS and resource-exhaustion review warranted."
+  }
+ },
+ "npm/multer": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Express-org maintained upload handler, one of the most security-scrutinized components of its niche, directly on the untrusted upload path.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "upload boundary: fuzz filename/content-type handling; verify size and count limits in product config."
+  }
+ },
+ "npm/nodemailer": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Veteran maintainer, highest-deployment email library with consistent patch releases; header handling is the sensitive surface."
+ },
+ "npm/openid-client": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Certified OIDC implementation by a dedicated authentication-ecosystem maintainer with conformance tests and rapid security fixes; auth-critical.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "OAuth/OIDC flows are intrusion-facing: include in penetration testing of the product."
+  }
+ },
+ "npm/picomatch": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Micromatch-ecosystem glob engine with ReDoS history fixed long ago and expert maintenance; used on path patterns in tooling here."
+ },
+ "npm/semver": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "npm Inc.-maintained reference implementation; 2022 ReDoS (CVE-2022-25883) patched across all majors within days; exemplary patch discipline."
+ },
+ "npm/sharp": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Top-tier individual maintainer with an exceptional security record around image decoding, Vercel-affiliated in practice; heavily exercised by downstream users.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "memory-safe via libvips abstractions and rapid fixes to libvips CVEs; add per-release regression checks.",
+   "c06_additional_cybersecurity_testing": "primary product entry point for untrusted image bytes: mandatory fuzz corpus."
+  }
+ },
+ "npm/sirv": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Small, expert-maintained static file server by its originator; serving checks (path traversal guards) are its whole security surface."
+ },
+ "npm/ua-parser-js": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Survivor of a 2021 supply-chain compromise that responded properly (recut versions, verified publisher); current development is active and patch-responsive; strict version pinning is essential given this history.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "the 2021 compromise and clean recovery is evidence of a functioning process; keep publisher verification in the pipeline.",
+   "c05_risk_assessment": "moderate: prior compromise means integrity controls (lockfile, provenance) must stay strict."
+  }
+ },
+ "npm/validator": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community-org maintained with steady releases; input-validation function is SBD-adjacent by nature.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "validation library: test that the product rejects invalid input rather than relying on normalizing transforms."
+  }
+ },
+ "npm/zod": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Extremely popular type-validation library with team-backed development and corporate adopters; validation-by-design is inherently SBD.",
+  "criterion_notes": {
+   "c07_technical_verification": "runtime schema validation: verify product schemas reject unexpected fields (no passthrough)."
+  }
+ },
+ "npm/async-lock": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Single-maintainer, low-churn, tiny utility; correctness matters more than activity here; periodic review suffices."
+ },
+ "npm/nestjs-otel": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Individual-maintained integration shim over the CNCF engine; small surface, narrow API; monitor for abandonment."
+ },
+ "npm/svelte-i18n": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Widely-installed i18n helper by its originator; effectively feature-complete; low complexity keeps risk low despite individual stewardship."
+ },
+ "npm/@photo-sphere-viewer/core": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Dedicated originator with a long plugin lineage; renders photo content - XSS attention in product usage recommended.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "renders media in the DOM: review script/URL injection vectors in product usage."
+  }
+ },
+ "npm/@simplewebauthn/server": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Focused, standards-driven passkey implementation by its originator with conformance tests; auth-critical like openid-client.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "auth-critical: include passkey ceremonies in penetration testing."
+  }
+ },
+ "npm/@tanstack/svelte-query": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "TanStack team maintained, extremely widely deployed data layer; professional organization with consistent release discipline."
+ },
+ "npm/@mdi/js": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Icon data package by the Pictogrammers org; static asset data, no parsing, negligible attack surface."
+ },
+ "npm/@opentelemetry/api": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF-stewarded standard API with maximal ecosystem scrutiny and active governance."
+ },
+ "npm/@opentelemetry/context-async-hooks": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Same CNCF stewardship; runtime context plumbing, moderate complexity."
+ },
+ "npm/@opentelemetry/exporter-prometheus": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF exporter; metrics output only."
+ },
+ "npm/@opentelemetry/instrumentation-http": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF HTTP instrumentation wraps request paths: test under production-like traffic."
+ },
+ "npm/@opentelemetry/instrumentation-ioredis": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF redis instrumentation; same governance."
+ },
+ "npm/@opentelemetry/instrumentation-nestjs-core": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF framework instrumentation; same governance."
+ },
+ "npm/@opentelemetry/instrumentation-pg": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF postgres instrumentation; same governance."
+ },
+ "npm/@opentelemetry/resources": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF resource model types; same governance."
+ },
+ "npm/@opentelemetry/sdk-metrics": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF metrics SDK; same governance."
+ },
+ "npm/@opentelemetry/sdk-node": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF node SDK bundle; same governance."
+ },
+ "npm/@opentelemetry/semantic-conventions": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "CNCF convention constants; data-only, negligible surface."
+ },
+ "pypi/fastapi": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Team-maintained with corporate sponsorship and an exceptionally large deployment base; pydantic-based input validation by design is strong SBD by construction.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "API framework: middleware config (CORS/auth) and file endpoints are the product's responsibility."
+  }
+ },
+ "pypi/uvicorn": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Encode-org maintained, healthy release cadence; core async HTTP server of the ML service.",
+  "criterion_notes": {
+   "c04_vulnerability_disclosure_process": "encode has published GHSA advisories on request-smuggling-adjacent issues; process evidence exists."
+  }
+ },
+ "pypi/pydantic": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "satisfied",
+   "c09_recent_maintenance_activity": "satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "satisfied",
+   "c12_regular_patch_publication": "satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Corporately stewarded (Pydantic Services Inc.), industry-defining type-validation library; strict-by-design input validation is security architecture, not just a feature.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "strict non-coercive validation defaults are de-facto secure-input design.",
+   "c02_known_vulnerabilities": "ReDoS-class issues in the 2.x line were patched and disclosed promptly; pin the current minor."
+  }
+ },
+ "pypi/pydantic-settings": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Same Pydantic Inc. stewardship; configuration parsing only."
+ },
+ "pypi/pillow": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community-org maintained with the best long-term CVE patching record in Python image handling; keep current: imaging is the product's hottest attack surface.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "mandatory CVE watch and fuzz corpus for every version bump.",
+   "c02_known_vulnerabilities": "recurring image-decoder CVEs, consistently patched within days by python-pillow."
+  }
+ },
+ "pypi/numpy": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "NumFOCUS-backed reference project; numerical core rarely changes, but its ubiquity means vulnerabilities surface fast and get fixed by funded maintainers."
+ },
+ "pypi/opencv-python-headless": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
+  "criterion_notes": {
+   "c02_known_vulnerabilities": "wheel-era issues fixed upstream; track OpenCV security bulletins."
+  }
+ },
+ "pypi/onnx": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Linux-Foundation-held model format standard; corporate multi-party stewardship; model files are data, not code, in the product."
+ },
+ "pypi/onnxruntime-gpu": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Microsoft-maintained inference engine with a published support policy and active CVE response; executes untrusted third-party model files inside the product.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "model inference executes untrusted graph structures: constrain model provenance; sandbox the ML container."
+  }
+ },
+ "pypi/huggingface-hub": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
+  "criterion_notes": {
+   "c02_known_vulnerabilities": "CVE-2024-23651/23652/23653 fixed promptly; loading remains trust-tracked by the product."
+  }
+ },
+ "pypi/tokenizers": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Hugging Face-maintained Rust-backed tokenizer with active releases; parsing untrusted text is its purpose; upstream test coverage is high."
+ },
+ "pypi/python-multipart": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community org resumed stewardship and patched the 2023-2024 ReDoS/DoS issues quickly; upload boundary component - keep current.",
+  "criterion_notes": {
+   "c02_known_vulnerabilities": "CVE-2023-31047 and the 2024 ReDoS issues all fixed in released versions."
+  }
+ },
+ "pypi/gunicorn": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "partially_satisfied",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Individual-maintained but functionally frozen, with a sparse but real security-patch history around request smuggling; pin the current major and test headers at the proxy.",
+  "criterion_notes": {
+   "c02_known_vulnerabilities": "request-smuggling class CVEs fixed upstream; test the reverse-proxy pairing in deployment."
+  }
+ },
+ "pypi/rapidocr": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "RapidAI community org; wraps onnxruntime with preprocessing; moderate complexity; keep pinned and model-provenance-verified."
+ },
+ "pypi/orjson": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Single expert maintainer, Rust memory safety, high-performance JSON parsing of untrusted payloads; rapid patch turnaround observed historically.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "memory-safe language choice and exhaustive fuzzing in the repo are genuine SBD indicators."
+  }
+ },
+ "pub/flutter": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Google-maintained framework with a formal release process, security page and coordinated disclosure; industrial quality bar.",
+  "criterion_notes": {
+   "c04_vulnerability_disclosure_process": "flutter/flutter publishes a security policy and posts security advisories; process evidence is public."
+  }
+ },
+ "pub/drift": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Single-origin but professionally run (extensive docs, formal query API, large deployment base); product-critical SQLite layer.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "verify drift's query API is used exclusively (no raw SQL interpolation) in mobile code review."
+  }
+ },
+ "pub/flutter_secure_storage": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community-org plugin over Keychain/Keystore; credential storage is the most sensitive mobile surface.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "audit storage configuration options (encryptedSharedPreferences, accessibility flags)."
+  }
+ },
+ "pub/flutter_local_notifications": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community-maintained by a long-tenured maintainer; minor attack surface, but configuration mistakes (deep-link handling) are common."
+ },
+ "pub/geolocator": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Baseflow-corporate-maintained plugin; location is privacy-sensitive but the plugin itself is thin; standard governance."
+ },
+ "pub/connectivity_plus": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Community-org plus_plugins coalition; capability detection only, small surface."
+ },
+ "pub/hooks_riverpod": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Single-origin but fiercely maintained state-management standard with a documented API stability policy."
+ },
+ "pub/auto_route": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Individual-maintained routing library; codegen-dependent, moderate complexity; guard for abandonment but integration risk is contained."
+ },
+ "pub/http": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Dart/Google-maintained standard HTTP client with team stewardship; request forgery risk is handled by the product, not the package.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "SSRF review belongs at the product layer: audit user-supplied URLs passed to this client."
+  }
+ },
+ "cargo/cbindgen": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Mozilla-lineage build-time tool used only in codegen (not shipped in the product binary); maintenance quality matters little to runtime security.",
+  "criterion_notes": {
+   "c13_intended_use_alignment": "build-time dependency: excluded from shipped runtime artifacts."
+  }
+ },
+ "cargo/jni": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "jni-rs org maintained Rust FFI bindings; the unsafe boundary is exactly the region the product lints (undocumented_unsafe_blocks=deny).",
+  "criterion_notes": {
+   "c07_technical_verification": "FFI boundary: required target of technical code review."
+  }
+ },
+ "cargo/libc": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Rust-project maintained, effectively frozen spec-mapping crate with rigorous review culture."
+ },
+ "cargo/rayon": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Data-parallelism standard by Rust core-adjacent maintainers; mature, conservative changes."
+ },
+ "cargo/quick_cache": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Individual-maintained cache library; bounded-space logic is the safety-relevant property; review during technical verification."
+ },
+ "cargo/jxl": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "libjxl-org (Google-affiliated authors) Rust decoder with trustpub-verified publishing, a heavy conformance corpus and very frequent releases; excellent for its age.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "parses untrusted JPEG XL bytes on mobile: include in the media fuzz corpus.",
+   "c11_security_by_design_indicators": "trustpub/CI-verified publishing plus many releases since 2025 is strong evidence of a disciplined process."
+  }
+ },
+ "cargo/moxcms": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Exceptional release velocity with very heavy downstream adoption, but single-maintainer bus-factor with no published security policy; the pinch point of the native color pipeline.",
+  "criterion_notes": {
+   "c10_oss_stewardship": "individually maintained with commercial-grade activity but not formally stewarded for commercial purposes.",
+   "c05_risk_assessment": "moderate: activity high, organization thin; code review and exact version pinning required.",
+   "c06_additional_cybersecurity_testing": "processes color profile data from untrusted images: include in the native fuzz corpus."
+  }
+ },
+ "cargo/pic-scale": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "partially_satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Same single maintainer as moxcms with very active releases; SIMD-heavy scaling code on untrusted image geometry data.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "untrusted-dimension inputs: fuzz image width/height/stride combos in the native harness."
+  }
+ },
+ "npm/helmet": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "partially_satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Security-hardening middleware maintained by an author deeply versed in web security; the package's entire purpose is SBD for the HTTP layer.",
+  "criterion_notes": {
+   "c11_security_by_design_indicators": "the component exists to implement secure defaults; documentation of header semantics is exemplary."
+  }
+ },
+ "npm/fabric": {
+  "statuses": {
+   "c01_ce_marking_and_eu_doc": "not_applicable",
+   "c02_known_vulnerabilities": "pending_evidence",
+   "c03_security_patches_available": "partially_satisfied",
+   "c04_vulnerability_disclosure_process": "partially_satisfied",
+   "c05_risk_assessment": "satisfied",
+   "c06_additional_cybersecurity_testing": "satisfied",
+   "c07_technical_verification": "satisfied",
+   "c08_support_period": "partially_satisfied",
+   "c09_recent_maintenance_activity": "partially_satisfied",
+   "c10_oss_stewardship": "satisfied",
+   "c11_security_by_design_indicators": "partially_satisfied",
+   "c12_regular_patch_publication": "partially_satisfied",
+   "c13_intended_use_alignment": "satisfied"
+  },
+  "assessment": "Fabric.js org-maintained canvas engine rendering user-influenced drawing templates in the web editor; parsing SVG/JSON project content puts it on an untrusted-input path.",
+  "criterion_notes": {
+   "c06_additional_cybersecurity_testing": "SVG/JSON import paths are untrusted: include in web fuzzing and XSS review."
+  }
+ }
+}

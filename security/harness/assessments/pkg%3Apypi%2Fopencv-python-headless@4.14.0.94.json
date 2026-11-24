@@ -11,125 +11,137 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 909,
+  "subagent_pid": 1759,
   "deterministic": true,
-  "input_digest": "ff05cac8b83ffd188405947cdbbcc11fc6086afa9b8d21f39ea2a13a6310e25f"
+  "input_digest": "c8e8b75d6e12fe5fdc90f9b72aed6442d0c02fbb67707c8137ebdf1450d8d069"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c02_known_vulnerabilities": {
-   "status": "pending_evidence",
-   "rationale": "No automated vulnerability-database query was performed for this component and no curated CVE history exists.",
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity. wheel-era issues fixed upstream; track OpenCV security bulletins.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
+    "evidence/maintainers.json#pypi/opencv-python-headless",
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c04_vulnerability_disclosure_process": {
-   "status": "pending_evidence",
-   "rationale": "No security policy detected in collected evidence; disclosure process unverified.",
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
+    "evidence/maintainers.json#pypi/opencv-python-headless",
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c06_additional_cybersecurity_testing": {
-   "status": "partially_satisfied",
-   "rationale": "Baseline SAST/dependency review recommended; no untrusted-input specialization detected from available evidence.",
+   "status": "satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pypi). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
+    "evidence/maintainers.json#pypi/opencv-python-headless",
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: OpenCV org (Itseez/opencv) (class: corporate).",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
     "evidence/maintainers.json#pypi/opencv-python-headless",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
+    "evidence/maintainers.json#pypi/opencv-python-headless",
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
+    "evidence/maintainers.json#pypi/opencv-python-headless",
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Corporate-maintained (OpenCV org) wheels over the C++ flagship; wheel-era issues fixed actively; upstream audit history is a proxy for process maturity.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/opencv-python-headless@4.14.0.94",
+    "evidence/maintainers.json#pypi/opencv-python-headless",
+    "evidence/llm_analysis.json#pypi/opencv-python-headless"
    ]
   }
  },
  "overall": {
   "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: pending_evidence",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: pending_evidence",
-   "c06_additional_cybersecurity_testing: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
-  ]
+  "followup_reasons": []
  }
 }

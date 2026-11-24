@@ -7,6 +7,7 @@
     "schema_version",
     "component",
     "assessed_at",
+    "analyzer",
     "harness",
     "criteria",
     "overall"
@@ -28,6 +29,17 @@
       }
     },
     "assessed_at": { "type": "string", "format": "date-time" },
+    "analyzer": {
+      "type": "object",
+      "description": "Who produced the criterion judgments: an LLM (authored bundle or live API call) or deterministic rules as fallback.",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["llm", "rules"] },
+        "model": { "type": "string" },
+        "reviewed_by": { "type": "string", "description": "Human or agent that authored/validated an LLM bundle" }
+      }
+    },
     "harness": {
       "type": "object",
       "required": ["subagent_pid", "deterministic", "input_digest"],

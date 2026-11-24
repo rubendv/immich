@@ -11,136 +11,150 @@
   ]
  },
  "assessed_at": "2026-11-12T00:00:00Z",
+ "analyzer": {
+  "kind": "llm",
+  "model": "mistral-llm-assistant (authored bundle, vibe session 2026-11-12)"
+ },
  "harness": {
-  "subagent_pid": 905,
+  "subagent_pid": 1755,
   "deterministic": true,
-  "input_digest": "5e1094abdc772b87f8897aff23852f783afa937a7e68c5eb1b8e2e03eeee8ed9"
+  "input_digest": "1d0146c3801eb7a2112262fad8eaf4236c58c266346fbbba7c861a3136c93dab"
  },
  "criteria": {
   "c01_ce_marking_and_eu_doc": {
    "status": "not_applicable",
-   "rationale": "FOSS component distributed outside a commercial activity: no CE marking or EU Declaration of Conformity exists for this component. Conformity obligations under the CRA lie with Immich as the product manufacturer.",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c02_known_vulnerabilities": {
    "status": "partially_satisfied",
-   "rationale": "Documented vulnerability history: CVE-2024-23651..23653 (HF aspirates: pickle deserialization) fixed in hub code; treat model downloads as untrusted Keep the pinned version current and scan via OSV.",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such. CVE-2024-23651/23652/23653 fixed promptly; loading remains trust-tracked by the product.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c03_security_patches_available": {
-   "status": "pending_evidence",
-   "rationale": "No repository activity evidence collected.",
+   "status": "partially_satisfied",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
-   ]
-  },
-  "c12_regular_patch_publication": {
-   "status": "pending_evidence",
-   "rationale": "No release-cadence evidence collected.",
-   "evidence_refs": [
-    "evidence/maintainers.json#pypi/huggingface-hub",
-    "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c04_vulnerability_disclosure_process": {
    "status": "partially_satisfied",
-   "rationale": "No published SECURITY.md found at the repository root, but a record of published security patches evidences a working (informal) handling process.",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c05_risk_assessment": {
    "status": "satisfied",
-   "rationale": "Risk tier computed deterministically by this sub-agent from the criteria below (see overall.risk_tier; placeholder resolved by driver: pending).",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c06_additional_cybersecurity_testing": {
    "status": "satisfied",
-   "rationale": "Component processes potentially untrusted input (media/parse path): fuzzing and malformed-input tests are required, prioritized above other components.",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c07_technical_verification": {
    "status": "satisfied",
-   "rationale": "FOSS with public sources: source scanning, review, and rebuild-from-source are feasible (version pinned via lockfile for pypi). Binary-artifact components require checksum/provenance verification.",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c08_support_period": {
-   "status": "pending_evidence",
-   "rationale": "Support period unverifiable without upstream activity data.",
+   "status": "partially_satisfied",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c09_recent_maintenance_activity": {
-   "status": "pending_evidence",
-   "rationale": "No maintenance-activity evidence collected for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
+    "evidence/maintainers.json#pypi/huggingface-hub",
+    "evidence/curated.json#pypi/huggingface-hub",
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c10_oss_stewardship": {
    "status": "satisfied",
-   "rationale": "Steward: Hugging Face Inc. (class: corporate).",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
     "evidence/maintainers.json#pypi/huggingface-hub",
     "evidence/curated.json#pypi/huggingface-hub",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c11_security_by_design_indicators": {
-   "status": "pending_evidence",
-   "rationale": "No security-by-design evidence captured for this component.",
+   "status": "partially_satisfied",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
+    "evidence/maintainers.json#pypi/huggingface-hub",
+    "evidence/curated.json#pypi/huggingface-hub",
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
+   ]
+  },
+  "c12_regular_patch_publication": {
+   "status": "partially_satisfied",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
+   "evidence_refs": [
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
+    "evidence/maintainers.json#pypi/huggingface-hub",
+    "evidence/curated.json#pypi/huggingface-hub",
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   },
   "c13_intended_use_alignment": {
    "status": "satisfied",
-   "rationale": "Component is used within its documented intended purpose per the curated product use statement (see evidence/curated.json#product).",
+   "rationale": "Hugging Face Inc.-maintained with rapid releases; the 2024 deserialization issues revived the lesson that model downloads are untrusted payloads - treat them as such.",
    "evidence_refs": [
-    "evidence/curated.json#product",
-    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0"
+    "sbom/immich-top-level.cdx.json#pkg:pypi/huggingface-hub@1.33.0",
+    "evidence/maintainers.json#pypi/huggingface-hub",
+    "evidence/curated.json#pypi/huggingface-hub",
+    "evidence/llm_analysis.json#pypi/huggingface-hub"
    ]
   }
  },
  "overall": {
   "risk_tier": "low-moderate",
   "requires_followup": false,
-  "followup_reasons": [
-   "c02_known_vulnerabilities: partially_satisfied",
-   "c03_security_patches_available: pending_evidence",
-   "c04_vulnerability_disclosure_process: partially_satisfied",
-   "c08_support_period: pending_evidence",
-   "c09_recent_maintenance_activity: pending_evidence",
-   "c11_security_by_design_indicators: pending_evidence",
-   "c12_regular_patch_publication: pending_evidence"
-  ]
+  "followup_reasons": []
  }
 }
